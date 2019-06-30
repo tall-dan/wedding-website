@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+  username: wedding_website
+
+
+development:
+  <<: *default
+  database: wedding_website_dev
+
+test: &test
+  <<: *default
+  database: wedding_website_test
+
+production:
+  <<: *default
+  database: wedding_website_prod

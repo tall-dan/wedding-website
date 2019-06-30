@@ -1,0 +1,17 @@
+AllCops:
+  Exclude:
+    - 'node_modules/**/*'
+    - 'bin/*'
+    - 'vendor/**/*'
+    - 'config/environments/*'
+
+Metrics/LineLength:
+  Max: 120
+
+Documentation:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    '%i': '[]'
+    '%w': '[]'
