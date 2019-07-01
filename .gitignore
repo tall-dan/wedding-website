@@ -20,3 +20,10 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+#SimpleCov Reports
+coverage/*
+/client/coverage/*
+
+# Node
+/client/node_modules
