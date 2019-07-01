@@ -21,8 +21,8 @@ gem 'graphql'
 gem 'mail'
 
 group :development, :test do
-  gem 'graphiql-rails',  '~> 1.4.11'
   gem 'bootsnap'
+  gem 'graphiql-rails', '~> 1.4.11'
   gem 'listen'
   gem 'pry'
   gem 'pry-byebug'
