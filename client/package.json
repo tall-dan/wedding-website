@@ -17,7 +17,8 @@
     "eject": "react-scripts eject",
     "eslint": "eslint . --ext .js",
     "eslint:fix": "eslint . --ext .js --fix",
-    "stylelint": "stylelint 'src/**/*.scss'"
+    "stylelint": "stylelint 'src/**/*.scss'",
+    "stylelint:fix": "stylelint 'src/**/*.scss' --fix"
   },
   "eslintConfig": {
     "extends": "react-app"
