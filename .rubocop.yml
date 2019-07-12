@@ -4,6 +4,7 @@ AllCops:
     - 'bin/*'
     - 'vendor/**/*'
     - 'config/environments/*'
+    - 'client/**/*'
 
 Metrics/LineLength:
   Max: 120
