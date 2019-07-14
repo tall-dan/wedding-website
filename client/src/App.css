@@ -1,12 +1,11 @@
 body {
   font-family: Georgia;
   background-color: #4c4636;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: normal;
+  color: #FFFDEB;
+  line-height: 1.8;
 }
 
 .App-header {

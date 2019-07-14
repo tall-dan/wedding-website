@@ -1,4 +1,15 @@
 .NavItem {
-  padding: 0 10px 0 10px;
-  color: #B8DDD1;
+  font-size: 16px;
+  letter-spacing: 2.4px;
+  padding: 8px 12px;
+  text-transform: uppercase;
+
+  .NavItem__Link {
+    color: #B8DDD1;
+    text-decoration: none;
+  }
+
+  .NavItem__Link--selected {
+    color: #FFFDEB;
+  }
 }
