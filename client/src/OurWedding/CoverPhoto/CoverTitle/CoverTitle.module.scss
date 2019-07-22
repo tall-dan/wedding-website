@@ -1,0 +1,18 @@
+.CoverTitle {
+  padding: 5px 10px 0 0;
+  text-align: center;
+
+  .CoverTitle__betrothed {
+    color: #B8DDD1; // TODO: extract as variable
+    font-family: Yanone Kaffeesatz;
+    font-size: 60px;
+    margin: 6px 0 8px 0;
+    line-height: 1;
+  }
+
+  .CoverTitle__when_and_where,
+  .CoverTitle__countdown {
+    color: #4C4636;
+    font-size: 16px;
+  }
+}
