@@ -1,0 +1,55 @@
+.WeddingDetails {
+  text-align: center;
+  padding-top: 45px;
+
+  .WeddingDetails__detail {
+    font-size: 1.5em;
+    line-height: 2;
+  }
+
+  .WeddingDetails__rsvpContainer {
+    padding-top: 10px;
+  }
+
+  .WeddingDetails__rsvp {
+    cursor: pointer;
+    padding: 0.46em 1.23em;
+    outline: 0;
+    font-family: "Georgia";
+    font-size: 13px;
+    font-style: normal;
+    font-weight: normal;
+    color: #000;
+    border-color: #4C4636;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 4px;
+    background-color: #FFFDEB;
+    text-transform: uppercase;
+  }
+
+  .WeddingDetails__sectionDivider {
+    background-position: center;
+    background-image: url(https://static.xoedge.com/xo-guest-services/assets/guest/themes/at_last-dark_gray/item_separator-b38e6d2344a94a96a7e0727b76a6b9c7.png);
+    height: 40px;
+    background-repeat: no-repeat;
+    padding: 20px 0;
+  }
+
+  .WeddingDetails__itemTitle {
+    font-size: 30px;
+  }
+
+  .WeddingDetails__venue,
+  .WeddingDetails__address {
+    font-size: 1.5em; // TODO; the font-weight across the site isn't quite right
+    line-height: 2;
+  }
+
+  .WeddingDetails__eventDescription {
+    text-align: left;
+    max-width: 820px;
+    font-size: 1.4em;
+    margin: 0 auto;
+  }
+}
