@@ -1,7 +1,7 @@
 import React from 'react';
 import SectionTitle from '../SectionTitle/SectionTitle';
 import styles from './WeddingDetails.module.scss';
-import { ceremonyStart } from '../../constants.js';
+import { ceremonyStart, receptionStart, receptionEnd } from '../../constants';
 
 const WeddingDetails = () => (
   <div className={styles.WeddingDetails}>
@@ -9,11 +9,11 @@ const WeddingDetails = () => (
     <div className={styles.WeddingDetails__detail}>{ceremonyStart.format('dddd, MMMM Do YYYY')}</div>
     <div className={styles.WeddingDetails__detail}>{ceremonyStart.format('h:mm a')}</div>
     <div className={styles.WeddingDetails__rsvpContainer}>
-      <button className={styles.WeddingDetails__rsvp}>rsvp</button>
+      <button type="button" className={styles.WeddingDetails__rsvp}>rsvp</button>
     </div>
     <div className={styles.WeddingDetails__sectionDivider} />
     <div className={styles.WeddingDetails__itemTitle}>Ceremony</div>
-    <div className={styles.WeddingDetails__venue}>St. Patrick's Church</div>
+    <div className={styles.WeddingDetails__venue}>St. Patrick&apos;s Church</div>
     <div className={styles.WeddingDetails__address}>212 Meredith Street  Kennett Square, PA </div>
     <div className={styles.WeddingDetails__sectionDivider} />
     <div className={styles.WeddingDetails__itemTitle}>Reception</div>
@@ -23,11 +23,7 @@ const WeddingDetails = () => (
     <div className={styles.WeddingDetails__eventDescription}>
       <p>
           TODO - fill this in with real info
-          The ceremony is at
-        {' '}
-        {ceremonyStart.format('h:mm a')}
-        {' '}
-and the reception is from 5:30 -10:30 PM.
+          The ceremony is at {ceremonyStart.format('h:mm A')} and the reception is from {receptionStart.format('h:mm')} - {receptionStart.format('h:mm A')}.
           If you are not checking into a hotel between the ceremony and reception, there is a restaurant with an outdoor lounge area at Mendenhall Inn that will be open.
       </p>
       <p>

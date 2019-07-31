@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment-timezone';
 import styles from './CoverTitle.module.scss';
-import { ceremonyStart } from '../../../constants.js';
+import { ceremonyStart } from '../../../constants';
 
 const CoverTitle = () => (
   <header className={styles.CoverTitle}>
