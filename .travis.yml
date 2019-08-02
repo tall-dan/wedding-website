@@ -1,7 +1,10 @@
 jobs:
   include:
-    - stage: lint
-      language: ruby
+    - language: ruby
+      install:
+        - gem update --system
+        - bundle install --jobs=3 --retry=3 --deployment
+      stage: lint
       rvm: 2.5.3
       script: bundle exec rubocop
 
@@ -15,8 +18,11 @@ jobs:
       install: cd client && npm install
       script: npm run stylelint
 
-    - stage: test
-      language: ruby
+    - language: ruby
+      install:
+        - gem update --system
+        - bundle install --jobs=3 --retry=3 --deployment
+      stage: test
       rvm: 2.5.3
       env:
         - RAILS_ENV=test
