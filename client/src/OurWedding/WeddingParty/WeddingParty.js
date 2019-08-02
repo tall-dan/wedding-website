@@ -13,49 +13,49 @@ const WeddingParty = () => (
           <WeddingPartyMember
             name="Natalie Spiegel"
             relation="Childhood friend of the Bride"
-            role="Maid of Honor"
+            memberRole="Maid of Honor"
           />
           <div className={styles.WeddingParty__sectionDivider} />
           <WeddingPartyMember
             name="Katie McLaughlin"
             relation="Sister of the Bride"
-            role="Bridesmaid"
+            memberRole="Bridesmaid"
           />
           <div className={styles.WeddingParty__sectionDivider} />
           <WeddingPartyMember
             name="Maggie Anderson"
             relation="High School Friend of the Bride"
-            role="Bridesmaid"
+            memberRole="Bridesmaid"
           />
           <div className={styles.WeddingParty__sectionDivider} />
           <WeddingPartyMember
             name="Kirsten Higgins"
             relation="High School Friend of the Bride"
-            role="Bridesmaid"
+            memberRole="Bridesmaid"
           />
           <div className={styles.WeddingParty__sectionDivider} />
           <WeddingPartyMember
             name="Amanda Kingman"
             relation="Friend of the Bride"
-            role="Bridesmaid"
+            memberRole="Bridesmaid"
           />
           <div className={styles.WeddingParty__sectionDivider} />
           <WeddingPartyMember
             name="Liz Coffey"
             relation="Sister-in-law of the Bride"
-            role="Bridesmaid"
+            memberRole="Bridesmaid"
           />
           <div className={styles.WeddingParty__sectionDivider} />
           <WeddingPartyMember
             name="Dominique Higgins"
             relation="College Friend of the Bride"
-            role="Bridesmaid"
+            memberRole="Bridesmaid"
           />
           <div className={styles.WeddingParty__sectionDivider} />
           <WeddingPartyMember
             name="Grace Chiarella"
             relation="College Friend of the Bride"
-            role="Bridesmaid"
+            memberRole="Bridesmaid"
           />
         </Col>
         { /* todo: figure out a divider to display when we collapse to a single column */ }
@@ -63,49 +63,49 @@ const WeddingParty = () => (
           <WeddingPartyMember
             name="Adam Knies"
             relation="Childhood friend of the Groom"
-            role="Best Man"
+            memberRole="Best Man"
           />
           <div className={styles.WeddingParty__sectionDivider} />
           <WeddingPartyMember
             name="Ben Schepers"
             relation="Brother of the Groom"
-            role="Groomsman"
+            memberRole="Groomsman"
           />
           <div className={styles.WeddingParty__sectionDivider} />
           <WeddingPartyMember
             name="Andrew Benitez"
             relation="College Friend of the Groom"
-            role="Groomsman"
+            memberRole="Groomsman"
           />
           <div className={styles.WeddingParty__sectionDivider} />
           <WeddingPartyMember
             name="Nick Thystrup"
             relation="College Friend of the Groom"
-            role="Groomsman"
+            memberRole="Groomsman"
           />
           <div className={styles.WeddingParty__sectionDivider} />
           <WeddingPartyMember
             name="Spencer Johnson"
             relation="College Friend of the Groom"
-            role="Groomsman"
+            memberRole="Groomsman"
           />
           <div className={styles.WeddingParty__sectionDivider} />
           <WeddingPartyMember
             name="Anderson Willis"
             relation="Childhood Friend of the Groom"
-            role="Groomsman"
+            memberRole="Groomsman"
           />
           <div className={styles.WeddingParty__sectionDivider} />
           <WeddingPartyMember
             name="Dan McLaughlin"
             relation="Brother of the Bride"
-            role="Groomsman"
+            memberRole="Groomsman"
           />
           <div className={styles.WeddingParty__sectionDivider} />
           <WeddingPartyMember
             name="Joe Hedinger"
             relation="Childhood Friend of the Groom"
-            role="Groomsman"
+            memberRole="Groomsman"
           />
         </Col>
       </Row>

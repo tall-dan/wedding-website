@@ -3,7 +3,11 @@
   "env": { "browser": "true", "jest": "true" },
   "rules": {
     "react/jsx-filename-extension": 0,
+    "react/destructuring-assignment": ["always", {
+      "ignoreClassFields": true
+    }],
+    "react/jsx-one-expression-per-line": 0,
     "comma-dangle": ["error", "never"],
-    "max-len": ["error", {"code": 120}]
+    "max-len": ["error", {"code": 120, "ignoreStrings": true}]
   }
 }

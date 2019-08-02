@@ -23,11 +23,15 @@ const WeddingDetails = () => (
     <div className={styles.WeddingDetails__eventDescription}>
       <p>
           TODO - fill this in with real info
-          The ceremony is at {ceremonyStart.format('h:mm A')} and the reception is from {receptionStart.format('h:mm')} - {receptionStart.format('h:mm A')}.
-          If you are not checking into a hotel between the ceremony and reception, there is a restaurant with an outdoor lounge area at Mendenhall Inn that will be open.
+          The ceremony is at {ceremonyStart.format('h:mm A')} and the reception is from {receptionStart.format('h:mm')}
+- {receptionEnd.format('h:mm A')}.
+          If you are not checking into a hotel between the ceremony and reception,
+            there is a restaurant with an outdoor lounge area at Mendenhall Inn that will be open.
       </p>
       <p>
-          After the reception ends, the on-site restaurant/lounge will be open for an after party. If you are not staying at the on-site hotel, shuttle services will be provided to the Hilton and Fairfield Inn hotels until 12am.
+          After the reception ends, the on-site restaurant/lounge will be open for an after party. If you are not
+          staying at the on-site hotel, shuttle services will be provided to the Hilton and Fairfield Inn hotels
+        until 12am.
       </p>
     </div>
   </div>
