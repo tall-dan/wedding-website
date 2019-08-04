@@ -27,3 +27,8 @@ jobs:
       env:
         - RAILS_ENV=test
       script: bundle exec rake
+
+    - language: node_js
+      node_js: 10.16.0
+      install: cd client && npm install
+      script: npm run test
