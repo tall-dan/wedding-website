@@ -1,5 +1,5 @@
 import React from 'react';
-import SectionTitle from '../SectionTitle/SectionTitle';
+import SectionTitle from '../../shared/SectionTitle/SectionTitle';
 import styles from './WeddingDetails.module.scss';
 import { ceremonyStart, receptionStart, receptionEnd } from '../../constants';
 
