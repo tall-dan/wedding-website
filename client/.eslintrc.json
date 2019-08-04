@@ -1,6 +1,7 @@
 {
   "extends": ["airbnb", "plugin:react/recommended"],
   "env": { "browser": "true", "jest": "true" },
+  "parser": "babel-eslint",
   "rules": {
     "react/jsx-filename-extension": 0,
     "react/destructuring-assignment": ["always", {
