@@ -1,0 +1,19 @@
+.Accomodations {
+  text-align: center;
+  font-size: 1.5em;
+  line-height: 2;
+  padding-top: 45px;
+
+  .Accomodation__title {
+    font-size: 30px;
+    text-align: center;
+  }
+
+  .Accomodation__separator { // TODO: this is the same as WeddingParty__sectionDivider. DRY up
+    background-position: center;
+    background-image: url(https://static.xoedge.com/xo-guest-services/assets/guest/themes/at_last-dark_gray/item_separator-b38e6d2344a94a96a7e0727b76a6b9c7.png);
+    height: 40px;
+    background-repeat: no-repeat;
+    padding: 20px 0;
+  }
+}

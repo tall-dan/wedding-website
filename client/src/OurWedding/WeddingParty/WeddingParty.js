@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import SectionTitle from '../SectionTitle/SectionTitle';
+import SectionTitle from '../../shared/SectionTitle/SectionTitle';
 import styles from './WeddingParty.module.scss';
 import WeddingPartyMember from './WeddingPartyMember/WeddingPartyMember';
 
