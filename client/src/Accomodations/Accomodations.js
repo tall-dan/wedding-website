@@ -1,8 +1,8 @@
 import React from 'react';
 import { Grid, Col } from 'react-flexbox-grid';
 import SectionTitle from '../shared/SectionTitle/SectionTitle';
+import Button from '../shared/Button/Button';
 import styles from './Accomodations.module.scss';
-import buttonStyle from '../shared/styles/button.module.scss';
 
 const Accomodations = () => (
   <Grid fluid>
@@ -26,7 +26,7 @@ const Accomodations = () => (
           </div>
           <div className={styles.Accomodation__button__container}>
             <a href="https://www.marriott.com/hotels/travel/chisw-chicago-marriott-southwest-at-burr-ridge/?scid=bb1a189a-fec3-4d19-a255-54ba596febe2">
-              <button type="button" className={buttonStyle.button}>Book a Room</button>
+              <Button text="Book a Room" />
             </a>
           </div>
         </div>
@@ -41,7 +41,7 @@ const Accomodations = () => (
           </div>
           <div className={styles.Accomodation__button__container}>
             <a href="https://www.marriott.com/hotels/travel/chisw-chicago-marriott-southwest-at-burr-ridge/?scid=bb1a189a-fec3-4d19-a255-54ba596febe2">
-              <button type="button">Book a Room</button>
+              <Button text="Book a Room" />
             </a>
           </div>
         </div>
