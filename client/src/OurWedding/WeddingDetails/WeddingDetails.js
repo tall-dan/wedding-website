@@ -1,6 +1,7 @@
 import React from 'react';
 import SectionTitle from '../../shared/SectionTitle/SectionTitle';
 import styles from './WeddingDetails.module.scss';
+import buttonStyle from '../../shared/styles/button.module.scss';
 import { ceremonyStart, receptionStart, receptionEnd } from '../../constants';
 
 const WeddingDetails = () => (
@@ -9,7 +10,7 @@ const WeddingDetails = () => (
     <div className={styles.WeddingDetails__detail}>{ceremonyStart.format('dddd, MMMM Do YYYY')}</div>
     <div className={styles.WeddingDetails__detail}>{ceremonyStart.format('h:mm a')}</div>
     <div className={styles.WeddingDetails__rsvpContainer}>
-      <button type="button" className={styles.WeddingDetails__rsvp}>rsvp</button>
+      <button type="button" className={buttonStyle.button}>rsvp</button>
     </div>
     <div className={styles.WeddingDetails__sectionDivider} />
     <div className={styles.WeddingDetails__itemTitle}>Ceremony</div>
