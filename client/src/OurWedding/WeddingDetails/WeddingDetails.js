@@ -25,17 +25,16 @@ const WeddingDetails = () => (
       <p>
           The ceremony is at {ceremonyStart.format('h:mm A')} and the reception is from {receptionStart.format('h:mm')}
 - {receptionEnd.format('h:mm A')}.
-  TODO - need real info here
-          If you are not checking into a hotel between the ceremony and reception,
-            there is a restaurant with an outdoor lounge area at Mendenhall Inn that will be open.
+          There will be shuttle buses to from the reception to the hotel - <em> Time to be determined </em>
       </p>
       <p>
-          After the reception ends, the on-site restaurant/lounge will be open for an after party. If you are not
-          staying at the on-site hotel, shuttle services will be provided to the Hilton and Fairfield Inn hotels
-        until 12am.
+          After the reception ends, the wedding party will be heading to Kenny&apos;s
+          Irish Pub to continue the celebration.
+          We encourage everyone to come join us!
       </p>
     </div>
   </div>
 );
+// TODO: Would be nice to put links to places - church, reception, kenny's
 
 export default WeddingDetails;

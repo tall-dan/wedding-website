@@ -1,0 +1,15 @@
+.Photos {
+  min-height: 476px;
+
+  .Photo__matte {
+    background: white;
+    padding: 16px;
+  }
+
+  @for $i from 1 to 12 {
+    .row_height_#{$i} {
+      height: ($i / 12 ) * 476px;
+      overflow-y: hidden;
+    }
+  }
+}
