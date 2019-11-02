@@ -14,18 +14,18 @@ const WeddingDetails = () => (
     </div>
     <div className={styles.WeddingDetails__sectionDivider} />
     <div className={styles.WeddingDetails__itemTitle}>Ceremony</div>
-    <div className={styles.WeddingDetails__venue}>St. Patrick&apos;s Church</div>
-    <div className={styles.WeddingDetails__address}>212 Meredith Street  Kennett Square, PA </div>
+    <div className={styles.WeddingDetails__venue}>First United Methodist Church of LaGrange</div>
+    <div className={styles.WeddingDetails__address}>100 W Cossitt Ave, LaGrange, IL</div>
     <div className={styles.WeddingDetails__sectionDivider} />
     <div className={styles.WeddingDetails__itemTitle}>Reception</div>
-    <div className={styles.WeddingDetails__venue}>La Grange County Club</div>
-    <div className={styles.WeddingDetails__address}>620 S Brainard Ave, La Grange, IL</div>
+    <div className={styles.WeddingDetails__venue}>LaGrange County Club</div>
+    <div className={styles.WeddingDetails__address}>620 S Brainard Ave, LaGrange, IL</div>
     <div className={styles.WeddingDetails__sectionDivider} />
     <div className={styles.WeddingDetails__eventDescription}>
       <p>
-          TODO - fill this in with real info
           The ceremony is at {ceremonyStart.format('h:mm A')} and the reception is from {receptionStart.format('h:mm')}
 - {receptionEnd.format('h:mm A')}.
+  TODO - need real info here
           If you are not checking into a hotel between the ceremony and reception,
             there is a restaurant with an outdoor lounge area at Mendenhall Inn that will be open.
       </p>

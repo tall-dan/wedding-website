@@ -37,8 +37,8 @@ const Accomodations = () => (
             <br />
           </div>
           <div className={styles.Accomodation__description}>
-            <p>Room block under Dan Schepers &amp; Eileen McLaughlin </p>
-          </div>
+            <p>Room block under Eileen McLaughlin &amp; Dan Schepers  </p>
+          </div>;
           <div className={styles.Accomodation__button__container}>
             <a href="https://www.marriott.com/hotels/travel/chisw-chicago-marriott-southwest-at-burr-ridge/?scid=bb1a189a-fec3-4d19-a255-54ba596febe2">
               <Button text="Book a Room" />
