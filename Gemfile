@@ -35,9 +35,10 @@ group :test do
   gem 'rubocop', '~> 0.72.0', require: false
 end
 
-group :production do
-  gem 'capistrano'
+group :production do # maybe there needs to be a deployment group, in addition to production
+  gem 'capistrano', require: false
   gem 'capistrano-rails', '~> 1.4', require: false
-  gem 'eye'
+  gem 'capistrano-npm',   require: false
+  gem 'eye', require: false
   gem 'unicorn-rails'
 end
