@@ -17,12 +17,12 @@ gem 'puma', '~> 3.11'
 gem 'devise'
 gem 'rolify'
 
+gem 'graphiql-rails', '~> 1.4.11' # TODO: figure out if / how to secure this
 gem 'graphql'
 gem 'mail'
 
 group :development, :test do
   gem 'bootsnap'
-  gem 'graphiql-rails', '~> 1.4.11'
   gem 'listen'
   gem 'pry'
   gem 'pry-byebug'
@@ -36,7 +36,8 @@ group :test do
 end
 
 group :production do
-  gem 'bluepill'
-  gem 'capistrano', '2.15.4'
+  gem 'capistrano'
+  gem 'capistrano-rails', '~> 1.4', require: false
+  gem 'eye'
   gem 'unicorn-rails'
 end
