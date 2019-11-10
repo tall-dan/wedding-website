@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 after 'deploy:updated', :build_frontend do
   on roles(:app) do
     release_path = fetch(:release_path)
