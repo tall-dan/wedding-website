@@ -1,12 +1,12 @@
 import React from 'react';
-import './App.css';
+import styles from './App.module.scss';
 import Header from './Header/Header';
 import Navigation from './Navigation/Navigation';
 import NavItem from './Navigation/NavItem/NavItem';
 
 function App() {
   return (
-    <div className="App">
+    <div className={styles.App}>
       <Header />
       <Navigation>
         <NavItem title="Our Wedding" />

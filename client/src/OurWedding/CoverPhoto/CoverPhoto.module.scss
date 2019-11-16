@@ -1,16 +1,9 @@
 .CoverPhoto {
-  .CoverPhoto__matte {
-    position: relative;
-    display: block;
-    padding: 25px;
-    background: white;
-  }
-
   .CoverPhoto__photo {
-    background-image: url("/proposal.jpg");
+    background-image: url("/banner_image.png");
     background-position: center;
     background-position-x: center;
     background-position-y: center;
-    min-height: 470px;
+    min-height: 700px;
   }
 }

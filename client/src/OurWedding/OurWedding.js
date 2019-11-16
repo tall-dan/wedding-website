@@ -5,12 +5,14 @@ import WeddingDetails from './WeddingDetails/WeddingDetails';
 import WeddingParty from './WeddingParty/WeddingParty';
 
 const OurWedding = () => (
-  <Grid fluid>
-    <Col sm={12} md={10} mdOffset={1} lg={8} lgOffset={2}>
-      <CoverPhoto />
-      <WeddingDetails />
-      <WeddingParty />
-    </Col>
-  </Grid>
+  <>
+    <CoverPhoto />
+    <Grid fluid>
+      <Col sm={12} md={10} mdOffset={1} lg={8} lgOffset={2}>
+        <WeddingDetails />
+        <WeddingParty />
+      </Col>
+    </Grid>
+  </>
 );
 export default OurWedding;

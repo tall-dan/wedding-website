@@ -1,3 +1,5 @@
+@import "../../shared/styles/colors.module.scss";
+
 .NavItem {
   font-size: 16px;
   letter-spacing: 2.4px;
@@ -5,11 +7,11 @@
   text-transform: uppercase;
 
   .NavItem__Link {
-    color: #B8DDD1;
+    color: $primary_color;
     text-decoration: none;
   }
 
   .NavItem__Link--selected {
-    color: #FFFDEB;
+    color: $accent_color;
   }
 }

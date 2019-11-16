@@ -5,6 +5,10 @@
   .WeddingDetails__detail {
     font-size: 1.5em;
     line-height: 2;
+
+    &:nth-child(2) {
+      padding-top: 15px;
+    }
   }
 
   .WeddingDetails__rsvpContainer {
@@ -13,10 +17,13 @@
 
   .WeddingDetails__sectionDivider {
     background-position: center;
-    background-image: url(https://static.xoedge.com/xo-guest-services/assets/guest/themes/at_last-dark_gray/item_separator-b38e6d2344a94a96a7e0727b76a6b9c7.png);
+    background-image: url(https://static.xoedge.com/xo-guest-services/assets/guest/themes/luscious_lacing-umber/item_separator-12b6a4546884b18d20d9cc62d4f1bae1.png);
     height: 40px;
     background-repeat: no-repeat;
+    background-size: contain;
+    width: 70px;
     padding: 20px 0;
+    margin-left: calc(50% - 35px);
   }
 
   .WeddingDetails__itemTitle {
