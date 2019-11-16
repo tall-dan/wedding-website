@@ -5,7 +5,6 @@ lock '~> 3.11.2'
 
 set :application, 'wedding_website'
 set :repo_url, 'https://github.com/tall-dan/wedding-website'
-set :npm_method, 'ci'
 
 # Default branch is :master
 ask :branch, :master
@@ -40,6 +39,3 @@ append :linked_files, 'config/database.yml'
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
-
-#### NPM ####
-set :npm_target_path, -> { release_path.join('client') } # TODO: figure out how to share node_modules between deploys
