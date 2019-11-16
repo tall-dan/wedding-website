@@ -7,11 +7,12 @@ class WeddingPartyMember extends Component {
     super(props);
 
     this.pictureSource = props.name.split(' ')[0].toLowerCase();
+    this.id = props.name.replace(' ', '_').toLowerCase();
   }
 
   render() {
     return (
-      <div className={styles.WeddingPartyMember}>
+      <div className={styles.WeddingPartyMember} id={this.id}>
         <div className={styles.WeddingPartyMember__imageContainer}>
           <div
             className={styles.WeddingPartyMember__image}

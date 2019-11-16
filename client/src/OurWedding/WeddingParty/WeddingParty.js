@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import SectionTitle from '../../shared/SectionTitle/SectionTitle';
+import responsiveStyles from '../../shared/styles/responsiveStyles.module.scss';
 import styles from './WeddingParty.module.scss';
 import WeddingPartyMember from './WeddingPartyMember/WeddingPartyMember';
 
@@ -57,6 +58,7 @@ const WeddingParty = () => (
             relation="College Friend of the Bride"
             memberRole="Bridesmaid"
           />
+          <div className={[styles.WeddingParty__sectionDivider, responsiveStyles.hidden_md].join(' ')} />
         </Col>
         { /* todo: figure out a divider to display when we collapse to a single column */ }
         <Col md={6} sm={12}>
