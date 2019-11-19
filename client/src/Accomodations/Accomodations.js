@@ -30,21 +30,6 @@ const Accomodations = () => (
             </a>
           </div>
         </div>
-        <div className={styles.Accomodation__separator} />
-        <div className={styles.Accomodation__item}>
-          <div className={styles.Accomodation__title}>Chicago Marriott Southwest at Burr Ridge</div>
-          <div className={styles.Accomodation__address}>1200 Burr Ridge Pkwy, Burr Ridge, IL 60527<br />(630) 986-4100
-            <br />
-          </div>
-          <div className={styles.Accomodation__description}>
-            <p>Room block under Eileen McLaughlin &amp; Dan Schepers  </p>
-          </div>;
-          <div className={styles.Accomodation__button__container}>
-            <a href="https://www.marriott.com/hotels/travel/chisw-chicago-marriott-southwest-at-burr-ridge/?scid=bb1a189a-fec3-4d19-a255-54ba596febe2">
-              <Button text="Book a Room" />
-            </a>
-          </div>
-        </div>
       </div>
     </Col>
   </Grid>

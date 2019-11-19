@@ -12,3 +12,9 @@ after 'deploy:updated', :copy_frontend do
     execute "cd #{release_path}/public && cp -R build/* . && rm -rf build/"
   end
 end
+
+after 'deploy:updated', :remove_frontend_build do
+  run_locally do
+    execute 'cd client && rm -rf build/'
+  end
+end
