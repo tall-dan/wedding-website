@@ -1,9 +1,10 @@
 .CoverPhoto {
   .CoverPhoto__photo {
-    background-image: url("/banner_image.png");
+    background-image: url("/banner_image.jpg");
     background-position: center;
     background-position-x: center;
     background-position-y: center;
+    background-size: cover;
     min-height: 700px;
   }
 }
