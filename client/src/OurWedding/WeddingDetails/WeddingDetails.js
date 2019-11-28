@@ -2,6 +2,7 @@ import React from 'react';
 import SectionTitle from '../../shared/SectionTitle/SectionTitle';
 import styles from './WeddingDetails.module.scss';
 import Button from '../../shared/Button/Button';
+import Link from '../../shared/Link/Link';
 import { ceremonyStart, receptionStart, receptionEnd } from '../../constants';
 
 const WeddingDetails = () => (
@@ -9,17 +10,25 @@ const WeddingDetails = () => (
     <SectionTitle title="Our Wedding" />
     <div className={styles.WeddingDetails__detail}>{ceremonyStart.format('dddd, MMMM Do YYYY')}</div>
     <div className={styles.WeddingDetails__detail}>{ceremonyStart.format('h:mm a')}</div>
-    <div className={styles.WeddingDetails__rsvpContainer} style={{display: 'none'}}>
-      <Button text="rsvp"/>
+    <div className={styles.WeddingDetails__rsvpContainer} style={{ display: 'none' }}>
+      <Button text="rsvp" />
     </div>
     <div className={styles.WeddingDetails__sectionDivider} />
     <div className={styles.WeddingDetails__itemTitle}>Ceremony</div>
-    <div className={styles.WeddingDetails__venue}>First United Methodist Church of LaGrange</div>
-    <div className={styles.WeddingDetails__address}>100 W Cossitt Ave, LaGrange, IL</div>
+    <div className={styles.WeddingDetails__venue}>
+      <Link href="https://www.fumclg.org/">First United Methodist Church of LaGrange</Link>
+    </div>
+    <div className={styles.WeddingDetails__address}>
+      <Link href="https://goo.gl/maps/KV9n8cdopbCrdL5p9">100 W Cossitt Ave, LaGrange, IL</Link>
+    </div>
     <div className={styles.WeddingDetails__sectionDivider} />
     <div className={styles.WeddingDetails__itemTitle}>Reception</div>
-    <div className={styles.WeddingDetails__venue}>LaGrange County Club</div>
-    <div className={styles.WeddingDetails__address}>620 S Brainard Ave, LaGrange, IL</div>
+    <div className={styles.WeddingDetails__venue}>
+      <Link href="https://www.lagrangecc.org/">LaGrange County Club</Link>
+    </div>
+    <div className={styles.WeddingDetails__address}>
+      <Link href="https://goo.gl/maps/ALFdNukbcGUr5Jb28">620 S Brainard Ave, LaGrange, IL</Link>
+    </div>
     <div className={styles.WeddingDetails__sectionDivider} />
     <div className={styles.WeddingDetails__eventDescription}>
       <p>

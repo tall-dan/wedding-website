@@ -1,0 +1,14 @@
+@import "../styles/colors.module.scss";
+
+.link {
+  color: $primary_color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  @media (pointer: none), (pointer: coarse) {
+    text-decoration: underline;
+  }
+}
