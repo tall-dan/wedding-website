@@ -9,8 +9,8 @@ const WeddingDetails = () => (
     <SectionTitle title="Our Wedding" />
     <div className={styles.WeddingDetails__detail}>{ceremonyStart.format('dddd, MMMM Do YYYY')}</div>
     <div className={styles.WeddingDetails__detail}>{ceremonyStart.format('h:mm a')}</div>
-    <div className={styles.WeddingDetails__rsvpContainer}>
-      <Button text="rsvp" />
+    <div className={styles.WeddingDetails__rsvpContainer} style={{display: 'none'}}>
+      <Button text="rsvp"/>
     </div>
     <div className={styles.WeddingDetails__sectionDivider} />
     <div className={styles.WeddingDetails__itemTitle}>Ceremony</div>
