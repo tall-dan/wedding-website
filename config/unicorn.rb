@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 DEPLOY_PATH = '/var/www/wedding_website'
-pid_path = 'tmp/pids/unicorn.pid'
+pid_path = "#{DEPLOY_PATH}/shared/tmp/pids/unicorn.pid"
 socket_file = "#{DEPLOY_PATH}/shared/.dashboard_unicorn.sock"
-worker_processes 4
+worker_processes 3
 timeout 30
 preload_app true
 pid pid_path
