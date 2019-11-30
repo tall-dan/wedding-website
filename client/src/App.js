@@ -10,7 +10,7 @@ function App() {
       <Header />
       <Navigation>
         <NavItem title="Our Wedding" />
-        <NavItem title="Accomodations" />
+        <NavItem title="Accommodations" />
         <NavItem title="Photos" />
         {
         /*

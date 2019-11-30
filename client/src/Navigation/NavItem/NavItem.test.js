@@ -35,7 +35,7 @@ describe('NavItem', () => {
       context('when route matches page title', () => {
         it('is not active', () => {
           const navItem = navItemWrapper('RSVP').instance();
-          expect(navItem.isActive('not_important', { pathname: '/accomodations' })).toBe(false);
+          expect(navItem.isActive('not_important', { pathname: '/accommodations' })).toBe(false);
         });
       });
     });
