@@ -24,7 +24,7 @@ const WeddingDetails = () => (
     <div className={styles.WeddingDetails__sectionDivider} />
     <div className={styles.WeddingDetails__itemTitle}>Reception</div>
     <div className={styles.WeddingDetails__venue}>
-      <Link href="https://www.lagrangecc.org/">LaGrange County Club</Link>
+      <Link href="https://www.lagrangecc.org/">LaGrange Country Club</Link>
     </div>
     <div className={styles.WeddingDetails__address}>
       <Link href="https://goo.gl/maps/ALFdNukbcGUr5Jb28">620 S Brainard Ave, LaGrange, IL</Link>
@@ -34,7 +34,7 @@ const WeddingDetails = () => (
       <p>
           The ceremony is at {ceremonyStart.format('h:mm A')} and the reception is from {receptionStart.format('h:mm')}
 - {receptionEnd.format('h:mm A')}.
-          There will be shuttle buses to from the reception to the hotel - <em> Time to be determined </em>
+          There will be shuttle buses to from the reception to the hotel
       </p>
       <p>
           After the reception ends, the wedding party will be heading to Kenny&apos;s

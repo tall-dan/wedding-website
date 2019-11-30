@@ -23,7 +23,7 @@ const Header = () => (
             <h2 className={styles.Header__when_and_where}>
               <span className={styles.Header___date}>{ceremonyStart.format('MMMM DD, YYYY')}</span>
               <span className={styles.separator}> • </span>
-              <span className={styles.Header___location}>Lagrange, IL</span>
+              <span className={styles.Header___location}>La Grange, IL</span>
             </h2>
             <h2 className={styles.Header__countdown}>{`${ceremonyStart.diff(moment(), 'days')} Days`}</h2>
           </div>

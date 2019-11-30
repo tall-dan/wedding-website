@@ -18,7 +18,7 @@ const Accomodations = () => (
             <p>
               We currently have a McLaughlin/Schepers room block for the out-of-town wedding guests.
               Rooms range from $139 - $169.
-              The last day to reserve a room is Friday, May 22nd
+              The last day to reserve a room is Friday, May 15th
             </p>
           </div>
           <div className={styles.Accomodation__button__container}>
