@@ -42,12 +42,6 @@ const WeddingParty = () => (
           />
           <div className={styles.WeddingParty__sectionDivider} />
           <WeddingPartyMember
-            name="Liz Coffey"
-            relation="Sister-in-law of the Bride"
-            memberRole="Bridesmaid"
-          />
-          <div className={styles.WeddingParty__sectionDivider} />
-          <WeddingPartyMember
             name="Dominique Higgins"
             relation="College Friend of the Bride"
             memberRole="Bridesmaid"
@@ -56,6 +50,12 @@ const WeddingParty = () => (
           <WeddingPartyMember
             name="Grace Chiarella"
             relation="College Friend of the Bride"
+            memberRole="Bridesmaid"
+          />
+          <div className={styles.WeddingParty__sectionDivider} />
+          <WeddingPartyMember
+            name="Liz Coffey"
+            relation="Sister-in-law of the Bride"
             memberRole="Bridesmaid"
           />
           <div className={[styles.WeddingParty__sectionDivider, responsiveStyles.hidden_md].join(' ')} />
@@ -99,14 +99,14 @@ const WeddingParty = () => (
           />
           <div className={styles.WeddingParty__sectionDivider} />
           <WeddingPartyMember
-            name="Dan McLaughlin"
-            relation="Brother of the Bride"
+            name="Joe Hedinger"
+            relation="Childhood Friend of the Groom"
             memberRole="Groomsman"
           />
           <div className={styles.WeddingParty__sectionDivider} />
           <WeddingPartyMember
-            name="Joe Hedinger"
-            relation="Childhood Friend of the Groom"
+            name="Dan McLaughlin"
+            relation="Brother of the Bride"
             memberRole="Groomsman"
           />
         </Col>
