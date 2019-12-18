@@ -7,6 +7,12 @@ after 'deploy:updated', :build_frontend do
 end
 
 after 'deploy:updated', :copy_frontend do
+  run_locally do
+    execute 'aws s3 rm s3://eileen-and-dans-wedding --recursive --profile eileen-and-dans-wedding'
+    execute 'cd client && aws s3 mv build/ s3://eileen-and-dans-wedding/ --recursive  --profile eileen-and-dans-wedding'
+  end
+
+  # Temp while I figure out how to connect s3 to cloudfront & godaddy
   on roles(:app) do
     upload! 'client/build/', "#{release_path}/public/", recursive: true
     execute "cd #{release_path}/public && cp -R build/* . && rm -rf build/"
