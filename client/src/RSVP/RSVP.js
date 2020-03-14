@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Grid, Col, Row } from 'react-flexbox-grid';
 import SectionTitle from '../shared/SectionTitle/SectionTitle';
 import styles from './RSVP.module.scss';
-import Button from '../shared/Button/Button';
+import Lookup from './Lookup/Lookup';
 
 const RSVP = () => (
   <Grid fluid>
