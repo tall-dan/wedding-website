@@ -19,11 +19,11 @@ function App() {
         <NavItem title="Our Wedding" />
         <NavItem title="Accommodations" />
         <NavItem title="Photos" />
+        <NavItem title="RSVP" />
         {
         /*
            When these are brought back, remember to move justify-content: center back into the media query in Navigation
         <NavItem title="Registry" />
-        <NavItem title="RSVP" />
        */}
       </Navigation>
       <Footer />

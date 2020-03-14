@@ -1,15 +1,29 @@
 import React from 'react';
+import { Grid, Col, Row } from 'react-flexbox-grid';
+import SectionTitle from '../shared/SectionTitle/SectionTitle';
+import styles from './RSVP.module.scss';
+import Button from '../shared/Button/Button';
 
 const RSVP = () => (
-  <div>
-    <h2>Can&apos;t wait to see you there </h2>
-    <p>
-      If you&apos;re responding for you and a guest (or your family), you&apos;ll be able to RSVP for your entire group.
-    </p>
-    <form action="/rsvp">
-      Full name: <input type="text" name="full_name" />
-      <input type="submit" value="Find your invitation" />
-    </form>
-  </div>
+  <Grid fluid>
+    <Col sm={12} md={10} mdOffset={1} lg={8} lgOffset={2}>
+      <SectionTitle title="Can't Wait To See You There" />
+      <div className={styles.RSVP}>
+        <h2>Please RSVP by May 15th</h2>
+        <div className={styles.RSVP_details}>
+          <p>
+            You'll be able to RSVP for yourself and your party here
+          </p>
+          <form action="/rsvp">
+            <Row center="xs">
+              <input className={styles.RSVP_search_input} type="text" name="full_name" placeholder="Ex: Chazz Reinhold (Not Dr. Reinhold or The Chazz Family)"/>
+            </Row>
+            <Button text="Find Your Invites" />
+          </form>
+        </div>
+      </div>
+    </Col>
+  </Grid>
 );
+
 export default RSVP;

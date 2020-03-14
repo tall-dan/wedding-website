@@ -1,0 +1,19 @@
+.RSVP {
+  text-align: center;
+  justify-content: center;
+  .RSVP_details {
+    max-width: 820px;
+    font-size: 1.3em;
+    margin: 0 auto;
+  }
+  .RSVP_search_input{
+    font-size: 0.8em;
+    height: 30px;
+    width: 350px;
+    padding-left: 10px;
+    display: block;
+    margin-bottom: 10px;
+  }
+  .RSVP_search_submit{
+  }
+}
