@@ -22,7 +22,7 @@ const Accommodations = () => (
             </p>
           </div>
           <div className={styles.Accommodation__button__container}>
-            <a href="https://www.marriott.com/hotels/travel/chisw-chicago-marriott-southwest-at-burr-ridge/?scid=bb1a189a-fec3-4d19-a255-54ba596febe2">
+            <a href="https://www.marriott.com/events/start.mi?id=1565821035961&key=GRP">
               <Button text="Book a Room" />
             </a>
           </div>
