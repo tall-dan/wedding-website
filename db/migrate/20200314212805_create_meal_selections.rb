@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateMealSelections < ActiveRecord::Migration[6.0]
   def change
     create_table :meal_selections do |t|
