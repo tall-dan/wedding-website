@@ -2,6 +2,7 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import styles from './App.module.scss';
 import Header from './Header/Header';
+import Footer from './Footer/Footer';
 import Navigation from './Navigation/Navigation';
 import NavItem from './Navigation/NavItem/NavItem';
 
@@ -25,6 +26,7 @@ function App() {
         <NavItem title="RSVP" />
        */}
       </Navigation>
+      <Footer />
     </div>
   );
 }
