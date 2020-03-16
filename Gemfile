@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 
 ruby '2.5.3'
 
+gem 'activerecord-import'
 gem 'rails', '~> 6.0.0.rc1'
 
 gem 'pg',   '~> 0.21.0'
