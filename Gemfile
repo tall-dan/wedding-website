@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 ruby '2.5.3'
 
 gem 'rails', '~> 6.1.4.6'
+gem 'activerecord-import'
 
 gem 'pg',   '~> 1.1'
 gem 'puma', '~> 4.3.11'
