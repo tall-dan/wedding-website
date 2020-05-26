@@ -8,7 +8,7 @@ module Resolvers
     def resolve(name:)
       first_name, last_name = name.match(/(.*)\W+(\w+)$/).captures.map(&:downcase)
       guest = Guest.find_by(first_name: first_name, last_name: last_name)
-      guest&.guest_party
+      Array(guest&.guest_party)
     end
   end
 end

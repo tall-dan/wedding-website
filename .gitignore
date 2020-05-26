@@ -31,3 +31,4 @@ config/secrets.yml
 .credentials.aws
 
 /config/credentials/*
+invites.csv

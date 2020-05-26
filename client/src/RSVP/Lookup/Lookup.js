@@ -5,12 +5,13 @@ import Button from '../../shared/Button/Button';
 import { Row } from 'react-flexbox-grid';
 
 class Lookup extends Component {
-  search = () => {
-    window.location = `/rsvpSearch?name=${encodeURI(this.state.searchTerm)}`
+  constructor(props) {
+    super(props);
+    this.state = { lookupURL: '/rsvp#' }
   }
 
   onChange = (event) => {
-    this.setState({searchTerm: event.target.value});
+    this.setState({lookupURL: `/rsvp/search?name=${encodeURI(event.target.value)}`});
   }
 
   render() {
@@ -20,9 +21,11 @@ class Lookup extends Component {
           { this.props.prompt }
         </p>
         <Row center="xs">
-          <input onChange={this.onChange} className={styles.Lookup_search_input} type="text" name="full_name" placeholder="Ex: Chazz Reinhold (Not Dr. Reinhold or The Chazz Family)"/>
+          <input onChange={this.onChange} className={styles.Lookup_search_input} type="text" name="full_name" placeholder="Ex: Jeremy Grey (Not Dr. Grey or The Grey Family)"/>
         </Row>
-        <Button text="Find Your Invites" onClick={ this.search } />
+        <a href={this.state.lookupURL}>
+          <Button text="Find Your Invites" />
+        </a>
       </div>
     )
   }

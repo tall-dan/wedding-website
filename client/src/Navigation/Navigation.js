@@ -8,6 +8,7 @@ import Photos from '../Photos/Photos';
 import Registry from '../Registry/Registry';
 import RSVP from '../RSVP/RSVP';
 import SearchResults from '../RSVP/SearchResults/SearchResults';
+import RespondToInvites from '../RSVP/RespondToInvites/RespondToInvites';
 
 const Navigation = ({ children }) => (
   <>
@@ -19,8 +20,9 @@ const Navigation = ({ children }) => (
     <Route exact path="/accommodations" component={Accommodations} />
     <Route exact path="/photos" component={Photos} />
     <Route exact path="/registry" component={Registry} />
-    <Route exact path="/rsvpSearch" component={SearchResults} />
     <Route exact path="/rsvp" component={RSVP} />
+    <Route exact path="/rsvp/search" component={SearchResults} />
+    <Route exact path="/rsvp/respondToInvites" component={RespondToInvites} />
   </>
 );
 
