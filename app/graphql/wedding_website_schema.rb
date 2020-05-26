@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
 class WeddingWebsiteSchema < GraphQL::Schema
-  query(BaseQuery)
+  query BaseQuery
+  mutation BaseMutation
 end

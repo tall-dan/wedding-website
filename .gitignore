@@ -24,3 +24,5 @@ coverage/*
 
 # Node
 /client/node_modules
+
+invites.csv
