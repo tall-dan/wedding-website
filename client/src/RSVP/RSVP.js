@@ -7,7 +7,7 @@ const RSVP = () => (
       If you&apos;re responding for you and a guest (or your family), you&apos;ll be able to RSVP for your entire group.
     </p>
     <form action="/rsvp">
-    Full name: <input type="text" name="full_name" />
+      Full name: <input type="text" name="full_name" />
       <input type="submit" value="Find your invitation" />
     </form>
   </div>
