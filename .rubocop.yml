@@ -15,6 +15,10 @@ Metrics/MethodLength:
   Exclude:
     - 'db/migrate/*'
 
+Metrics/BlockLength:
+  Exclude:
+    - 'db/schema.rb'
+
 Documentation:
   Enabled: false
 
@@ -22,5 +26,4 @@ Style/PercentLiteralDelimiters:
   PreferredDelimiters:
     '%i': '[]'
     '%w': '[]'
-
 
