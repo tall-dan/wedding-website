@@ -14,7 +14,7 @@ const Registry = () => (
         <Row center="md">
           <Col smOffset={2} mdOffset={0} sm={8} md={6}>
             <a href="https://smile.amazon.com/wedding/daniel-schepers-eileen-mclaughlin-la-grange-june-2022/registry/2XPOVLIDNF528">
-              <img alt="amazon" className={styles.registryImage} src="https://lh3.googleusercontent.com/proxy/10PXFmKsTjOXzvgfR6AsxqvXTwkpqtu_nd12qwLMCMCgmqZyg4Wl1UhWjlepkXqicXgfZcOZI3-JBw2Jenix95wklv6PF_QSX0mtrpLwhClg8PHkWrJs4r58buItFy1nnu6qIY6VDpXTZ4FbbwIuYGSbWf9-kaA" />
+              <img alt="amazon" className={styles.registryImage} src="https://i.pinimg.com/originals/fe/da/d8/fedad83f2215483d6df01669661502f2.png" />
             </a>
           </Col>
           <Col smOffset={2} mdOffset={0} sm={8} md={6}>
