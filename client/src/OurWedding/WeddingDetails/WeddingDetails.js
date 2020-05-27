@@ -32,9 +32,9 @@ const WeddingDetails = () => (
     <div className={styles.WeddingDetails__sectionDivider} />
     <div className={styles.WeddingDetails__eventDescription}>
       <p>
-          The ceremony is at {ceremonyStart.format('h:mm A')} and the reception is from {receptionStart.format('h:mm')}
-- {receptionEnd.format('h:mm A')}.
-          Shuttle buses will be provided:
+        The ceremony is at {ceremonyStart.format('h:mm A')} and the reception is from {receptionStart.format('h:mm')}
+        - {receptionEnd.format('h:mm A')}.
+        Shuttle buses will be provided:
       </p>
       <ul>
         <li>From the hotel to the ceremony</li>
@@ -42,9 +42,9 @@ const WeddingDetails = () => (
         <li>From the reception to the hotel</li>
       </ul>
       <p>
-          After the reception ends, the wedding party will be heading
-          to <Link href="https://goo.gl/maps/BDLsR9aZ517gy9Mx9">Kenny&apos;s Irish Pub</Link> to
-          continue the celebration.  We encourage everyone to come join us!
+        After the reception ends, the wedding party will be heading
+        to <Link href="https://goo.gl/maps/BDLsR9aZ517gy9Mx9">Kenny&apos;s Irish Pub</Link> to
+        continue the celebration.  We encourage everyone to come join us!
       </p>
     </div>
   </div>
