@@ -1,0 +1,20 @@
+.CovidMessage {
+  font-size: 1.2em;
+  color: indianred;
+  background: whitesmoke;
+  text-align: center;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
+}
+
+.CovidMessage__detailsToggle {
+  font-size: 1em;
+  border: none;
+  background: whitesmoke;
+  color: indianred;
+  text-decoration: underline;
+
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+}

@@ -3,13 +3,13 @@ import SectionTitle from '../../shared/SectionTitle/SectionTitle';
 import styles from './WeddingDetails.module.scss';
 import Button from '../../shared/Button/Button';
 import Link from '../../shared/Link/Link';
-import { ceremonyStart, receptionStart, receptionEnd } from '../../constants';
+import { newCeremonyStart, newReceptionStart, newReceptionEnd } from '../../constants';
 
 const WeddingDetails = () => (
   <div className={styles.WeddingDetails}>
     <SectionTitle title="Our Wedding" />
-    <div className={styles.WeddingDetails__detail}>{ceremonyStart.format('MMMM D, YYYY')}</div>
-    <div className={styles.WeddingDetails__detail}>{ceremonyStart.format('h:mm a')}</div>
+    <div className={styles.WeddingDetails__detail}>{newCeremonyStart.format('MMMM D, YYYY')}</div>
+    <div className={styles.WeddingDetails__detail}>{newCeremonyStart.format('h:mm a')}</div>
     <div className={styles.WeddingDetails__rsvpContainer} style={{ display: 'none' }}>
       <Button text="rsvp" />
     </div>
@@ -32,8 +32,8 @@ const WeddingDetails = () => (
     <div className={styles.WeddingDetails__sectionDivider} />
     <div className={styles.WeddingDetails__eventDescription}>
       <p>
-        The ceremony is at {ceremonyStart.format('h:mm A')} and the reception is from {receptionStart.format('h:mm')}
-        - {receptionEnd.format('h:mm A')}.
+        The ceremony is at {newCeremonyStart.format('h:mm A')} and the reception is from {newReceptionStart.format('h:mm')}
+        - {newReceptionEnd.format('h:mm A')}.
         Shuttle buses will be provided:
       </p>
       <ul>
