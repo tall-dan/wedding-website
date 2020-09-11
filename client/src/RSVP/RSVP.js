@@ -19,3 +19,5 @@ class RSVP extends Component {
     );
   }
 }
+
+export default RSVP;
