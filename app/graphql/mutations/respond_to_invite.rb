@@ -8,10 +8,10 @@ module Mutations
 
     def resolve(responses:)
       responses.each do |response|
-        invite = Invite.find_by(response.slice(*%i[guest_id event_id]))
+        invite = Invite.find(response.invite_id)
         invite.update(status: response.status)
       end
-      true
+      { success: true }
     end
   end
 end
