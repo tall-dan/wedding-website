@@ -7,15 +7,21 @@ import { Grid, Col } from 'react-flexbox-grid';
 import InvitesContainer from './InvitesContainer/InvitesContainer'
 
 function MarkAttendance() {
-  const ids = () => ( deserializeURLQuery()['invitee_ids'])
+  const ids = () => ( deserializeURLQuery()['guest_ids'])
   // For traceability, this should be guest_ids
 
   const query = gql`
       {
-        invites(guest_ids: [${ids()}]) {
-          firstName
-          lastName
+        invites(guestIds: [${ids()}]) {
           id
+          status
+          guest {
+            displayName
+            id
+          }
+          event {
+            name
+          }
         }
       }
     `
@@ -44,50 +50,12 @@ function MarkAttendance() {
   // maybe both of those are plural, and fire when the user goes from one page to the next
   //
 
-  const { loading, error, real_data } = useQuery(query);
-  const data = {
-    invites: [{
-      guest: {
-        firstName: 'Dan',
-        lastName: 'Schepers', // is there such thing as guest type in here, so we can figure out what to do with kids' meals?
-        id: '123'
-      },
-      event: {
-        name: 'rehearsal_dinner'
-      }
-    },{
-      guest: {
-        firstName: 'Eileen',
-        lastName: 'McLaughlin',
-        id: '456'
-      },
-      event: {
-        name: 'rehearsal_dinner'
-      }
-    },{
-      guest: {
-        firstName: 'Dan',
-        lastName: 'Schepers',
-        id: '123'
-      },
-      event: {
-        name: 'reception'
-      }
-    },{
-      guest: {
-        firstName: 'Eileen',
-        lastName: 'McLaughlin',
-        id: '456'
-      },
-      event: {
-        name: 'reception'
-      }
-    }]
-  }
+  const { loading, error, data } = useQuery(query);
+
   const invites = (data) => {
     return data['invites'].reduce(function (events, invite) {
         events[invite.event.name] = events[invite.event.name] || [];
-        events[invite.event.name].push(invite.guest);
+        events[invite.event.name].push(invite);
         return events;
     }, Object.create(null));
   }

@@ -16,8 +16,7 @@ function SearchResults() {
   const query = gql`
     {
       guests(name: "${name()}") {
-        firstName
-        lastName
+        displayName
         id
       }
     }
