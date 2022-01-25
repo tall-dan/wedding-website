@@ -14,60 +14,56 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [12.x, 14.x, 16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js 16
+      working-directory: client
       uses: actions/setup-node@v2
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: '16'
         cache: 'npm'
-    - run: cd client
+        cache-dependency-path: ./client/package.json
     - run: npm ci
+      working-directory: client
     - run: npm run build --if-present
+      working-directory: client
     - run: npm test -- --watchAll=false
-    
+      working-directory: client
+
   stylelint:
 
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [12.x, 14.x, 16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js 16
+      working-directory: client
       uses: actions/setup-node@v2
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: 16
         cache: 'npm'
-    - run: cd client
+        cache-dependency-path: ./client/package.json
     - run: npm ci
+      working-directory: client
     - run: npm run stylelint
-  
-  
+      working-directory: client
+
+
   eslint:
 
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [12.x, 14.x, 16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js 16
       uses: actions/setup-node@v2
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: 16
         cache: 'npm'
+        cache-dependency-path: ./client/package.json
     - run: cd client
+      working-directory: client
     - run: npm ci
+      working-directory: client
     - run: npm run eslint
+      working-directory: client
