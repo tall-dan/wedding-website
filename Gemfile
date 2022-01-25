@@ -29,11 +29,11 @@ group :development, :test do
 end
 
 group :test do
+  gem 'bundler-audit'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'rspec-rails', '~> 3.8'
   gem 'rubocop', '~> 0.72.0', require: false
-  gem 'bundler-audit'
 end
 
 group :production do # maybe there needs to be a deployment group, in addition to production
