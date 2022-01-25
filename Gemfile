@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 ruby '2.5.3'
 
-gem 'rails', '~> 6.0.0.rc1'
+gem 'rails', '>= 6.1.3.2'
 
 gem 'pg',   '~> 0.21.0'
 gem 'puma', '~> 4.3'
@@ -33,11 +33,12 @@ group :test do
   gem 'faker'
   gem 'rspec-rails', '~> 3.8'
   gem 'rubocop', '~> 0.72.0', require: false
+  gem 'bundler-audit'
 end
 
 group :production do # maybe there needs to be a deployment group, in addition to production
   gem 'capistrano', require: false
   gem 'capistrano-rails', '~> 1.4', require: false
-  gem 'eye', require: false
+  gem 'eye', '~> 0.10.0', require: false
   gem 'unicorn-rails'
 end
