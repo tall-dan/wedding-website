@@ -17,12 +17,12 @@ const Accommodations = () => (
           <div className={styles.Accommodation__description}>
             <p>
               We currently have a McLaughlin/Schepers room block for the out-of-town wedding guests.
-              Rooms range from $139 - $169.
-              The last day to reserve a room is Friday, May 15th
+              Rooms range from $129 - $159.
+              The last day to reserve a room is Friday, May 27th
             </p>
           </div>
           <div className={styles.Accommodation__button__container}>
-            <a href="https://www.marriott.com/events/start.mi?id=1565821035961&key=GRP">
+            <a href="https://www.marriott.com/events/start.mi?id=1642018142313&key=GRP">
               <Button text="Book a Room" />
             </a>
           </div>
