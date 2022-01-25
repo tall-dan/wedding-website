@@ -59,7 +59,6 @@ jobs:
         node-version: 16
         cache: 'npm'
         cache-dependency-path: ./client/package.json
-    - run: cd client
       working-directory: client
     - run: npm ci
       working-directory: client
