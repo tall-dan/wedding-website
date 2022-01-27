@@ -8,8 +8,11 @@ end
 
 after 'deploy:updated', :copy_frontend do
   run_locally do
+    execute "sed  -i '' '/eileen-and-dans-wedding/{N;N;d;}' ~/.aws/credentials"
+    execute "cat .credentials.aws >> ~/.aws/credentials"
     execute 'aws s3 rm s3://eileen-and-dans-wedding --recursive --profile eileen-and-dans-wedding'
     execute 'cd client && aws s3 mv build/ s3://eileen-and-dans-wedding/ --recursive  --profile eileen-and-dans-wedding'
+    execute 'aws cloudfront create-invalidation --distribution-id $(cat .distribution.aws) --paths "/index.html" --profile eileen-and-dans-wedding | echo'
   end
 
   # Temp while I figure out how to connect s3 to cloudfront & godaddy

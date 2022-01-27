@@ -24,3 +24,7 @@ coverage/*
 
 # Node
 /client/node_modules
+
+# Secrets
+.distribution.aws
+.credentials.aws
