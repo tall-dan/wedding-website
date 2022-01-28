@@ -14,7 +14,7 @@ after 'deploy:updated', :copy_frontend do
     execute 'cd client && aws s3 mv build/ s3://eileen-and-dans-wedding/ --recursive  --profile eileen-and-dans-wedding'
     execute <<~STR.gsub("\n", ' ')
       aws cloudfront create-invalidation --distribution-id $(cat .distribution.aws) --paths "/index.html"
-      --profile eileen-and-dans-wedding | echo'
+      --profile eileen-and-dans-wedding | echo
     STR
   end
 end
