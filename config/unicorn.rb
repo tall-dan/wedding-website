@@ -8,7 +8,6 @@ timeout 30
 preload_app true
 pid pid_path
 listen socket_file, backlog: 1024
-#listen 8080, tcp_nopush: true
 stderr_path 'log/unicorn-err.log'
 stdout_path 'log/unicorn-out.log'
 
