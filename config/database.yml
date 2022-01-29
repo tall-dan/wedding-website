@@ -4,7 +4,6 @@ default: &default
   timeout: 5000
   username: wedding_website
 
-
 development:
   <<: *default
   database: wedding_website_dev
@@ -16,3 +15,4 @@ test: &test
 production:
   <<: *default
   database: wedding_website_prod
+  password: <%= Rails.application.secrets[:database_password] %>

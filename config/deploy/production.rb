@@ -5,6 +5,7 @@
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
 
+ENV['deployments'] ||= 'frontend,backend'
 server '3.15.148.137', user: 'bitnami', roles: %w[app db web]
 
 # role-based syntax

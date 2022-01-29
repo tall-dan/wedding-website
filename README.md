@@ -38,4 +38,10 @@ Need ssh credentials to the box as well as aws credentials for s3.
   Distributions.
   * Belongs in `.distribution.aws`
 
-After that, `bundle exec cap production deploy`
+* _If you changed a secret:_: `bundle exec cap production secrets_yml:setup`
+
+### Deploy Independently, or Not
+
+* Deploy BE: `bundle exec cap production deploy:backend`
+* Deploy FE: `bundle exec cap production deploy:frontend`
+* Deploy FE and BE: `bundle exec cap production deploy`
