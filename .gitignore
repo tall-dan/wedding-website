@@ -26,5 +26,6 @@ coverage/*
 /client/node_modules
 
 # Secrets
+config/secrets.yml
 .distribution.aws
 .credentials.aws
