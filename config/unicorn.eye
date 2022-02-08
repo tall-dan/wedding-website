@@ -1,5 +1,5 @@
 RAILS_ENV = "production"
-RUBY = `which ruby`.chomp
+RUBY = `/usr/local/bin/chruby-exec ruby-$(cat .ruby-version) --  which ruby`.chomp
 
 app_name = 'wedding_website'
 rails_root = "/var/www/wedding_website/current"
