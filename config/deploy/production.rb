@@ -6,7 +6,13 @@
 # You can define all roles on a single server, or split them:
 
 ENV['deployments'] ||= 'frontend,backend'
-server '3.15.148.137', user: 'bitnami', roles: %w[app db web]
+
+# { backend_user: user from aws instance, backend_server: ip address of aws instance }
+deploy_configs = YAML.load_file('./config/secrets.yml')['production']['deploys']
+ENV['user'] = deploy_configs['backend_user']
+ENV['server'] = deploy_configs['backend_server']
+
+server ENV['server'], user: ENV['user'], roles: %w[app db web]
 
 # role-based syntax
 # ==================

@@ -29,3 +29,5 @@ coverage/*
 config/secrets.yml
 .distribution.aws
 .credentials.aws
+
+/config/credentials/*
