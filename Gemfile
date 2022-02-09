@@ -38,8 +38,8 @@ end
 
 group :production do # maybe there needs to be a deployment group, in addition to production
   gem 'capistrano', require: false
-  gem 'capistrano-rails', '~> 1.4', require: false
   gem 'capistrano-chruby', require: false
+  gem 'capistrano-rails', '~> 1.4', require: false
   gem 'capistrano-secrets-yml', '~> 1.1.0', require: false
   gem 'eye', '~> 0.10.0', require: false
   gem 'unicorn-rails'

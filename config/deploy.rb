@@ -33,6 +33,7 @@ set :conditionally_migrate, true
 set :chruby_ruby, 'ruby-2.5.3'
 
 # Default value for linked_dirs is []
+append :linked_dirs, 'public'
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }

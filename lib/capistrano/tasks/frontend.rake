@@ -19,15 +19,15 @@ after 'deploy:updated', :copy_frontend do
   next unless ENV['deployments'].split(',').include? 'frontend'
 
   run_locally do
-    execute "sed  -i '' '/eileen-and-dans-wedding/{N;N;d;}' ~/.aws/credentials"
-    execute 'cat .credentials.aws >> ~/.aws/credentials'
-    execute 'aws s3 rm s3://mcschepers-vow-renewal --recursive --profile eileen-and-dans-wedding'
-    execute 'cd client && aws s3 mv build/ s3://mcschepers-vow-renewal/ --recursive  --profile eileen-and-dans-wedding'
+    user = ENV['user']
+    target = ENV['server']
+    execute "cd client && scp -r build/* #{user}@#{target}:/var/www/wedding_website/shared/public"
+    execute "scp -r public/* #{user}@#{target}:/var/www/wedding_website/shared/public"
 
-    execute <<~STR.gsub("\n", ' ')
-      aws cloudfront create-invalidation --distribution-id $(cat .distribution.aws) --paths "/index.html"
-      --profile eileen-and-dans-wedding | echo
-    STR
+    #     execute <<~STR.gsub("\n", ' ')
+    #       aws cloudfront create-invalidation --distribution-id $(cat .distribution.aws) --paths "/index.html"
+    #       --profile eileen-and-dans-wedding | echo
+    #     STR
   end
 end
 
