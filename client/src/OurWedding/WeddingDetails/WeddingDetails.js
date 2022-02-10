@@ -16,10 +16,10 @@ const WeddingDetails = () => (
     <div className={styles.WeddingDetails__sectionDivider} />
     <div className={styles.WeddingDetails__itemTitle}>Ceremony</div>
     <div className={styles.WeddingDetails__venue}>
-      <Link href="https://www.fumclg.org/">First United Methodist Church of La Grange</Link>
+      <Link href="https://www.wscongo.org/">First Congregational Church of Western Springs</Link>
     </div>
     <div className={styles.WeddingDetails__address}>
-      <Link href="https://goo.gl/maps/KV9n8cdopbCrdL5p9">100 W Cossitt Ave, La Grange, IL</Link>
+      <Link href="https://goo.gl/maps/KV9n8cdopbCrdL5p9">1106 Chestnut St, Western Springs, IL</Link>
     </div>
     <div className={styles.WeddingDetails__sectionDivider} />
     <div className={styles.WeddingDetails__itemTitle}>Reception</div>
