@@ -10,7 +10,7 @@ const Accommodations = () => (
     <Col sm={12} md={10} mdOffset={1} lg={8} lgOffset={2}>
       <SectionTitle title="Accommodations" />
       <div className={styles.Accommodations}>
-        <span className={styles.subtitle}>
+        <span className={styles.Accommodation__subtitle}>
           Please make your reservations by Friday, May 27th
         </span>
         { ['marriott', 'hampton'].map((name) => {
@@ -35,6 +35,9 @@ const Accommodations = () => (
                   <Button text="Book a Room" />
                 </a>
               </div>
+              { name === 'marriott' // hack
+              && <div className={styles.Accommodation__sectionDivider} />
+            }
             </div>
           );
         })}
