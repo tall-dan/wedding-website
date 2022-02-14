@@ -12,6 +12,7 @@ after 'deploy:updated', :build_frontend do
 
   run_locally do
     execute 'cd client && NODE_ENV=production NPM_CONFIG_PRODUCTION=true npm run build'
+    execute 'cd client && ./thumb_nailer.sh -x 200 -y 200'
   end
 end
 
@@ -23,11 +24,8 @@ after 'deploy:updated', :copy_frontend do
     target = ENV['server']
     execute "cd client && scp -r build/* #{user}@#{target}:/var/www/wedding_website/shared/public"
     execute "scp -r public/* #{user}@#{target}:/var/www/wedding_website/shared/public"
-
-    #     execute <<~STR.gsub("\n", ' ')
-    #       aws cloudfront create-invalidation --distribution-id $(cat .distribution.aws) --paths "/index.html"
-    #       --profile eileen-and-dans-wedding | echo
-    #     STR
+    puts 'RESET YOUR CACHE'
+    execute "open https://lightsail.aws.amazon.com/ls/webapp/distributions/mcschepers-vow-renewal/cache"
   end
 end
 
