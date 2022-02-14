@@ -4,10 +4,10 @@ source 'https://rubygems.org'
 
 ruby '2.5.3'
 
-gem 'rails', '>= 6.1.3.2'
+gem 'rails', '~> 6.1.4.6'
 
 gem 'pg',   '~> 1.1'
-gem 'puma', '~> 4.3'
+gem 'puma', '~> 4.3.11'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -18,7 +18,7 @@ gem 'devise'
 gem 'rolify'
 
 gem 'graphiql-rails', '~> 1.4.11' # TODO: figure out if / how to secure this
-gem 'graphql'
+gem 'graphql', '1.13.6'
 gem 'mail'
 
 group :development, :test do
