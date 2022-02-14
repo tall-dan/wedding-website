@@ -5,6 +5,7 @@ import images from './photo_gallery/gallery';
 
 /*
 This component does some back bending to load jquery & nanogallery only when it is displayed
+it also prevents jquery and nanogallery from loading at the same time, jquery has to be first
 It's also modified c/p off of SO, and there's some antiquated pieces in here
 */
 class Photos extends Component {
@@ -15,9 +16,7 @@ class Photos extends Component {
       scriptsToLoad: ['https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js',
         'https://cdn.jsdelivr.net/npm/nanogallery2/dist/jquery.nanogallery2.min.js'
       ]
-
     };
-
     this.handleScriptInject = this.handleScriptInject.bind(this);
   }
 

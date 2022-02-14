@@ -25,7 +25,7 @@ after 'deploy:updated', :copy_frontend do
     execute "cd client && scp -r build/* #{user}@#{target}:/var/www/wedding_website/shared/public"
     execute "scp -r public/* #{user}@#{target}:/var/www/wedding_website/shared/public"
     puts 'RESET YOUR CACHE'
-    execute "open https://lightsail.aws.amazon.com/ls/webapp/distributions/mcschepers-vow-renewal/cache"
+    execute 'open https://lightsail.aws.amazon.com/ls/webapp/distributions/mcschepers-vow-renewal/cache'
   end
 end
 
