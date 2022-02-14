@@ -1,46 +1,51 @@
-import React from 'react';
-import { Grid, Col, Row } from 'react-flexbox-grid';
-import Photo from './Photo/Photo';
-import styles from './Photos.module.scss';
+import React, { Component } from 'react';
+import Helmet from 'react-helmet';
+// import styles from './Photos.module.scss';
+import images from './photo_gallery/gallery';
 
-const Photos = () => (
-  <Grid fluid className={styles.Photos}>
-    <Col sm={12} md={10} mdOffset={1} lg={8} lgOffset={2} className={styles.Photo__matte}>
-      <Row className={styles.row_height_8}>
-        <Col xs={6} md={6}>
-          <Photo imageURL="photo_gallery/notre_dame.jpg" />
-        </Col>
-        <Col xs={6} md={6}>
-          <Row className={styles.row_height_4}>
-            <Col xs={6} md={6}>
-              <Photo imageURL="photo_gallery/peter_frampton.jpeg" />
-            </Col>
-            <Col xs={6} md={6}>
-              <Photo imageURL="photo_gallery/candle_pin_bowling.jpg" />
-            </Col>
-          </Row>
-          <Row className={styles.row_height_4}>
-            <Col xs={12}>
-              <Photo imageURL="photo_gallery/goose_island_corn_maze.jpg" />
-            </Col>
-          </Row>
-        </Col>
-      </Row>
-      <Row className={styles.row_height_4}>
-        <Col xs={3} md={3}>
-          <Photo imageURL="photo_gallery/boston_beach.jpg" />
-        </Col>
-        <Col xs={3} md={3}>
-          <Photo imageURL="photo_gallery/blackhawks.jpg" />
-        </Col>
-        <Col xs={3} md={3}>
-          <Photo imageURL="photo_gallery/sushi_making.jpeg" />
-        </Col>
-        <Col xs={3} md={3}>
-          <Photo imageURL="photo_gallery/ski_trip.jpg" />
-        </Col>
-      </Row>
-    </Col>
-  </Grid>
-);
+/*
+This component does some back bending to load jquery & nanogallery only when it is displayed
+it also prevents jquery and nanogallery from loading at the same time, jquery has to be first
+It's also modified c/p off of SO, and there's some antiquated pieces in here
+*/
+class Photos extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      scriptsToLoad: ['https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js',
+        'https://cdn.jsdelivr.net/npm/nanogallery2/dist/jquery.nanogallery2.min.js'
+      ]
+    };
+    this.handleScriptInject = this.handleScriptInject.bind(this);
+  }
+
+  handleScriptInject({ scriptTags }) {
+    if (scriptTags) {
+      const scriptTag = scriptTags[0];
+      scriptTag.onload = () => {
+        this.setState(prevState => (
+          { scriptsToLoad: prevState.scriptsToLoad.filter(s => s !== scriptTag.src) }
+        ));
+      };
+    }
+  }
+
+  render() {
+    return (
+      <>
+        <Helmet
+          script={[{ src: this.state.scriptsToLoad[0] }]}
+          onChangeClientState={(newState, addedTags) => this.handleScriptInject(addedTags)}
+        />
+        <div data-nanogallery2='{ "itemsBaseURL": "/photo_gallery/", "thumbnailWidth":  "auto", "thumbnailHeight":  250}'>
+          { images.map(file => (
+            <a key={file} href={file} data-ngthumb={`thumbnails/${file}`} data-ngdesc={file}> TODO: name </a>
+          )) }
+        </div>
+      </>
+    );
+  }
+}
+
 export default Photos;
