@@ -17,14 +17,14 @@ PREFIX=thumb
 cd public/photo_gallery
 mkdir -p thumbnails
 
-for i in [^$PREFIX]*.jpg
+for i in *.jpg
 do
   echo "Processing image $i ..."
-  NEWFILE="./thumbnails/$PREFIX_$i"
+  NEWFILE="./thumbnails/$i"
   if [ -f "$NEWFILE" ]; then
     echo "$NEWFILE exists - skipping."
   else
-    jpegtran -flip vertical "$i" | djpeg | pnmscale -xysize $X_DIM $Y_DIM | cjpeg -optimize -progressive -quality 75 -outfile "$NEWFILE"
+    convert -thumbnail $X_DIMx$Y_DIM -auto-orient "$i" "$NEWFILE"
   fi
   echo $i processed
 done

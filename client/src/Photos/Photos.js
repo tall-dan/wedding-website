@@ -39,7 +39,7 @@ class Photos extends Component {
           script={[{ src: this.state.scriptsToLoad[0] }]}
           onChangeClientState={(newState, addedTags) => this.handleScriptInject(addedTags)}
         />
-        <div id="my_nanogallery2" data-nanogallery2='{ "itemsBaseURL": "/photo_gallery/"}'>
+        <div data-nanogallery2='{ "itemsBaseURL": "/photo_gallery/", "thumbnailWidth":  "auto", "thumbnailHeight":  250}'>
           { images.map(file => (
             <a key={file} href={file} data-ngthumb={`thumbnails/${file}`} data-ngdesc={file}> TODO: name </a>
           )) }
