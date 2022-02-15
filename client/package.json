@@ -33,6 +33,7 @@
     "eject": "react-scripts eject",
     "eslint": "eslint . --ext .js",
     "eslint:fix": "eslint . --ext .js --fix",
+    "mock_metadata": "cp public/photo_gallery/__mocks__/metadata.js public/photo_gallery/metadata.js",
     "stylelint": "stylelint 'src/**/*.scss'",
     "stylelint:fix": "stylelint 'src/**/*.scss' --fix"
   },

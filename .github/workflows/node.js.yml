@@ -24,6 +24,8 @@ jobs:
         cache-dependency-path: ./client/package.json
     - run: npm ci
       working-directory: client
+    - run: npm run mock_metadata
+      working-directory: client
     - run: npm run build --if-present
       working-directory: client
     - run: npm test -- --watchAll=false
@@ -60,6 +62,8 @@ jobs:
         cache: 'npm'
         cache-dependency-path: ./client/package.json
     - run: npm ci
+      working-directory: client
+    - run: npm run mock_metadata
       working-directory: client
     - run: npm run eslint
       working-directory: client

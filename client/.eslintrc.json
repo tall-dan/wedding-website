@@ -11,6 +11,7 @@
     }],
     "react/jsx-one-expression-per-line": 0,
     "comma-dangle": ["error", "never"],
-    "max-len": ["error", {"code": 120, "ignoreStrings": true}]
+    "max-len": ["error", {"code": 120, "ignoreStrings": true}],
+    "import/prefer-default-export": 0
   }
 }
