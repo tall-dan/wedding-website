@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 // import styles from './Photos.module.scss';
 import images from './photo_gallery/gallery';
+import { metadata } from './photo_gallery/metadata';
 
 /*
 This component does some back bending to load jquery & nanogallery only when it is displayed
@@ -40,7 +41,7 @@ class Photos extends Component {
         />
         <div data-nanogallery2='{ "itemsBaseURL": "/photo_gallery/", "thumbnailWidth":  "auto", "thumbnailHeight":  250}'>
           { images.map(file => (
-            <a key={file} href={file} data-ngthumb={`thumbnails/${file}`} data-ngdesc={file}> TODO: name </a>
+            <a key={file} href={file} data-ngthumb={`thumbnails/${file}`} data-ngdesc={file}>{metadata[file]} </a>
           )) }
         </div>
       </>
