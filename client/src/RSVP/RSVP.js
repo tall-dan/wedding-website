@@ -14,12 +14,7 @@ const RSVP = () => (
           <p>
             You'll be able to RSVP for yourself and your party here
           </p>
-          <form action="/rsvp">
-            <Row center="xs">
-              <input className={styles.RSVP_search_input} type="text" name="full_name" placeholder="Ex: Chazz Reinhold (Not Dr. Reinhold or The Chazz Family)"/>
-            </Row>
-            <Button text="Find Your Invites" />
-          </form>
+          <Lookup prompt="You'll be able to RSVP for yourself and your party here" />
         </div>
       </div>
     </Col>
