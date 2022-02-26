@@ -1,18 +1,26 @@
 # frozen_string_literal: true
 
-class GuestsFromRow
+module GuestReader
   attr_reader :row
+  # consumers must implement #address_column, #names_column, #guest_count
 
   def initialize(row)
     @row = row
   end
 
+  # rubocop:disable Metrics/CyclomaticComplexity
   def extract
-    return single_guest if single_guest?
+    return [] if invalid_row?
     return family if family?
+    return single_guest if single_guest?
     return married_couple if married_couple?
     return single_with_guest if single_with_guest?
     return couple_with_different_names if couple_with_different_names?
+  end
+  # rubocop:enable Metrics/CyclomaticComplexity
+
+  def invalid_row?
+    address_column.blank?
   end
 
   def single_guest?
@@ -26,12 +34,13 @@ class GuestsFromRow
   end
 
   def family?
-    address_column.include?('& Family')
+    address_column.downcase.include?('family')
   end
 
   # rubocop:disable Metrics/AbcSize
   def family
-    last_name = address_column.match(/(.*) & Family/)[1].split(' ').last
+    last_name = address_column.match(/(.*) & Family/).try('[]', 1)&.split(' ')&.last
+    last_name ||= address_column.match(/The (.*) Family/)[1]
     first_names = names_column.gsub(', and', ',').split(', ')
 
     0.upto(guest_count.to_i - 1).with_object([]) do |i, guests|
