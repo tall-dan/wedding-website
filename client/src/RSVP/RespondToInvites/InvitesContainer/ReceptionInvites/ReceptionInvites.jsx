@@ -20,6 +20,14 @@ class ReceptionInvites extends Component {
     })
   }
 
+  handleSubmit = () => {
+    const guests = {}
+    debugger;
+    this.props.saveInvites(this.state).then(() => {
+      this.window.location.href = `/rsvp/mealSelection?guests=${guests}`
+    })
+  }
+
   render = () => {
     return(
         <Grid fluid>
@@ -33,7 +41,7 @@ class ReceptionInvites extends Component {
               <Col sm={3} md={2} xs={4}> <span> Regretfully Declines </span> </Col>
             </Row>
             {this.props.invites.map(invite => (
-                <Row>
+                <Row key = {invite.id}>
                   <Col className={styles.InviteeResponse__guest_name} mdOffset={3} md={2} xs={4} style={{"textAlign": 'right'}}> <span>{invite.guest.displayName}</span> </Col>
                   <Col sm={2} xs={4}>
                     < SelectionRow
@@ -57,7 +65,7 @@ class ReceptionInvites extends Component {
             </Col>
           </Row>
           <Row center='xs'>
-            <Button text="Continue" onClick={() => this.props.saveInvites(this.state)}/>
+            <Button text="Continue" onClick={this.handleSubmit}/>
           </Row>
         </Grid>
     )

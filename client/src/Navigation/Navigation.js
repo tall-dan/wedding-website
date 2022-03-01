@@ -9,6 +9,7 @@ import Registry from '../Registry/Registry';
 import RSVP from '../RSVP/RSVP';
 import SearchResults from '../RSVP/SearchResults/SearchResults';
 import RespondToInvites from '../RSVP/RespondToInvites/RespondToInvites';
+import MealSelection from '../RSVP/MealSelection/MealSelection';
 
 const Navigation = ({ children }) => (
   <>
@@ -23,6 +24,7 @@ const Navigation = ({ children }) => (
     <Route exact path="/rsvp" component={RSVP} />
     <Route exact path="/rsvp/search" component={SearchResults} />
     <Route exact path="/rsvp/respondToInvites" component={RespondToInvites} />
+    <Route exact path="/rsvp/mealSelection" component={MealSelection} />
   </>
 );
 
