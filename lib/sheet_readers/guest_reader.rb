@@ -28,13 +28,12 @@ module GuestReader
   # rubocop:disable Metrics/CyclomaticComplexity
   def extract
     guests =
-      case
-        when invalid_row? then []
-        when family? then family
-        when single_guest? then single_guest
-        when married_couple? then married_couple
-        when single_with_guest? then single_with_guest
-        when couple_with_different_names? then couple_with_different_names
+      if invalid_row? then []
+      elsif family? then family
+      elsif single_guest? then single_guest
+      elsif married_couple? then married_couple
+      elsif single_with_guest? then single_with_guest
+      elsif couple_with_different_names? then couple_with_different_names
       end
     guests.each { |guest| guest.run_callbacks(:save) }
     tweak_edge_cases(guests)
@@ -111,9 +110,7 @@ module GuestReader
         guest.assign_attributes(first_name: 'joan', last_name: 'mclaughlin')
       elsif guest.last_name == 'mcweiner'
         guest.assign_attributes(last_name: 'weiner')
-        if guest.first_name == 'guest'
-          guest.assign_attributes(last_name: 'guest', first_name: 'weiner')
-        end
+        guest.assign_attributes(last_name: 'guest', first_name: 'weiner') if guest.first_name == 'guest'
       end
     end
     guests

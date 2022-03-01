@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 task :upload_guests, [:file_path] => :environment do |_t, args|
   require 'sheet_readers/guest_reader'
   reader, source = GuestReader.reader_with_source(args[:file_path])
