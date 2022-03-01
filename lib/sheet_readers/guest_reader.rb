@@ -2,7 +2,24 @@
 
 module GuestReader
   attr_reader :row
-  # consumers must implement #address_column, #names_column, #guest_count
+  # consumers must implement #address_column, #names_column, #guest_count, #rehearsal_dinner_column
+
+  def self.reader_with_source(file_name)
+    # if given csv, read it and give back the appropriate reader
+    # if not, use google and give back the appropriate reader
+    if file_name
+      require 'csv'
+      require 'sheet_readers/csv_row_guest_reader'
+      source = CSV.read(args[:file_path], headers: true)
+      reader = CsvRowGuestReader
+    else
+      require 'google_sheet_reader'
+      require 'sheet_readers/array_guest_reader'
+      source = GoogleSheetReader.read.values
+      reader = ArrayGuestReader
+    end
+    [reader, source]
+  end
 
   def initialize(row)
     @row = row
@@ -10,14 +27,25 @@ module GuestReader
 
   # rubocop:disable Metrics/CyclomaticComplexity
   def extract
-    return [] if invalid_row?
-    return family if family?
-    return single_guest if single_guest?
-    return married_couple if married_couple?
-    return single_with_guest if single_with_guest?
-    return couple_with_different_names if couple_with_different_names?
+    guests =
+      case
+        when invalid_row? then []
+        when family? then family
+        when single_guest? then single_guest
+        when married_couple? then married_couple
+        when single_with_guest? then single_with_guest
+        when couple_with_different_names? then couple_with_different_names
+      end
+    guests.each { |guest| guest.run_callbacks(:save) }
+    tweak_edge_cases(guests)
   end
   # rubocop:enable Metrics/CyclomaticComplexity
+
+  def invited_to_rehearsal_dinner?
+    rehearsal_dinner_column.to_s.downcase == 'y'
+  end
+
+  private
 
   def invalid_row?
     address_column.blank?
@@ -68,27 +96,31 @@ module GuestReader
   def single_with_guest
     last_name = address_column.gsub(' & Guest', '').split(' ').last
     first_name = names_column.split(' and ').first
-    [Guest.new(first_name: first_name, last_name: last_name), Guest.new(first_name: last_name, last_name: 'Guest')]
+    [Guest.new(first_name: first_name, last_name: last_name), Guest.new(first_name: last_name, last_name: 'guest')]
   end
 
   def couple_with_different_names?
     address_column.include?(' & M')
   end
 
+  def tweak_edge_cases(guests)
+    guests.each do |guest|
+      if guest.last_name == 'morilla'
+        guest.assign_attributes(last_name: 'diaz morilla')
+      elsif guest.first_name == 'ms. joan mclaughlin'
+        guest.assign_attributes(first_name: 'joan', last_name: 'mclaughlin')
+      elsif guest.last_name == 'mcweiner'
+        guest.assign_attributes(last_name: 'weiner')
+        if guest.first_name == 'guest'
+          guest.assign_attributes(last_name: 'guest', first_name: 'weiner')
+        end
+      end
+    end
+    guests
+  end
+
   def couple_with_different_names
     names = address_column.match(/M\w+.\W+(\w+) (\w+) & M\w+. (\w+) (\w+)/).captures
     names.each_slice(2).map { |slice| Guest.new(first_name: slice[0], last_name: slice[1]) }
-  end
-
-  def address_column
-    row['Guests Line 1:']
-  end
-
-  def names_column
-    row['Guests Line 2:']
-  end
-
-  def guest_count
-    row['Guest Count']
   end
 end
