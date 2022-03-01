@@ -3,21 +3,21 @@ const deserializeURLQuery = (url = window.location.href) => {
   const properties = decodeURIComponent(query).split('&');
 
   return properties.reduce((object, property) => {
-    let [key, value] = property.split('=');
-    const valueIsArray = key.endsWith("[]");
+    let [key, value] = property.split('='); // eslint-disable-line prefer-const
+    const valueIsArray = key.endsWith('[]');
     if (valueIsArray) {
       key = key.substring(0, key.length - 2);
       if (object[key]) {
         object[key].push(value);
       } else {
-        object[key] = [value];
+        object[key] = [value]; // eslint-disable-line no-param-reassign
       }
     } else {
-      object[key] = value;
+      object[key] = value; // eslint-disable-line no-param-reassign
     }
 
     return object;
   }, {});
-}
+};
 
 export default deserializeURLQuery;

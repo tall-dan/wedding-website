@@ -1,17 +1,15 @@
 import React from 'react';
 import { Grid, Col } from 'react-flexbox-grid';
+import { useQuery } from '@apollo/react-hooks';
+import gql from 'graphql-tag';
 import styles from './SearchResults.module.scss';
 import Lookup from '../Lookup/Lookup';
-import { useQuery } from '@apollo/react-hooks';
 import SectionTitle from '../../shared/SectionTitle/SectionTitle';
 import deserializeURLQuery from '../../shared/url/deserializeURLQuery';
 import InviteeSelection from './InviteeSelection/InviteeSelection';
-import gql from 'graphql-tag';
 
 function SearchResults() {
-  const name = () => {
-    return deserializeURLQuery()['name']
-  }
+  const name = () => deserializeURLQuery().name;
 
   const query = gql`
     {
@@ -20,7 +18,7 @@ function SearchResults() {
         id
       }
     }
-  `
+  `;
 
   const { loading, error, data } = useQuery(query);
   let prompt;
@@ -38,7 +36,7 @@ function SearchResults() {
         </div>
       </Col>
     </Grid>
-  )
+  );
 }
 
 export default SearchResults;
