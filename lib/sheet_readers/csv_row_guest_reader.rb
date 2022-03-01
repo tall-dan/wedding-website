@@ -16,4 +16,8 @@ class CsvRowGuestReader
   def guest_count
     row['Guest Count']
   end
+
+  def rehearsal_dinner_column
+    row['Invited To Rehearsal Dinner']
+  end
 end

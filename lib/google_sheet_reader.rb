@@ -5,7 +5,7 @@ require 'googleauth'
 require 'googleauth/stores/file_token_store'
 require 'fileutils'
 
-class GoogleGuestReader
+class GoogleSheetReader
   APPLICATION_NAME = 'Guest Sheet Reader'
   SCOPE = Google::Apis::SheetsV4::AUTH_SPREADSHEETS
   CREDENTIALS_PATH = 'config/credentials/google_credentials.json'
@@ -37,7 +37,7 @@ class GoogleGuestReader
     def read
       spreadsheet_id = '1jxDQSJmBhuDu_Nrt3iz_kz8tK4A4dT_YvqCaPbXX08Q'
       sheet = 'Wedding Invites - June 25 2022'
-      range = 'A2:F140'
+      range = 'A2:L140'
       service.get_spreadsheet_values spreadsheet_id, "#{sheet}!#{range}"
     end
   end

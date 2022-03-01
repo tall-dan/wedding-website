@@ -16,4 +16,8 @@ class ArrayGuestReader
   def guest_count
     row[5]
   end
+
+  def rehearsal_dinner_column
+    row[8]
+  end
 end
