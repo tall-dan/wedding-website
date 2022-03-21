@@ -11,7 +11,8 @@ class Lookup extends Component {
   }
 
   onChange = (event) => {
-    this.setState({ lookupURL: `/rsvp/search?name=${encodeURI(event.target.value)}` });
+    const nameJson = JSON.stringify(event.target.value)
+    this.setState({ lookupURL: `/rsvp/search?name=${encodeURI(nameJson)}` });
   }
 
   render() {
