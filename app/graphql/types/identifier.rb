@@ -11,6 +11,7 @@ module Types
     end
 
     def self.coerce_input(value, _ctx)
+      return nil if value.nil?
       return Base64.urlsafe_decode64(value) if value.is_a? String
 
       Base64.urlsafe_decode64(value.name) # This is a hack. don't know why value is coming through as node

@@ -14,9 +14,19 @@ class InvitesContainer extends Component {
     this.state = { eventResponseIndex: 0 };
   }
 
+  guestsAcceptingReceptionInvites = (invites) => {
+    return this.props.invites.reception.reduce((acceptingGuests, blankInvite) =>  {
+      if (invites[blankInvite.id] === 'accepted') return acceptingGuests.concat(blankInvite.guest)
+      else return acceptingGuests
+    }, [])
+  }
+
   nextInviteStep = (invites) => {
-    if (this.currentlyRespondingTo() === 'rehearsal_dinner') {
-      this.window.location.href = `/rsvp/mealSelection` // ?guests=${guests}`
+    if (this.currentlyRespondingTo() === 'reception') {
+      const guests = this.guestsAcceptingReceptionInvites(invites)
+      const eventId = this.props.invites[this.currentlyRespondingTo()][0].event.id
+      // TODO: if no one is accepting, direct to some see ya later page
+      window.location.href = `/rsvp/mealSelection?guests=${encodeURIComponent(JSON.stringify(guests))}&eventId=${JSON.stringify(eventId)}`
     } else {
       this.setState({ eventResponseIndex: this.state.eventResponseIndex + 1 })
     }

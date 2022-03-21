@@ -15,7 +15,7 @@ module GuestReader
     else
       require 'google_sheet_reader'
       require 'sheet_readers/array_guest_reader'
-      source = GoogleSheetReader.read.values
+      source = GoogleSheetReader.new('Wedding Invites - June 25 2022').read('A2:L140')
       reader = ArrayGuestReader
     end
     [reader, source]
