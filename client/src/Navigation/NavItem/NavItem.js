@@ -11,15 +11,16 @@ class NavItem extends Component {
   };
 
   render() {
+    const { title } = this.props;
     return (
       <div className={styles.NavItem}>
         <NavLink
-          to={`/${camelCase(this.props.title)}`}
+          to={`/${camelCase(title)}`}
           isActive={this.isActive}
           className={styles.NavItem__Link}
           activeClassName={styles['NavItem__Link--selected']}
         >
-          {this.props.title}
+          {title}
         </NavLink>
       </div>
     );

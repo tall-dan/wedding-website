@@ -11,20 +11,22 @@ class Lookup extends Component {
   }
 
   onChange = (event) => {
-    const nameJson = JSON.stringify(event.target.value)
+    const nameJson = JSON.stringify(event.target.value);
     this.setState({ lookupURL: `/rsvp/search?name=${encodeURI(nameJson)}` });
   }
 
   render() {
+    const { prompt } = this.props;
+    const { lookupURL } = this.state;
     return (
       <div className={styles.Lookup}>
         <p className={styles.Lookup_prompt}>
-          { this.props.prompt }
+          { prompt }
         </p>
         <Row center="xs">
           <input onChange={this.onChange} className={styles.Lookup_search_input} type="text" name="full_name" placeholder="Ex: Jeremy Grey (Not Dr. Grey or The Grey Family)" />
         </Row>
-        <a href={this.state.lookupURL}>
+        <a href={lookupURL}>
           <Button text="Find Your Invites" />
         </a>
       </div>
