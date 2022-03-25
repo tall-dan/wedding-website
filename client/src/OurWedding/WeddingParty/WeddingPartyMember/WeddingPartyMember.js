@@ -11,6 +11,7 @@ class WeddingPartyMember extends Component {
   }
 
   render() {
+    const { name, memberRole, relation } = this.props;
     return (
       <div className={styles.WeddingPartyMember} id={this.id}>
         <div className={styles.WeddingPartyMember__imageContainer}>
@@ -21,9 +22,9 @@ class WeddingPartyMember extends Component {
         </div>
         <div className={styles.WeddingPartyMember__contentContainer}>
           <div className={styles.WeddingPartyMember__title}>
-            {this.props.name} - {this.props.memberRole}
+            {name} - {memberRole}
           </div>
-          <div className={styles.WeddingPartyMember__description}><p>{this.props.relation}</p></div>
+          <div className={styles.WeddingPartyMember__description}><p>{relation}</p></div>
         </div>
       </div>
     );

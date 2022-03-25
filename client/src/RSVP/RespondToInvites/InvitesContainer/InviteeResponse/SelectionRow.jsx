@@ -1,10 +1,9 @@
 import React from 'react';
-import gql from 'graphql-tag';
 import { useMutation } from '@apollo/react-hooks';
 import respondToInvites from '../../../../queries/respondToInvites'
 
 const SelectionRow = ({id, value, checked, onChange}) => {
-  const [respond, { data }] = useMutation(respondToInvites);
+  const [respond] = useMutation(respondToInvites);
 
   const persistChange = (changeEvent, r = respond) => {
     const selection = changeEvent.target;

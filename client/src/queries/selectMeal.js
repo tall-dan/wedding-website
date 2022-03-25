@@ -9,4 +9,3 @@ const selectMeal = gql`
 `;
 
 export default selectMeal;
-

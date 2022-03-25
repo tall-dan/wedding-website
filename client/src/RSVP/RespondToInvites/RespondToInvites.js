@@ -1,17 +1,16 @@
 import React from 'react';
 import gql from 'graphql-tag';
 import { useQuery } from '@apollo/react-hooks';
-import { Grid, Col } from 'react-flexbox-grid';
 import deserializeURLQuery from '../../shared/url/deserializeURLQuery';
-import styles from './RespondToInvites.module.scss';
+// import styles from './RespondToInvites.module.scss';
 import InvitesContainer from './InvitesContainer/InvitesContainer';
 
 function RespondToInvites() {
-  const guest_ids = () => (deserializeURLQuery().guest_ids).map(id => `"${id}"`).join(',');
+  const guestIds = () => (deserializeURLQuery().guestIds).map(id => `"${id}"`).join(',');
 
   const query = gql`
       {
-        invites(guestIds: [${guest_ids()}], orderBy: ["priority"]) {
+        invites(guestIds: [${guestIds()}], orderBy: ["priority"]) {
           id
           status
           guest {
@@ -26,17 +25,17 @@ function RespondToInvites() {
       }
     `;
 
-  const { loading, error, data } = useQuery(query);
+  const { data } = useQuery(query);
 
-  const invites = data => data.invites.reduce((events, invite) => {
-    events[invite.event.name] = events[invite.event.name] || [];
+  const invites = () => data.invites.reduce((events, invite) => {
+    events[invite.event.name] = events[invite.event.name] || []; // eslint-disable-line no-param-reassign
     events[invite.event.name].push(invite);
     return events;
   }, Object.create(null));
 
   return (
     <div>
-      { data && <InvitesContainer invites={invites(data)} /> }
+      { data && <InvitesContainer invites={invites()} /> }
     </div>
   );
 }
