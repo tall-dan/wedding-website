@@ -7,7 +7,7 @@ import { useQuery } from '@apollo/react-hooks';
 import Select from './Select';
 import Button from '../../shared/Button/Button';
 
-function MealSelection() {
+function Transportation() {
   const { guests, eventId } = deserializeURLQuery()
   const guest_ids = () => {
     return guests.map(g => `"${g.id}"`)
@@ -15,8 +15,8 @@ function MealSelection() {
 
   const query = gql`
       {
-        mealSelections(guestIds: [${guest_ids()}], eventId: "${eventId}") {
-          id
+        transportations(guestIds: [${guest_ids()}], eventId: "${eventId}") {
+          journeys
           event {
             id
           }
@@ -24,20 +24,17 @@ function MealSelection() {
             displayName
             id
           }
-          selection
-          options
         }
-      }
-    `;
+        transportationOptions(eventId: "${eventId}")
+     }
+     `;
 
-  // id can come back null for meal selections, which messes up cache
   const { loading, error, data, refetch } = useQuery(query, {fetchPolicy: "no-cache"});
-
-  /*
-   * meal selections will come back for every guest
-   * if they have made a selection, its id and selection will be populated
-   * if not, empty. But guest info + event is always present
-   */
+  const guestTransportations = (data) => guests.map(guest => {
+    const transportations = data.transportations.filter(transport => transport.guest.id === guest.id)
+    const transportation = transportations[0] || { journeys: [] }
+    return {guest, eventId, ...transportation, options: data.transportationOptions}
+  })
 
   const selectTransportation = () => {
      window.location.href = `/rsvp/transportation?guests=${encodeURIComponent(JSON.stringify(guests))}&eventId=${JSON.stringify(eventId)}`
@@ -45,10 +42,10 @@ function MealSelection() {
 
   return (
     <Grid fluid>
-      <SectionTitle title="What would you like to eat?" />
+      <SectionTitle title="Can we offer you a ride?" />
         <Row center='xs'>
-      { data && data.mealSelections.map (selection=> (
-        <Select {...{...selection, onChange: refetch}} key={selection.guest.id} />
+      { data && guestTransportations(data).map ( guestTransport=> (
+        <Select {...{...guestTransport, onChange: refetch}} key={guestTransport.guest.id} />
       ))}
         </Row>
         <Button text="Continue" onClick={selectTransportation} />
@@ -56,4 +53,4 @@ function MealSelection() {
   );
 }
 
-export default MealSelection;
+export default Transportation;

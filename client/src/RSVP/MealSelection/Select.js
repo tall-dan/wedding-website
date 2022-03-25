@@ -2,10 +2,10 @@ import React from 'react';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/react-hooks';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import selectToInvites from '../../queries/selectMeal'
+import selectMeal from '../../queries/selectMeal'
 
 const Select = ({id, event, guest, selection, options, onChange}) => {
-  const [select, { data }] = useMutation(selectToInvites, {onCompleted: onChange});
+  const [select, { data }] = useMutation(selectMeal, {onCompleted: onChange});
 
   const persistChange = (changeEvent, s = select) => {
     const selection = changeEvent.target;
