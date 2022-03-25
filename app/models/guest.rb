@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'google_sheet_reader'
 
 class Guest < ApplicationRecord
@@ -6,8 +7,16 @@ class Guest < ApplicationRecord
 
   after_initialize :downcase_names
 
-  def is_kid?
+  def kid?
     self.class.kids_names.include?("#{first_name} #{last_name}")
+  end
+
+  class << self
+    private
+
+    def kids_names
+      @kids_names ||= GoogleSheetReader.new('Kids Meals').read('A2:A30').compact.flatten
+    end
   end
 
   private
@@ -15,9 +24,5 @@ class Guest < ApplicationRecord
   def downcase_names
     first_name&.downcase!
     last_name&.downcase!
-  end
-
-  def self.kids_names
-    @kids_names ||= GoogleSheetReader.new('Kids Meals').read('A2:A30').compact.flatten
   end
 end

@@ -10,41 +10,39 @@ module GuestReader
     if file_name
       require 'csv'
       require 'sheet_readers/csv_row_guest_reader'
-      source = CSV.read(args[:file_path], headers: true)
-      reader = CsvRowGuestReader
+      [CsvRowGuestReader, CSV.read(args[:file_path], headers: true)]
     else
       require 'google_sheet_reader'
       require 'sheet_readers/array_guest_reader'
-      source = GoogleSheetReader.new('Wedding Invites - June 25 2022').read('A2:L140')
-      reader = ArrayGuestReader
+      [ArrayGuestReader, GoogleSheetReader.new('Wedding Invites - June 25 2022').read('A2:L140')]
     end
-    [reader, source]
   end
 
   def initialize(row)
     @row = row
   end
 
-  # rubocop:disable Metrics/CyclomaticComplexity
   def extract
-    guests =
-      if invalid_row? then []
-      elsif family? then family
-      elsif single_guest? then single_guest
-      elsif married_couple? then married_couple
-      elsif single_with_guest? then single_with_guest
-      elsif couple_with_different_names? then couple_with_different_names
-      end
-    guests.each { |guest| guest.run_callbacks(:save) }
     tweak_edge_cases(guests)
   end
-  # rubocop:enable Metrics/CyclomaticComplexity
 
   def invited_to_rehearsal_dinner?
     rehearsal_dinner_column.to_s.downcase == 'y'
   end
 
   private
+
+  # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+  def guests
+    if invalid_row? then []
+    elsif family? then family
+    elsif single_guest? then single_guest
+    elsif married_couple? then married_couple
+    elsif single_with_guest? then single_with_guest
+    elsif couple_with_different_names? then couple_with_different_names
+    end
+  end
+  # rubocop:enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
 
   def invalid_row?
     address_column.blank?
@@ -113,7 +111,6 @@ module GuestReader
         guest.assign_attributes(last_name: 'guest', first_name: 'weiner') if guest.first_name == 'guest'
       end
     end
-    guests
   end
 
   def couple_with_different_names
