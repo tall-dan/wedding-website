@@ -5,7 +5,7 @@ class MealSelection < ApplicationRecord
   belongs_to :event
 
   def options
-    guest.is_kid? ? (adult_options + kid_options) : adult_options
+    guest.kid? ? (adult_options + kid_options) : adult_options
   end
 
   private

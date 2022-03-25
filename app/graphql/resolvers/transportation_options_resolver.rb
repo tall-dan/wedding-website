@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Resolvers
   class TransportationOptionsResolver < GraphQL::Schema::Resolver
     type [String], null: false
