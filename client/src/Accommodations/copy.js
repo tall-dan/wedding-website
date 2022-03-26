@@ -5,7 +5,7 @@ export const copy = {
     phone_number: '(630) 986-4100',
     address: '1200 Burr Ridge Pkwy, Burr Ridge, IL 60527',
     description: 'We currently have a McLaughlin/Schepers room block for out-of-town wedding guests. Rooms range from $129 - $159 per night',
-    url: 'https://www.marriott.com/events/start.mi?id=1642018142313&key=GRP'
+    url: 'https://www.marriott.com/event-reservations/reservation-link.mi?id=1645738308684&key=GRP&app=resvlink
   },
   hampton: {
     title: 'Hampton Inn & Suites Chicago at Burr Ridge',
