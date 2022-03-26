@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-ruby '2.5.3'
+ruby `cat .ruby-version`.chomp.match('\d.\d.\d')[0]
 
 gem 'activerecord-import'
 gem 'rails', '~> 6.1.4'
