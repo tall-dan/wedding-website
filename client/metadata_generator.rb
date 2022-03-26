@@ -3,7 +3,8 @@ outfile = "#{path}metadata.js"
 
 metadata_js = Dir["#{path}*.jpg"].each_with_object("export const metadata = {\n") do |filename, metadata|
   file_metadata = `mdls #{filename}`
-  comments = file_metadata[/.*kMDItemFinderComment\s*=\s*"(.*)"/,1]
+  comments = '' # removing comments (which become thumbnail titles) for now
+  # comments = file_metadata[/.*kMDItemFinderComment\s*=\s*"(.*)"/,1]
   metadata << "  '#{filename.gsub(path, '')}': '#{comments}',\n"
 end << '}'
 
