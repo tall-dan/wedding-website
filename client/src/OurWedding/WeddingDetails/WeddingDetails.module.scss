@@ -30,6 +30,7 @@
     font-size: 30px;
   }
 
+  .WeddingDetails__time,
   .WeddingDetails__venue,
   .WeddingDetails__address {
     font-size: 1.5em;
@@ -38,8 +39,8 @@
 
   .WeddingDetails__eventDescription {
     text-align: left;
-    max-width: 820px;
     font-size: 1.4em;
     margin: 0 auto;
+    p { text-align: center; }
   }
 }
