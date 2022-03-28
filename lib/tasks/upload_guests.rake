@@ -17,3 +17,28 @@ task :upload_guests, [:file_path] => :environment do |_t, args|
 
   # TODO: this should really be in something like db seed
 end
+
+task create_minted_friendly_csv: :environment do
+  require 'sheet_readers/guest_reader'
+  require 'csv'
+  reader, source = GuestReader.reader_with_source
+  outfile = File.open('minted_addresses.csv', 'w+')
+  headers = [
+    'Name on Envelope', 'Street Address 1', 'Street Address 2 (Optional)', 'City',
+    'State/Region', 'Zip/Postal Code', 'Country', 'Email (Optional)', 'Phone (Optional)'
+  ]
+  source.each_with_object(CSV.new(outfile, write_headers: true, headers: headers)) do |row, csv|
+    parsed_row = reader.new(row)
+    next if row[0].blank?
+
+    csv << [
+      parsed_row.address_column,
+      parsed_row.street_address_1,
+      parsed_row.street_address_2 == parsed_row.city_state_zip_column ? '' : parsed_row.street_address_2,
+      parsed_row.city,
+      parsed_row.state,
+      parsed_row.zip,
+      'US'
+    ]
+  end
+end

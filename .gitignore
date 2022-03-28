@@ -24,6 +24,7 @@ coverage/*
 
 # Node
 /client/node_modules
+*.csv
 
 # Secrets
 config/secrets.yml
