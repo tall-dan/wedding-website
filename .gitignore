@@ -24,6 +24,7 @@ coverage/*
 
 # Node
 /client/node_modules
+*.csv
 
 # Secrets
 config/secrets.yml
@@ -31,3 +32,7 @@ config/secrets.yml
 .credentials.aws
 
 /config/credentials/*
+
+invites.csv
+guests.csv
+rehearsal_dinner_invites.csv

@@ -33,10 +33,11 @@ class Photos extends Component {
   }
 
   render() {
+    const { scriptsToLoad } = this.state;
     return (
       <>
         <Helmet
-          script={[{ src: this.state.scriptsToLoad[0] }]}
+          script={[{ src: scriptsToLoad[0] }]}
           onChangeClientState={(newState, addedTags) => this.handleScriptInject(addedTags)}
         />
         <div data-nanogallery2='{ "itemsBaseURL": "/photo_gallery/", "thumbnailWidth":  "auto", "thumbnailHeight":  250}'>

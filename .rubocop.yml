@@ -5,6 +5,7 @@ AllCops:
     - 'vendor/**/*'
     - 'config/environments/*'
     - 'client/**/*'
+    - 'db/schema.rb'
 
 Metrics/LineLength:
   Max: 120

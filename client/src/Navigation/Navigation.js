@@ -7,6 +7,10 @@ import Accommodations from '../Accommodations/Accommodations';
 import Photos from '../Photos/Photos';
 import Registry from '../Registry/Registry';
 import RSVP from '../RSVP/RSVP';
+import SearchResults from '../RSVP/SearchResults/SearchResults';
+import RespondToInvites from '../RSVP/RespondToInvites/RespondToInvites';
+import MealSelection from '../RSVP/MealSelection/MealSelection';
+import Transportation from '../RSVP/Transportation/Transportation';
 
 const Navigation = ({ children }) => (
   <>
@@ -14,11 +18,15 @@ const Navigation = ({ children }) => (
       {children}
     </nav>
     <Route exact path="/" component={OurWedding} />
-    <Route path="/ourWedding" component={OurWedding} />
-    <Route path="/accommodations" component={Accommodations} />
-    <Route path="/photos" component={Photos} />
-    <Route path="/registry" component={Registry} />
-    <Route path="/rsvp" component={RSVP} />
+    <Route exact path="/ourWedding" component={OurWedding} />
+    <Route exact path="/accommodations" component={Accommodations} />
+    <Route exact path="/photos" component={Photos} />
+    <Route exact path="/registry" component={Registry} />
+    <Route exact path="/rsvp" component={RSVP} />
+    <Route exact path="/rsvp/search" component={SearchResults} />
+    <Route exact path="/rsvp/respondToInvites" component={RespondToInvites} />
+    <Route exact path="/rsvp/mealSelection" component={MealSelection} />
+    <Route exact path="/rsvp/transportation" component={Transportation} />
   </>
 );
 

@@ -2,9 +2,10 @@
 
 source 'https://rubygems.org'
 
-ruby '2.5.3'
+ruby `cat .ruby-version`.chomp.match('\d.\d.\d')[0]
 
-gem 'rails', '~> 6.1.4.6'
+gem 'activerecord-import'
+gem 'rails', '~> 6.1.4'
 
 gem 'pg',   '~> 1.1'
 gem 'puma', '~> 4.3.11'
@@ -17,6 +18,7 @@ gem 'puma', '~> 4.3.11'
 gem 'devise'
 gem 'rolify'
 
+gem 'google-api-client'
 gem 'graphiql-rails', '~> 1.4.11' # TODO: figure out if / how to secure this
 gem 'graphql', '1.13.6'
 gem 'mail'
