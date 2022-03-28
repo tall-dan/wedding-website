@@ -22,9 +22,9 @@ function App() {
           <NavItem title="Our Wedding" />
           <NavItem title="Accommodations" />
           <NavItem title="Photos" />
-          <NavItem title="RSVP" />
           {
           /*
+          <NavItem title="RSVP" />
           <NavItem title="Registry" />
          */}
         </Navigation>
