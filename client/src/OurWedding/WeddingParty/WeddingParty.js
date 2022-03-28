@@ -63,8 +63,8 @@ const WeddingParty = () => (
         { /* todo: figure out a divider to display when we collapse to a single column */ }
         <Col md={6} sm={12}>
           <WeddingPartyMember
-            name="Adam Knies"
-            relation="Childhood friend of the Groom"
+            name="Andrew Benitez"
+            relation="College Friend of the Groom"
             memberRole="Best Man"
           />
           <div className={styles.WeddingParty__sectionDivider} />
@@ -75,8 +75,8 @@ const WeddingParty = () => (
           />
           <div className={styles.WeddingParty__sectionDivider} />
           <WeddingPartyMember
-            name="Andrew Benitez"
-            relation="College Friend of the Groom"
+            name="Adam Knies"
+            relation="Childhood friend of the Groom"
             memberRole="Groomsman"
           />
           <div className={styles.WeddingParty__sectionDivider} />
