@@ -11,12 +11,8 @@ class Guest < ApplicationRecord
     self.class.kids_names.include?("#{first_name} #{last_name}")
   end
 
-  class << self
-    private
-
-    def kids_names
-      @kids_names ||= GoogleSheetReader.new('Kids Meals').read('A2:A30').compact.flatten
-    end
+  def self.kids_names
+    @kids_names ||= GoogleSheetReader.new('Kids Meals').read('A2:A30').compact.flatten
   end
 
   private
