@@ -26,6 +26,8 @@ coverage/*
 /client/node_modules
 /client/.npmrc
 
+*.csv
+
 # Secrets
 config/secrets.yml
 .distribution.aws

@@ -4,7 +4,7 @@ module GuestReader
   attr_reader :row
   # consumers must implement #address_column, #names_column, #guest_count, #rehearsal_dinner_column
 
-  def self.reader_with_source(file_name)
+  def self.reader_with_source(file_name = nil)
     # if given csv, read it and give back the appropriate reader
     # if not, use google and give back the appropriate reader
     if file_name
