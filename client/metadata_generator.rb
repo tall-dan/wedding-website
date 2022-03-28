@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 path = './public/photo_gallery/'
 outfile = "#{path}metadata.js"
 

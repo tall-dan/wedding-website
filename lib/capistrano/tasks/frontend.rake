@@ -11,7 +11,7 @@ after 'deploy:updated', :build_frontend do
   next unless ENV['deployments'].split(',').include? 'frontend'
 
   run_locally do
-    execute 'cd client && ruby metadata_generator.rb'
+    execute 'cd client && ./metadata_generator.rb'
     execute 'cd client && NODE_ENV=production NPM_CONFIG_PRODUCTION=true npm run build'
     execute 'cd client && ./thumb_nailer.sh -x 250 -y 250'
   end
