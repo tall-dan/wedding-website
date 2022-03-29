@@ -1,5 +1,5 @@
 RAILS_ENV = "production"
-RUBY = "/home/ubuntu/.rubies/2.6.5/bin/ruby"
+RUBY = "/home/ubuntu/.rubies/2.7.5/bin/ruby"
 
 app_name = 'wedding_website'
 rails_root = "/var/www/wedding_website/current"
