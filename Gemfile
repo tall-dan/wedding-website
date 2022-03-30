@@ -7,8 +7,7 @@ ruby '2.7.5'
 gem 'activerecord-import'
 gem 'rails', '~> 6.1.4'
 
-gem 'pg',   '~> 1.1'
-gem 'puma', '~> 4.3.11'
+gem 'pg', '~> 1.1'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
