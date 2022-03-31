@@ -17,6 +17,7 @@ gem 'pg', '~> 1.1'
 gem 'devise'
 gem 'rolify'
 
+gem 'airbrake'
 gem 'google-api-client'
 gem 'graphiql-rails', '~> 1.4.11' # TODO: figure out if / how to secure this
 gem 'graphql', '1.13.6'

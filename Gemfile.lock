@@ -64,6 +64,10 @@ GEM
       zeitwerk (~> 2.3)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    airbrake (13.0.0)
+      airbrake-ruby (~> 6.0)
+    airbrake-ruby (6.0.2)
+      rbtree3 (~> 0.5)
     airbrussh (1.4.0)
       sshkit (>= 1.6.1, != 1.7.0)
     ast (2.4.2)
@@ -255,6 +259,7 @@ GEM
     rb-fsevent (0.11.1)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    rbtree3 (0.7.0)
     representable (3.1.1)
       declarative (< 0.1.0)
       trailblazer-option (>= 0.1.1, < 0.2.0)
@@ -333,6 +338,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-import
+  airbrake
   bootsnap
   bundler-audit
   capistrano
