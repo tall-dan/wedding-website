@@ -11,6 +11,10 @@
   border-style: solid;
   border-width: 1px;
   border-radius: 4px;
-  background-color: #D9BB6D;
+  background-color: #E5CB82;
   text-transform: uppercase;
+
+  &:hover {
+    background-color: #D9BB6D;
+  }
 }

@@ -4,7 +4,11 @@
 }
 
 .InviteeSelection {
-  input[type=submit] {
+  .buttonRow {
     margin-top: 10px;
+  }
+
+  button {
+    margin: 5px;
   }
 }

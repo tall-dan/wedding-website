@@ -31,7 +31,7 @@ function SearchResults() {
       <Col sm={12} md={10} mdOffset={1} lg={8} lgOffset={2}>
         <SectionTitle title="Can't Wait To See You There" />
         <div className={styles.SearchResults}>
-          { data && <InviteeSelection guests={data.guests} /> }
+          { data && data.guests.length > 0 && <InviteeSelection guests={data.guests} /> }
           { (!data || data.guests.length === 0) && <Lookup prompt={prompt} /> }
         </div>
       </Col>

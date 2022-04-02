@@ -1,0 +1,29 @@
+// Hide real checkboxes
+input[type="checkbox"] {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.checkbox {
+  display: inline-block; // set to `inline-block` as `inline elements ignore `height` and `width`
+  cursor: pointer;
+  height: 20px;
+  width: 17px;
+  background: #FFF;
+  border: 1px #BFB8A6 solid;
+  padding-left: 3px;
+  margin-right: 4px;
+  position: relative;
+  top: 7px;
+  border-radius: 4px;
+}
+
+.checkbox__active {
+  background: #E5CB82;
+  //border: 2px #f7f7f7 solid;
+}
