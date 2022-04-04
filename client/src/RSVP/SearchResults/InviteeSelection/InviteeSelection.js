@@ -40,9 +40,9 @@ class InviteeSelection extends Component {
           <Col xs={12} sm={6} smOffset={3}>
             <h2> Select guests that are RSVPing: </h2>
             <form className={styles.InviteeSelection} onSubmit={this.onSubmit}>
-              { guests.map(guest => (
+              { guests.map((guest, index) => (
                 <div key={guest.id} className={styles.guest_row}>
-                  <Checkbox defaultChecked value={guest.id} id={guest.id} onChange={this.onChange} label={guest.displayName} type="checkbox">
+                  <Checkbox defaultChecked value={guest.id} id={guest.id} onChange={this.onChange} tabIndex={index}>
                     <label className={styles.InviteeSelection__guest_name}> { guest.displayName }  </label>
                   </Checkbox>
 
@@ -50,7 +50,7 @@ class InviteeSelection extends Component {
                 </div>
               )) }
               <Col xs={12}>
-                <Row center='xs'>
+                <Row center="xs">
                   <SectionDivider />
                 </Row>
               </Col>

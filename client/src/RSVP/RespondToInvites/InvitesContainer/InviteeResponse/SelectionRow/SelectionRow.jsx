@@ -1,10 +1,12 @@
 import React from 'react';
 import { useMutation } from '@apollo/react-hooks';
-import respondToInvites from '../../../../queries/respondToInvites'
+import respondToInvites from '../../../../../queries/respondToInvites'
 import styles from './SelectionRow.module.scss';
 import classnames from 'classnames';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const SelectionRow = ({id, value, checked, onChange, minWidth,children}) => {
+
+const SelectionRow = ({id, value, checked, onChange, fill, icon, children}) => {
   const [respond] = useMutation(respondToInvites);
 
   const persistChange = (changeEvent, r = respond) => {
@@ -23,31 +25,17 @@ const SelectionRow = ({id, value, checked, onChange, minWidth,children}) => {
       checked={checked}
     />
       <div
-      style={{'min-width': minWidth}}
       onClick={persistChange}
-      className={classnames(styles.checkbox, checked ? styles.checkbox__active : '')
+      className={classnames(styles.checkbox, checked ? styles.checkbox__active : '', fill ? styles.fill_space : '')
       }>
-        <svg
-          className={classnames(styles.check, checked ? '' : styles.check__unchecked)}
-        // This element is purely decorative so
-        // we hide it for screen readers
-          aria-hidden="true"
-          viewBox="0 0 15 11"
-          fill="none"
-        >
-          <path
-            d="M3 5.8L5 9L10 1"
-            strokeWidth="2"
-            stroke={checked ? '#fff' : 'none'}
-          />
-        </svg>
+      <FontAwesomeIcon icon={icon} className={classnames(styles.check, checked ? styles.check__checked : styles.check__unchecked)}/>
           {children}
       </div>
     </label>
 )}
 
 SelectionRow.defaultProps = {
-  minWidth: 'initial'
+  fill: false,
 };
 
 export default SelectionRow;

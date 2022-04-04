@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import styles from './Checkbox.module.scss';
 
 function Checkbox({
-  label, defaultChecked, id, onChange, children
+  defaultChecked, id, onChange, tabIndex, children
 }) {
   const [isChecked, setIsChecked] = useState(defaultChecked);
-  const change = (event) => {
+  const change = () => {
     const newVal = !isChecked;
     setIsChecked(newVal);
     onChange(newVal, id);
@@ -21,7 +21,14 @@ function Checkbox({
         defaultChecked={defaultChecked}
         id={id}
       />
-      <div onClick={change} className={classnames(styles.checkbox, isChecked ? styles.checkbox__active : '')}>
+      <div
+        role="checkbox"
+        aria-checked={isChecked}
+        tabIndex={tabIndex}
+        onKeyPress={() => {}}
+        onClick={change}
+        className={classnames(styles.checkbox, isChecked ? styles.checkbox__active : '')}
+      >
         <svg
           className={classnames(styles.check, isChecked ? '' : styles.check__unchecked)}
         // This element is purely decorative so
@@ -45,10 +52,11 @@ function Checkbox({
 }
 
 Checkbox.propTypes = {
-  label: PropTypes.node,
   defaultChecked: PropTypes.bool,
   id: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired
+  tabIndex: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired,
+  children: PropTypes.arrayOf(PropTypes.node).isRequired
 };
 
 Checkbox.defaultProps = {
