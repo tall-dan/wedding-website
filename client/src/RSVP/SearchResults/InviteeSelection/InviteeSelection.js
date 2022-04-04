@@ -5,6 +5,7 @@ import styles from './InviteeSelection.module.scss';
 import Button from '../../../shared/Button/Button';
 import Checkbox from '../../../shared/Checkbox/Checkbox';
 import serializeJson from '../../../shared/url/serializeJson';
+import SectionDivider from '../../../shared/SectionDivider/SectionDivider';
 import guestType from '../../../types/guest';
 
 class InviteeSelection extends Component {
@@ -41,11 +42,18 @@ class InviteeSelection extends Component {
             <form className={styles.InviteeSelection} onSubmit={this.onSubmit}>
               { guests.map(guest => (
                 <div key={guest.id} className={styles.guest_row}>
-                  <Checkbox defaultChecked value={guest.id} id={guest.id} onChange={this.onChange} type="checkbox" />
-                  <label className={styles.InviteeSelection__guest_name}> { guest.displayName }  </label>
+                  <Checkbox defaultChecked value={guest.id} id={guest.id} onChange={this.onChange} label={guest.displayName} type="checkbox">
+                    <label className={styles.InviteeSelection__guest_name}> { guest.displayName }  </label>
+                  </Checkbox>
+
                   <input defaultChecked value={guest.id} id={guest.id} onChange={this.onChange} type="checkbox" />
                 </div>
               )) }
+              <Col xs={12}>
+                <Row center='xs'>
+                  <SectionDivider />
+                </Row>
+              </Col>
               <div className={styles.buttonRow}>
                 <Button text="Search Again" onClick={this.onSearch} />
                 <Button text="Continue" onClick={this.onSubmit} />

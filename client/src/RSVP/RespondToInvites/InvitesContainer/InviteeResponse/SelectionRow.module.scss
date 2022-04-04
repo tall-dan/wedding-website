@@ -1,5 +1,5 @@
-// Hide real checkboxes
-input[type="checkbox"] {
+// Hide real radios
+input[type="radio"] {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   height: 1px;
@@ -12,14 +12,10 @@ input[type="checkbox"] {
 .checkbox {
   display: inline-block; // set to `inline-block` as `inline elements ignore `height` and `width`
   cursor: pointer;
-  height: 20px;
   border: 1px #BFB8A6 solid;
-  padding: 3px;
-  position: relative;
-  top: 7px;
+  padding: 10px 10px 3px 10px;
   border-radius: 4px;
   text-align: left;
-  min-width: 258px;
   span {
     position: relative;
     bottom: 5px;
@@ -27,11 +23,15 @@ input[type="checkbox"] {
   &:hover, label:hover{
     cursor: pointer;
   }
-  color: white;
-  background: #c1b995;
+  &.fill {
+    min-width: 80%;
+  }
+  background: #f8f8f7;
+  color: #43467a;
 }
 
 .checkbox__active {
+  color: white;
   background: #E5CB82;
   &:hover{
     background-color: #D9BB6D;
@@ -44,10 +44,9 @@ input[type="checkbox"] {
   border-radius: 10px;
   border-width: 2px;
   border: 2px #f7f7f7 solid;
-  margin-right: 10px;
-  margin-left: 10px;
 }
 
 .check__unchecked{
-  border-color: #c1b995;
+  border-color: #43467a;
 }
+

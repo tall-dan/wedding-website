@@ -1,5 +1,11 @@
-.hidden_md {
+.hidden_md_up {
   @media only screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.hidden_md_down {
+  @media only screen and (max-width: 768px) {
     display: none;
   }
 }

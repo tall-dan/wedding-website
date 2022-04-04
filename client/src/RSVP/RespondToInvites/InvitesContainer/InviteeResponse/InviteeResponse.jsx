@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import Button from '../../../../shared/Button/Button';
 import SectionTitle from '../../../../shared/SectionTitle/SectionTitle';
+import SectionDivider from '../../../../shared/SectionDivider/SectionDivider';
+import responsiveStyles from '../../../../shared/styles/responsiveStyles.module.scss'
 import styles from './InviteeResponse.module.scss'
 import SelectionRow from './SelectionRow'
 
@@ -14,9 +16,9 @@ class InviteeResponse extends Component {
     }, Object.create(null));
   }
 
-  handleOptionChange = (selection) => {
+  handleOptionChange = (id, value) => {
     this.setState(prevState => {
-      return {...prevState, [selection.name]: selection.value }
+      return {...prevState, [id]: value }
     })
   }
 
@@ -31,29 +33,35 @@ class InviteeResponse extends Component {
           <Row center='xs'>
           <h2>{this.props.eventName}</h2>
             <Col xs={12}>
-            <Row>
-              <Col mdOffset={3} md={2} xs={4}/>
-              <Col sm={2} xs={4}> <span> Joyfully Accepts </span> </Col>
-              <Col sm={3} md={2} xs={4}> <span> Regretfully Declines </span> </Col>
-            </Row>
             {this.props.invites.map(invite => (
-                <Row key={invite.id}>
-                  <Col className={styles.InviteeResponse__guest_name} mdOffset={3} md={2} xs={4} style={{"textAlign": 'right'}}> <span>{invite.guest.displayName}</span> </Col>
-                  <Col sm={2} xs={4}>
-                    < SelectionRow
+                <Row key={invite.id} center='xs'>
+                  <Col className={styles.InviteeResponse__guest_name} lg={3} md={3} xs={12}>
+                    <Row end='md' center='xs'>
+                      <span>{invite.guest.displayName}</span>
+                    </Row>
+                  </Col>
+                  <Col xl={2} lg={3} md={3} xs={12}>
+                    <SelectionRow
                       id={invite.id}
                       value='accepted'
                       checked={this.state[invite.id] === 'accepted'}
                       onChange={this.handleOptionChange}
-                      />
+                  ><span className={styles.action}> Joyfully Accepts </span> </SelectionRow>
                   </Col>
-                  <Col sm={3} md={2} xs={4}>
-                    < SelectionRow
+                  <Col lg={3} md={3} xs={12}>
+                    <Row start='md' center='xs'>
+                    <SelectionRow
                       id={invite.id}
                       value='declined'
                       checked={this.state[invite.id] === 'declined'}
                       onChange={this.handleOptionChange}
-                      />
+                  ><span className={styles.action}> Regretfully Declines </span> </SelectionRow>
+                    </Row>
+                  </Col>
+                  <Col xs={12} className={responsiveStyles.hidden_md_up}>
+                    <Row center='xs'>
+                      <SectionDivider />
+                    </Row>
                   </Col>
                 </Row>
               )
@@ -61,7 +69,15 @@ class InviteeResponse extends Component {
             </Col>
           </Row>
           <Row center='xs'>
+            <Col xs={12} className={responsiveStyles.hidden_md_down}>
+              <Row center='xs'>
+                <SectionDivider />
+              </Row>
+            </Col>
+            <div className={styles.buttonRow}>
+            <Button text="Search Again" onClick={this.onSearch} />
             <Button text="Continue" onClick={() => this.props.saveInvites(this.state)}/>
+          </div>
           </Row>
         </Grid>
     )
