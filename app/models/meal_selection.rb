@@ -11,7 +11,7 @@ class MealSelection < ApplicationRecord
   private
 
   def kid_options
-    ['Happy Meal']
+    ['Happy Meal'] # TODO: update
   end
 
   def adult_options

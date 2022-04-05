@@ -35,7 +35,7 @@ const SelectionRow = ({id, value, checked, onChange, fill, icon, children}) => {
 )}
 
 SelectionRow.defaultProps = {
-  fill: false,
+  fill: false
 };
 
 export default SelectionRow;

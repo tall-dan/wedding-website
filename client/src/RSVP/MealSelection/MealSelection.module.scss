@@ -1,1 +1,36 @@
-.placeholder { color: pink; }
+.MealSelection {
+  font-size: 1.3em;
+}
+
+.select__checkbox__active {
+  color: white;
+  background: #E5CB82;
+
+  &:hover {
+    background-color: #D9BB6D;
+  }
+}
+
+.MealSelection__guestName {
+  text-transform: uppercase;
+  font-size: 1.1em;
+  padding-top: 20px;
+}
+
+.select__check {
+  height: 17px;
+  border-radius: 10px;
+  border-width: 2px;
+  border: 2px #F7F7F7 solid;
+}
+
+.select__check__checked {
+  border: 2px #F7F7F7 solid;
+}
+
+.select__check__unchecked {
+  display: none;
+  color: #F8F8F7;
+  border-color: #F8F8F7;
+  background: #F8F8F7;
+}

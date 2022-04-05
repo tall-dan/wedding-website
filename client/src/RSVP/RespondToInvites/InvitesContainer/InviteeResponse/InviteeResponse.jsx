@@ -3,6 +3,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import Button from '../../../../shared/Button/Button';
 import SectionTitle from '../../../../shared/SectionTitle/SectionTitle';
 import SectionDivider from '../../../../shared/SectionDivider/SectionDivider';
+import ButtonRow from '../../../../shared/ButtonRow/ButtonRow';
 import responsiveStyles from '../../../../shared/styles/responsiveStyles.module.scss'
 import styles from './InviteeResponse.module.scss'
 import SelectionRow from './SelectionRow/SelectionRow'
@@ -37,7 +38,7 @@ class InviteeResponse extends Component {
 
   render = () => {
     return(
-        <Grid fluid>
+        <Grid fluid className={styles.InviteeResponse}>
           <SectionTitle title="Can't Wait To See You There" />
           <Row center='xs'>
           <h2>{this.props.eventName}</h2>
@@ -57,7 +58,7 @@ class InviteeResponse extends Component {
                       checked={this.state[invite.id] === 'accepted'}
                       onChange={this.handleOptionChange}
                       icon={faCheckCircle}
-                  ><span className={styles.action}> Joyfully Accepts </span> </SelectionRow>
+                  ><span className={styles.InviteeResponse__action}> Joyfully Accepts </span> </SelectionRow>
                   </Col>
                   <Col lg={3} md={3} xs={12}>
                     <Row start='md' center='xs'>
@@ -68,7 +69,7 @@ class InviteeResponse extends Component {
                       onChange={this.handleOptionChange}
                       icon={faTimesCircle}
                   >
-                      <span className={styles.action}> Regretfully Declines </span>
+                      <span className={styles.InviteeResponse__action}> Regretfully Declines </span>
                       </SelectionRow>
                     </Row>
                   </Col>
@@ -88,10 +89,10 @@ class InviteeResponse extends Component {
                 <SectionDivider />
               </Row>
             </Col>
-            <div className={styles.buttonRow}>
+            <ButtonRow>
               <Button text="Go Back" onClick={() => window.history.back()} />
             <Button text="Continue" onClick={() => this.props.saveInvites(this.state)}/>
-          </div>
+          </ButtonRow>
           </Row>
         </Grid>
     )

@@ -16,27 +16,34 @@ input[type="radio"] {
   padding: 10px 10px 3px 10px;
   border-radius: 4px;
   text-align: center;
+
   span {
     position: relative;
     bottom: 5px;
   }
-  &:hover, label:hover{
+
+  &:hover,
+  label:hover {
     cursor: pointer;
   }
+
   @media only screen and (min-width: 768px) {
     min-width: 80%;
   }
+
   @media only screen and (max-width: 768px) {
     width: 165px;
   }
-  background: #f8f8f7;
-  color: #43467a;
+
+  background: #F8F8F7;
+  color: #43467A;
 }
 
 .checkbox__active {
   color: white;
   background: #E5CB82;
-  &:hover{
+
+  &:hover {
     background-color: #D9BB6D;
   }
 }
@@ -45,17 +52,16 @@ input[type="radio"] {
   height: 17px;
   border-radius: 10px;
   border-width: 2px;
-  border: 2px #f7f7f7 solid;
+  border: 2px #F7F7F7 solid;
 }
 
 .check__checked {
-  border: 2px #f7f7f7 solid;
+  border: 2px #F7F7F7 solid;
 }
 
-.check__unchecked{
+.check__unchecked {
   display: none;
-  color: #f8f8f7;
-  border-color: #f8f8f7;
-  background: #f8f8f7;
-
+  color: #F8F8F7;
+  border-color: #F8F8F7;
+  background: #F8F8F7;
 }

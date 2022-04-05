@@ -1,10 +1,13 @@
 import React from 'react';
 import gql from 'graphql-tag';
-import { Grid, Row } from 'react-flexbox-grid';
+import { Grid, Col, Row } from 'react-flexbox-grid';
 import { useQuery } from '@apollo/react-hooks';
 import deserializeURLQuery from '../../shared/url/deserializeURLQuery';
 import SectionTitle from '../../shared/SectionTitle/SectionTitle';
-import Select from './Select';
+import SectionDivider from '../../shared/SectionDivider/SectionDivider';
+import ButtonRow from '../../shared/ButtonRow/ButtonRow';
+import Select from './Select/Select';
+import styles from './MealSelection.module.scss';
 import Button from '../../shared/Button/Button';
 
 function MealSelection() {
@@ -17,6 +20,7 @@ function MealSelection() {
           id
           event {
             id
+            name
           }
           guest {
             displayName
@@ -45,14 +49,27 @@ function MealSelection() {
   };
 
   return (
-    <Grid fluid>
+    <Grid fluid className={styles.MealSelection}>
       <SectionTitle title="What would you like to eat?" />
       <Row center="xs">
         { data && data.mealSelections.map(selection => (
-          <Select {...{ ...selection, onChange: refetch }} key={selection.guest.id} />
+          <Col xs={12} md={4} key={selection.guest.id}>
+            <Row center="xs">
+              <span className={styles.MealSelection__guestName}>{selection.guest.displayName}</span>
+            </Row>
+            <Select {...{ ...selection, onChange: refetch }} />
+          </Col>
         ))}
       </Row>
-      <Button text="Continue" onClick={selectTransportation} />
+      <Row center="xs">
+        <SectionDivider />
+      </Row>
+      <Row center="xs">
+        <ButtonRow>
+          <Button text="Go Back" onClick={() => window.history.back()} />
+          <Button text="Continue" onClick={selectTransportation} />
+        </ButtonRow>
+      </Row>
     </Grid>
   );
 }
