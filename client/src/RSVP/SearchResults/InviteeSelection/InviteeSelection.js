@@ -4,6 +4,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import styles from './InviteeSelection.module.scss';
 import Button from '../../../shared/Button/Button';
 import Checkbox from '../../../shared/Checkbox/Checkbox';
+import ButtonRow from '../../../shared/ButtonRow/ButtonRow';
 import serializeJson from '../../../shared/url/serializeJson';
 import SectionDivider from '../../../shared/SectionDivider/SectionDivider';
 import guestType from '../../../types/guest';
@@ -54,10 +55,10 @@ class InviteeSelection extends Component {
                   <SectionDivider />
                 </Row>
               </Col>
-              <div className={styles.buttonRow}>
+              <ButtonRow>
                 <Button text="Search Again" onClick={this.onSearch} />
                 <Button text="Continue" onClick={this.onSubmit} />
-              </div>
+              </ButtonRow>
             </form>
           </Col>
           <Col xs />

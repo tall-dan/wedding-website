@@ -48,7 +48,10 @@ class InvitesContainer extends Component {
 }
 
 InvitesContainer.propTypes = {
-  invites: PropTypes.arrayOf(invite).isRequired
+  invites: PropTypes.shape({
+    rehearsal_dinner: PropTypes.arrayOf(invite).isRequired,
+    reception: PropTypes.arrayOf(invite).isRequired
+  }).isRequired
 };
 
 export default InvitesContainer;

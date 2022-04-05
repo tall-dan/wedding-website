@@ -1,12 +1,13 @@
 import React from 'react';
-import gql from 'graphql-tag';
 import { Grid, Col, Row } from 'react-flexbox-grid';
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery, useMutation } from '@apollo/react-hooks';
+import selectMeal from '../../queries/selectMeal';
+import getMealSelections from '../../queries/getMealSelections';
 import deserializeURLQuery from '../../shared/url/deserializeURLQuery';
 import SectionTitle from '../../shared/SectionTitle/SectionTitle';
 import SectionDivider from '../../shared/SectionDivider/SectionDivider';
 import ButtonRow from '../../shared/ButtonRow/ButtonRow';
-import Select from './Select/Select';
+import Select from '../../shared/Select/Select';
 import styles from './MealSelection.module.scss';
 import Button from '../../shared/Button/Button';
 
@@ -14,40 +15,34 @@ function MealSelection() {
   const { guests, eventId } = deserializeURLQuery();
   const guestIds = () => guests.map(g => `"${g.id}"`);
 
-  const query = gql`
-      {
-        mealSelections(guestIds: [${guestIds()}], eventId: "${eventId}") {
-          id
-          event {
-            id
-            name
-          }
-          guest {
-            displayName
-            id
-          }
-          selection
-          options
-        }
-      }
-    `;
-
   // id can come back null for meal selections, which messes up cache
   const {
     data, refetch
-  } = useQuery(query, { fetchPolicy: 'no-cache' });
+  } = useQuery(getMealSelections(guestIds(), eventId), { fetchPolicy: 'no-cache' });
 
-  /*
-   * meal selections will come back for every guest
-   * if they have made a selection, its id and selection will be populated
-   * if not, empty. But guest info + event is always present
-   */
+  const [select] = useMutation(selectMeal, { onCompleted: refetch });
+  const persistChange = (id, guest, guestSelection, checked, s = select) => {
+    if (!checked) { return; } // effectively means someone's clicking an option that's already selected
+    s({
+      variables:
+      {
+        selections: [{
+          id, selection: guestSelection, guest: { guestId: guest.id }, event: { eventId }
+        }]
+      }
+    });
+  };
 
   const selectTransportation = () => {
     const queryString = `guests=${encodeURIComponent(JSON.stringify(guests))}&eventId=${JSON.stringify(eventId)}`;
     window.location.href = `/rsvp/transportation?${queryString}`;
   };
 
+  /*
+   * meal selections will come back for every guest
+   * if they have made a selection, its id and selection will be populated
+   * if not, empty. But guest info + event is always present
+   */
   return (
     <Grid fluid className={styles.MealSelection}>
       <SectionTitle title="What would you like to eat?" />
@@ -57,7 +52,7 @@ function MealSelection() {
             <Row center="xs">
               <span className={styles.MealSelection__guestName}>{selection.guest.displayName}</span>
             </Row>
-            <Select {...{ ...selection, onChange: refetch }} />
+            <Select {...{ ...selection, role: 'radio', onChange: persistChange }} />
           </Col>
         ))}
       </Row>

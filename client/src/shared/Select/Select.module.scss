@@ -1,3 +1,15 @@
+// Hide real inputs
+input[type="radio"],
+input[type="checkbox"] {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 .check__checked {
   border: none;
 }
@@ -28,6 +40,10 @@
   &:hover,
   label:hover {
     cursor: pointer;
+  }
+
+  &:hover {
+    background-color: #EEE5C5;
   }
 }
 

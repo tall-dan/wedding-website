@@ -4,11 +4,9 @@ import Button from '../../../../shared/Button/Button';
 import SectionTitle from '../../../../shared/SectionTitle/SectionTitle';
 import SectionDivider from '../../../../shared/SectionDivider/SectionDivider';
 import ButtonRow from '../../../../shared/ButtonRow/ButtonRow';
-import responsiveStyles from '../../../../shared/styles/responsiveStyles.module.scss'
 import styles from './InviteeResponse.module.scss'
-import SelectionRow from './SelectionRow/SelectionRow'
-import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
-import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
+import nameStyles from '../../../MealSelection/MealSelection.module.scss'
+import SelectWrapper from './SelectWrapper'
 
 class InviteeResponse extends Component {
   constructor(props) {
@@ -26,9 +24,9 @@ class InviteeResponse extends Component {
       return responses;
     }, Object.create(null));
 
-  handleOptionChange = (id, value) => {
+  handleOptionChange = (id, status) => {
     this.setState(prevState => {
-      return {...prevState, [id]: value }
+      return {...prevState, [id]: status}
     })
   }
 
@@ -36,67 +34,38 @@ class InviteeResponse extends Component {
     this.props.saveInvites(this.state)
   }
 
-  render = () => {
-    return(
-        <Grid fluid className={styles.InviteeResponse}>
-          <SectionTitle title="Can't Wait To See You There" />
-          <Row center='xs'>
-          <h2>{this.props.eventName}</h2>
-            <Col xs={12}>
-            {this.props.invites.map(invite => (
-                <Row key={invite.id} center='xs' className={styles.InviteeResponse__row}>
-                  <Col className={styles.InviteeResponse__guest_name} lg={3} md={3} xs={12}>
-                    <Row end='md' center='xs'>
-                      <span>{invite.guest.displayName}</span>
-                    </Row>
-                  </Col>
-                  <Col xl={2} lg={3} md={3} xs={12}>
-                    <SelectionRow
-                      id={invite.id}
-                      fill
-                      value='accepted'
-                      checked={this.state[invite.id] === 'accepted'}
-                      onChange={this.handleOptionChange}
-                      icon={faCheckCircle}
-                  ><span className={styles.InviteeResponse__action}> Joyfully Accepts </span> </SelectionRow>
-                  </Col>
-                  <Col lg={3} md={3} xs={12}>
-                    <Row start='md' center='xs'>
-                    <SelectionRow
-                      id={invite.id}
-                      value='declined'
-                      checked={this.state[invite.id] === 'declined'}
-                      onChange={this.handleOptionChange}
-                      icon={faTimesCircle}
-                  >
-                      <span className={styles.InviteeResponse__action}> Regretfully Declines </span>
-                      </SelectionRow>
-                    </Row>
-                  </Col>
-                  <Col xs={12} className={responsiveStyles.hidden_md_up}>
-                    <Row center='xs'>
-                      <SectionDivider />
-                    </Row>
-                  </Col>
-                </Row>
-              )
-            )}
+
+  render = () =>(
+    <Grid fluid className={styles.InviteeResponse}>
+      <SectionTitle title="Can't Wait To See You There" />
+      <Row center='xs'>
+        <h2>{this.props.eventName}</h2>
+      </Row>
+      <Row center='xs'>
+        {this.props.invites.map(invite => (
+          <Col xs={12} md={4} key={invite.id}>
+            <Row center="xs">
+              <span className={nameStyles.MealSelection__guestName}>{invite.guest.displayName}</span>
+            </Row>
+            <SelectWrapper
+            invite={invite}
+            selection={this.state[invite.id]}
+            onChange={this.handleOptionChange}
+          />
             </Col>
+        ))}
           </Row>
           <Row center='xs'>
-            <Col xs={12} className={responsiveStyles.hidden_md_down}>
-              <Row center='xs'>
-                <SectionDivider />
-              </Row>
-            </Col>
+            <SectionDivider />
+          </Row>
+          <Row center='xs'>
             <ButtonRow>
               <Button text="Go Back" onClick={() => window.history.back()} />
-            <Button text="Continue" onClick={() => this.props.saveInvites(this.state)}/>
-          </ButtonRow>
+              <Button text="Continue" onClick={this.handleSubmit}/>
+            </ButtonRow>
           </Row>
         </Grid>
-    )
-  }
+  )
 }
 
 export default InviteeResponse;
