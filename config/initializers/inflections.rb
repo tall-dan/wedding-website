@@ -16,4 +16,8 @@
 ActiveSupport::Inflector.inflections(:en) do |inflect|
   inflect.acronym 'RESTful'
   inflect.acronym 'GraphQL'
+  inflect.acronym 'McLaughlin'
+  inflect.acronym 'McCarthy'
+  inflect.acronym 'McCaffrey'
+  inflect.acronym 'McCormick'
 end
