@@ -8,9 +8,10 @@ const jsonFromUrlParams = (params, properties = {}) => params.reduce((object, pr
 
 const deserializeURLQuery = (url = window.location.href) => {
   const query = url.split('?')[1];
-  const properties = decodeURIComponent(query).split('&');
+  if (!query) return undefined;
+  const properties = castArray(decodeURIComponent(query).split('&'));
 
-  return jsonFromUrlParams(castArray(properties));
+  return properties.length ? jsonFromUrlParams(properties) : {};
 };
 
 export default deserializeURLQuery;
