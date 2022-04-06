@@ -17,7 +17,7 @@ const WeddingParty = () => (
             relation="Childhood friend of the Bride"
             memberRole="Maid of Honor"
           />
-          <div style={{ 'margin-left': '30%' }}>
+          <div style={{ marginLeft: '30%' }}>
             <SectionDivider />
           </div>
           <WeddingPartyMember
@@ -25,7 +25,7 @@ const WeddingParty = () => (
             relation="Sister of the Bride"
             memberRole="Bridesmaid"
           />
-          <div style={{ 'margin-left': '30%' }}>
+          <div style={{ marginLeft: '30%' }}>
             <SectionDivider />
           </div>
           <WeddingPartyMember
@@ -33,7 +33,7 @@ const WeddingParty = () => (
             relation="High School Friend of the Bride"
             memberRole="Bridesmaid"
           />
-          <div style={{ 'margin-left': '30%' }}>
+          <div style={{ marginLeft: '30%' }}>
             <SectionDivider />
           </div>
           <WeddingPartyMember
@@ -41,7 +41,7 @@ const WeddingParty = () => (
             relation="High School Friend of the Bride"
             memberRole="Bridesmaid"
           />
-          <div style={{ 'margin-left': '30%' }}>
+          <div style={{ marginLeft: '30%' }}>
             <SectionDivider />
           </div>
           <WeddingPartyMember
@@ -49,7 +49,7 @@ const WeddingParty = () => (
             relation="Friend of the Bride"
             memberRole="Bridesmaid"
           />
-          <div style={{ 'margin-left': '30%' }}>
+          <div style={{ marginLeft: '30%' }}>
             <SectionDivider />
           </div>
           <WeddingPartyMember
@@ -57,7 +57,7 @@ const WeddingParty = () => (
             relation="College Friend of the Bride"
             memberRole="Bridesmaid"
           />
-          <div style={{ 'margin-left': '30%' }}>
+          <div style={{ marginLeft: '30%' }}>
             <SectionDivider />
           </div>
           <WeddingPartyMember
@@ -65,7 +65,7 @@ const WeddingParty = () => (
             relation="College Friend of the Bride"
             memberRole="Bridesmaid"
           />
-          <div style={{ 'margin-left': '30%' }}>
+          <div style={{ marginLeft: '30%' }}>
             <SectionDivider />
           </div>
           <WeddingPartyMember
@@ -74,7 +74,7 @@ const WeddingParty = () => (
             memberRole="Bridesmaid"
           />
           <div className={responsiveStyles.hidden_md_up}>
-            <div style={{ 'margin-left': '30%' }}>
+            <div style={{ marginLeft: '30%' }}>
               <SectionDivider />
             </div>
           </div>
@@ -86,7 +86,7 @@ const WeddingParty = () => (
             relation="College Friend of the Groom"
             memberRole="Best Man"
           />
-          <div style={{ 'margin-left': '30%' }}>
+          <div style={{ marginLeft: '30%' }}>
             <SectionDivider />
           </div>
           <WeddingPartyMember
@@ -94,7 +94,7 @@ const WeddingParty = () => (
             relation="Brother of the Groom"
             memberRole="Groomsman"
           />
-          <div style={{ 'margin-left': '30%' }}>
+          <div style={{ marginLeft: '30%' }}>
             <SectionDivider />
           </div>
           <WeddingPartyMember
@@ -102,7 +102,7 @@ const WeddingParty = () => (
             relation="Childhood friend of the Groom"
             memberRole="Groomsman"
           />
-          <div style={{ 'margin-left': '30%' }}>
+          <div style={{ marginLeft: '30%' }}>
             <SectionDivider />
           </div>
           <WeddingPartyMember
@@ -110,7 +110,7 @@ const WeddingParty = () => (
             relation="College Friend of the Groom"
             memberRole="Groomsman"
           />
-          <div style={{ 'margin-left': '30%' }}>
+          <div style={{ marginLeft: '30%' }}>
             <SectionDivider />
           </div>
           <WeddingPartyMember
@@ -118,7 +118,7 @@ const WeddingParty = () => (
             relation="College Friend of the Groom"
             memberRole="Groomsman"
           />
-          <div style={{ 'margin-left': '30%' }}>
+          <div style={{ marginLeft: '30%' }}>
             <SectionDivider />
           </div>
           <WeddingPartyMember
@@ -126,7 +126,7 @@ const WeddingParty = () => (
             relation="Childhood Friend of the Groom"
             memberRole="Groomsman"
           />
-          <div style={{ 'margin-left': '30%' }}>
+          <div style={{ marginLeft: '30%' }}>
             <SectionDivider />
           </div>
           <WeddingPartyMember
@@ -134,7 +134,7 @@ const WeddingParty = () => (
             relation="Childhood Friend of the Groom"
             memberRole="Groomsman"
           />
-          <div style={{ 'margin-left': '30%' }}>
+          <div style={{ marginLeft: '30%' }}>
             <SectionDivider />
           </div>
           <WeddingPartyMember
