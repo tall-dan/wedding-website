@@ -1,4 +1,5 @@
 // Hide real checkboxes
+@import "../styles/colors.module.scss";
 input[type="checkbox"] {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
@@ -30,13 +31,16 @@ input[type="checkbox"] {
   label:hover {
     cursor: pointer;
   }
+  &:hover {
+    background-color: #EEE5C5;
+  }
 
-  color: white;
-  background: #C1B995;
+  background-color: #f3efd7;
 }
 
 .checkbox__active {
   background: #E5CB82;
+  color: white;
 
   &:hover {
     background-color: #D9BB6D;
@@ -54,5 +58,5 @@ input[type="checkbox"] {
 }
 
 .check__unchecked {
-  border-color: #C1B995;
+  border-color: $primary_color;
 }

@@ -1,4 +1,5 @@
 // Hide real inputs
+@import "../styles/colors.module.scss";
 input[type="radio"],
 input[type="checkbox"] {
   clip: rect(0 0 0 0);
@@ -42,6 +43,7 @@ input[type="checkbox"] {
     cursor: pointer;
   }
 
+  background-color: #f3efd7;
   &:hover {
     background-color: #EEE5C5;
   }
