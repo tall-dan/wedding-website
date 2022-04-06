@@ -1,4 +1,6 @@
 // Hide real checkboxes
+@import "../styles/colors.module.scss";
+
 input[type="checkbox"] {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
@@ -15,15 +17,13 @@ input[type="checkbox"] {
   height: 20px;
   border: 1px #BFB8A6 solid;
   padding: 3px;
-  position: relative;
-  top: 7px;
   border-radius: 4px;
   text-align: left;
   min-width: 339px;
 
   span {
     position: relative;
-    bottom: 5px;
+    bottom: 6px;
   }
 
   &:hover,
@@ -31,12 +31,16 @@ input[type="checkbox"] {
     cursor: pointer;
   }
 
-  color: white;
-  background: #C1B995;
+  &:hover {
+    background-color: #EEE5C5;
+  }
+
+  background-color: #F3EFD7;
 }
 
 .checkbox__active {
   background: #E5CB82;
+  color: white;
 
   &:hover {
     background-color: #D9BB6D;
@@ -51,8 +55,9 @@ input[type="checkbox"] {
   border: 2px #F7F7F7 solid;
   margin-right: 10px;
   margin-left: 10px;
+  margin-bottom: 3px;
 }
 
 .check__unchecked {
-  border-color: #C1B995;
+  border-color: $primary_color;
 }
