@@ -14,7 +14,7 @@ module Mutations
     private
 
     def delete_transport(transport)
-      Transportation.find_by(transport.to_h.except(:going))&.destroy!
+      Transportation.where(transport.to_h.except(:going)).delete_all
     end
 
     def add_transport(transport)

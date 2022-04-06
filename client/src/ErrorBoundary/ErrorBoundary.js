@@ -39,6 +39,7 @@ class ErrorBoundary extends React.Component {
       error,
       params: { info }
     });
+    throw error;
   }
 
   render() {

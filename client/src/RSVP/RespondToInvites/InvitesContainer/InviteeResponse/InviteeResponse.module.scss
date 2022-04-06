@@ -1,5 +1,21 @@
+.InviteeResponse {
+  font-size: 1.3em;
+}
+
 .InviteeResponse__guest_name {
   font-size: 1.3em;
   text-transform: uppercase;
-  text-align: right;
+  padding-top: 5px;
+}
+
+.InviteeResponse__row {
+  padding-top: 10px;
+}
+
+.InviteeResponse__action {
+  font-size: 1.3em;
+}
+
+.InviteeResponse_buttonRow button {
+  margin: 5px;
 }

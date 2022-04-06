@@ -1,0 +1,58 @@
+// Hide real checkboxes
+input[type="checkbox"] {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.checkbox {
+  display: inline-block; // set to `inline-block` as `inline elements ignore `height` and `width`
+  cursor: pointer;
+  height: 20px;
+  border: 1px #BFB8A6 solid;
+  padding: 3px;
+  position: relative;
+  top: 7px;
+  border-radius: 4px;
+  text-align: left;
+  min-width: 339px;
+
+  span {
+    position: relative;
+    bottom: 5px;
+  }
+
+  &:hover,
+  label:hover {
+    cursor: pointer;
+  }
+
+  color: white;
+  background: #C1B995;
+}
+
+.checkbox__active {
+  background: #E5CB82;
+
+  &:hover {
+    background-color: #D9BB6D;
+  }
+}
+
+.check {
+  width: 17px;
+  height: 17px;
+  border-radius: 10px;
+  border-width: 2px;
+  border: 2px #F7F7F7 solid;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.check__unchecked {
+  border-color: #C1B995;
+}

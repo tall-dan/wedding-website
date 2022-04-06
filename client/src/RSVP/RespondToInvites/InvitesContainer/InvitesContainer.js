@@ -25,10 +25,14 @@ class InvitesContainer extends Component {
   nextInviteStep = (invites) => {
     if (this.currentlyRespondingTo() === 'reception') {
       const guests = this.guestsAcceptingReceptionInvites(invites);
-      const eventId = this.props.invites[this.currentlyRespondingTo()][0].event.id;
-      const query = serializeJson({ guests, eventId });
-      // TODO: if no one is accepting, direct to some see ya later page
-      window.location.href = `/rsvp/mealSelection?${query}`;
+      if (!guests.length) {
+        const query = serializeJson({ going: false });
+        window.location.href = `/rsvp/thanks?${query}`;
+      } else {
+        const eventId = this.props.invites[this.currentlyRespondingTo()][0].event.id;
+        const query = serializeJson({ guests, eventId });
+        window.location.href = `/rsvp/mealSelection?${query}`;
+      }
     } else {
       this.setState(prevState => ({ ...prevState, eventResponseIndex: prevState.eventResponseIndex + 1 }));
     }
@@ -48,7 +52,10 @@ class InvitesContainer extends Component {
 }
 
 InvitesContainer.propTypes = {
-  invites: PropTypes.arrayOf(invite).isRequired
+  invites: PropTypes.shape({
+    rehearsal_dinner: PropTypes.arrayOf(invite).isRequired,
+    reception: PropTypes.arrayOf(invite).isRequired
+  }).isRequired
 };
 
 export default InvitesContainer;

@@ -11,9 +11,6 @@ const RSVP = () => (
       <div className={styles.RSVP}>
         <h2>Please RSVP by May 15th</h2>
         <div className={styles.RSVP_details}>
-          <p>
-            You&apos;ll be able to RSVP for yourself and your party here
-          </p>
           <Lookup prompt="You&apos;ll be able to RSVP for yourself and your party here" />
         </div>
       </div>

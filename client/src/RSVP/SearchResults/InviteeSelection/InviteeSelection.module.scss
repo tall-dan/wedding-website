@@ -1,10 +1,12 @@
 .InviteeSelection__guest_name {
-  font-size: 1.3em;
   text-transform: uppercase;
+  width: 220px;
 }
 
 .InviteeSelection {
-  input[type=submit] {
-    margin-top: 10px;
+  font-size: 1.3em;
+
+  button {
+    margin: 5px;
   }
 }

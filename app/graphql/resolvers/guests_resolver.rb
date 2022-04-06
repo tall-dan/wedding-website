@@ -6,7 +6,7 @@ module Resolvers
     argument :name, String, required: true
 
     def resolve(name:)
-      first_name, last_name = name.match(/(.*)\W+(\w+)$/).captures.map(&:downcase)
+      first_name, last_name = name.match(/(\w+)\W*(\w+)$/).captures.map(&:downcase)
       guest = Guest.find_by(first_name: first_name, last_name: last_name)
       Array(guest&.guest_party)
     end

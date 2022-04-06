@@ -7,7 +7,7 @@ import styles from './NavItem.module.scss';
 class NavItem extends Component {
   isActive = (_match, location) => {
     if (location.pathname === '/') return this.props.title === 'Our Wedding';
-    return location.pathname === `/${camelCase(this.props.title)}`;
+    return location.pathname.split('/')[1] === camelCase(this.props.title);
   };
 
   render() {
