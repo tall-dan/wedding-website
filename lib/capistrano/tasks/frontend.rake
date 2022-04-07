@@ -2,13 +2,13 @@
 
 namespace :deploy do
   task :frontend do
-    ENV['deployments'] = 'frontend'
+    set :deployments, ['frontend']
     Rake::Task['deploy'].invoke
   end
 end
 
 after 'deploy:updated', :build_frontend do
-  next unless ENV['deployments'].split(',').include? 'frontend'
+  next unless fetch(:deployments).include? 'frontend'
 
   run_locally do
     execute 'cd client && ./metadata_generator.rb'
@@ -18,18 +18,18 @@ after 'deploy:updated', :build_frontend do
 end
 
 after 'deploy:updated', :copy_frontend do
-  next unless ENV['deployments'].split(',').include? 'frontend'
+  next unless fetch(:deployments).include? 'frontend'
 
   run_locally do
-    user = ENV['user']
-    target = ENV['server']
+    user = fetch(:user)
+    target = fetch('target')
     execute "cd client && scp -r build/* #{user}@#{target}:/var/www/wedding_website/shared/public"
     execute "scp -r public/* #{user}@#{target}:/var/www/wedding_website/shared/public"
   end
 end
 
 after 'deploy:updated', :remove_frontend_build do
-  next unless ENV['deployments'].split(',').include? 'frontend'
+  next unless fetch(:deployments).include? 'frontend'
 
   run_locally do
     execute 'cd client && rm -rf build/'

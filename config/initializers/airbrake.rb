@@ -2,7 +2,7 @@
 
 unless Rails.env.test?
   Airbrake.configure do |config|
-    config.host = 'http://errors.mcschepers-wedding.com'
+    config.host = 'http://localhost:8080'
     config.project_id = 1 # required, but any positive integer works
     config.project_key = Rails.application.credentials.airbrake[:project_key]
 

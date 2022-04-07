@@ -34,11 +34,8 @@ Need ssh credentials to the box as well as aws credentials for s3.
   iam management (from aws management browser tool).
   * Belongs in `.credentials.aws`
 
-* distribution id: Can be found in AWS console -> Cloudfront ->
-  Distributions.
-  * Belongs in `.distribution.aws`
-
-* _If you changed a secret:_: `bundle exec cap production secrets_yml:setup`
+* Secrets are are managed by capistrano; make sure secret you've
+  changed is linked in `lib/tasks/capistrano/process_management.rake`
 
 ### Deploy Independently, or Not
 

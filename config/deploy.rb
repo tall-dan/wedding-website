@@ -23,11 +23,6 @@ ask :branch, :master
 # set :pty, true
 
 # Default value for :linked_files is []
-append :linked_files, 'config/master.key'
-append :linked_files, 'config/database.yml'
-append :linked_files, 'config/secrets.yml'
-append :linked_files, 'config/credentials/production.yml.enc'
-append :linked_files, 'config/credentials/production.key'
 
 set :conditionally_migrate, true
 set :chruby_ruby, `cat .ruby-version`.chomp
@@ -35,6 +30,7 @@ set :chruby_ruby, `cat .ruby-version`.chomp
 # Default value for linked_dirs is []
 append :linked_dirs, 'public'
 append :linked_dirs, '.bundle'
+append :linked_dirs, 'config'
 set :bundle_binstubs, -> { shared_path.join('bin') } # default: nil
 set :bundle_env_variables, RAILS_ENV: 'production'
 set :bundle_jobs, 2 # default: 4, only available for Bundler >= 1.4
