@@ -22,7 +22,7 @@ after 'deploy:updated', :copy_frontend do
 
   run_locally do
     user = fetch(:user)
-    target = fetch('target')
+    target = fetch(:target)
     execute "cd client && scp -r build/* #{user}@#{target}:/var/www/wedding_website/shared/public"
     execute "scp -r public/* #{user}@#{target}:/var/www/wedding_website/shared/public"
   end

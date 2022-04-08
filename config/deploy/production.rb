@@ -5,7 +5,7 @@
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
 
-set('deployments', %w[frontend backend]) unless fetch(:deployments)
+set(:deployments, %w[frontend backend]) unless fetch(:deployments)
 
 # { backend_user: user from aws instance, backend_server: ip address of aws instance }
 deploy_configs = YAML.load_file('./config/secrets.yml')['production']['deploys']
