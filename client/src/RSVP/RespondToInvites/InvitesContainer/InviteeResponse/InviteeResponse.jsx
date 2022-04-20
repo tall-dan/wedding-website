@@ -15,25 +15,34 @@ class InviteeResponse extends Component {
   }
 
   componentWillReceiveProps(newProps) {
-    this.setState(this.stateFromProps(newProps))
+    this.setState(prevState => ({...prevState, ...this.stateFromProps(newProps)}))
   }
 
-  stateFromProps = (props) =>
-    props.invites.reduce(function (responses, invite) {
+  stateFromProps = (props) => {
+    const rsvps = props.invites.reduce(function (responses, invite) {
       responses[invite.id] = invite.status;
       return responses;
     }, Object.create(null));
+    const disabled = this.isDisabled(rsvps)
+    return { rsvps, disabled }
+  }
 
   handleOptionChange = (id, status) => {
     this.setState(prevState => {
-      return {...prevState, [id]: status}
+      const rsvps = { ...prevState.rsvps, [id]: status }
+      const disabled = this.isDisabled(rsvps)
+
+      return {...prevState, rsvps, disabled }
     })
   }
 
-  handleSubmit = () => {
-    this.props.saveInvites(this.state)
-  }
+  isDisabled = (rsvps) => Object.values(rsvps).some(status =>
+    status === 'pending'
+  )
 
+  handleSubmit = () => {
+    this.props.saveInvites(this.state.rsvps)
+  }
 
   render = () =>(
     <Grid fluid className={styles.InviteeResponse}>
@@ -49,7 +58,7 @@ class InviteeResponse extends Component {
             </Row>
             <SelectWrapper
             invite={invite}
-            selection={this.state[invite.id]}
+            selection={this.state.rsvps[invite.id]}
             onChange={this.handleOptionChange}
           />
             </Col>
@@ -61,7 +70,7 @@ class InviteeResponse extends Component {
           <Row center='xs'>
             <ButtonRow>
               <Button text="Go Back" onClick={() => window.history.back()} />
-              <Button text="Continue" onClick={this.handleSubmit}/>
+              <Button text="Continue" onClick={this.handleSubmit} disabled={this.state.disabled}/>
             </ButtonRow>
           </Row>
         </Grid>

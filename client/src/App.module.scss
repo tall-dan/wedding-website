@@ -15,3 +15,8 @@ body {
   background-image: url(https://static.xoedge.com/xo-guest-services/assets/guest/themes/willowmarsh-tea_rose/background_image-6c610ca0d37035c8c69b68e387c32f64.gif);
   background-repeat: repeat;
 }
+
+a:focus-visible {
+  text-decoration: underline !important;
+  outline: none;
+}

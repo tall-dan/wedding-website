@@ -13,7 +13,23 @@
   background-color: #E5CB82;
   font-size: 1.3em;
 
-  &:hover {
+  &:hover,
+  &:active,
+  &:focus,
+  &:focus-visible {
+    background-color: #D9BB6D;
+  }
+
+  &:disabled {
+    background-color: #DBD1B4;
+    cursor: not-allowed;
+  }
+}
+
+.button__link {
+  &:focus-visible {
+    outline-offset: 0;
+    outline-color: bisque;
     background-color: #D9BB6D;
   }
 }

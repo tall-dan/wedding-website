@@ -13,6 +13,8 @@ class Guest < ApplicationRecord
 
   def self.kids_names
     @kids_names ||= GoogleSheetReader.new('Kids Meals').read('A2:A30').compact.flatten
+  rescue StandardError
+    []
   end
 
   private

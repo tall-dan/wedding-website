@@ -33,6 +33,8 @@ function MealSelection() {
     });
   };
 
+  const disabled = (!data || data.mealSelections.some(selection => !selection.id));
+
   const selectTransportation = () => {
     const queryString = `guests=${encodeURIComponent(JSON.stringify(guests))}&eventId=${JSON.stringify(eventId)}`;
     window.location.href = `/rsvp/transportation?${queryString}`;
@@ -62,7 +64,7 @@ function MealSelection() {
       <Row center="xs">
         <ButtonRow>
           <Button text="Go Back" onClick={() => window.history.back()} />
-          <Button text="Continue" onClick={selectTransportation} />
+          <Button text="Continue" onClick={selectTransportation} disabled={disabled} />
         </ButtonRow>
       </Row>
     </Grid>

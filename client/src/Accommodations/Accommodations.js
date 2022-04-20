@@ -31,9 +31,7 @@ const Accommodations = () => (
                 </p>
               </div>
               <div className={styles.Accommodation__button__container}>
-                <a href={hotel.url}>
-                  <Button text="Book a Room" />
-                </a>
+                <Button text="Book a Room" target={hotel.url} />
               </div>
               { name === 'marriott' // hack
               && <div className={styles.Accommodation__sectionDivider} />

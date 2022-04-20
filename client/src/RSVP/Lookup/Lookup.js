@@ -26,9 +26,7 @@ class Lookup extends Component {
         <Row center="xs">
           <input onChange={this.onChange} className={styles.Lookup_search_input} type="text" name="full_name" placeholder="Ex: Jeremy Grey (Not Dr. Grey or The Grey Family)" />
         </Row>
-        <a href={lookupURL}>
-          <Button text="Find Your Invites" />
-        </a>
+        <Button text="Find Your Invites" target={lookupURL} />
       </div>
     );
   }
