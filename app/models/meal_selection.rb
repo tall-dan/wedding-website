@@ -11,10 +11,10 @@ class MealSelection < ApplicationRecord
   private
 
   def kid_options
-    ['Happy Meal'] # TODO: update
+    ['Chicken Tenders']
   end
 
   def adult_options
-    ['Chicken', 'Steak', 'Vegetarian*']
+    ['Organic Airline Chicken Breast', 'Braised Beef Short Ribs', 'Mushroom Risotto']
   end
 end

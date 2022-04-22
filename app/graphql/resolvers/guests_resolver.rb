@@ -7,8 +7,9 @@ module Resolvers
 
     def resolve(name:)
       first_name, last_name = name.match(/(\w+)\W*(\w+)$/).captures.map(&:downcase)
-      guest = Guest.find_by(first_name: first_name, last_name: last_name)
-      Array(guest&.guest_party)
+      # there are guests that have the same name. So where, not find_by
+      guests = Guest.where(first_name: first_name, last_name: last_name)
+      guests.flat_map(&:guest_party)
     end
   end
 end

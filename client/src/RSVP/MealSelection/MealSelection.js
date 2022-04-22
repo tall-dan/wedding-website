@@ -50,7 +50,7 @@ function MealSelection() {
       <SectionTitle title="What would you like to eat?" />
       <Row center="xs">
         { data && data.mealSelections.map(selection => (
-          <Col xs={12} md={4} key={selection.guest.id}>
+          <Col xs={12} sm={6} md={5} lg={4} xl={3} key={selection.guest.id}>
             <Row center="xs">
               <span className={styles.MealSelection__guestName}>{selection.guest.displayName}</span>
             </Row>

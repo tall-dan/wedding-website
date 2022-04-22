@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Row, Col } from 'react-flexbox-grid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faCow, faDrumstickBite, faLeaf, faTimesCircle, faCheckCircle
+  faCow, faDove, faLeaf, faTimesCircle, faCheckCircle
 } from '@fortawesome/free-solid-svg-icons';
 import mealSelection from '../../types/mealSelection';
 import styles from './Select.module.scss';
@@ -13,9 +13,9 @@ const Select = ({
   id, guest, selection, options, role, onChange
 }) => {
   const icons = {
-    chicken: faDrumstickBite,
-    steak: faCow,
-    'vegetarian*': faLeaf,
+    'organic airline chicken breast': faDove,
+    'braised beef short ribs': faCow,
+    'mushroom risotto': faLeaf,
     'joyfully accepts': faCheckCircle,
     'regretfully declines': faTimesCircle
   };

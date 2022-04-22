@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Grid, Row, Col } from 'react-flexbox-grid';
+import { groupBy } from 'lodash';
 import styles from './InviteeSelection.module.scss';
 import Button from '../../../shared/Button/Button';
 import Checkbox from '../../../shared/Checkbox/Checkbox';
@@ -10,6 +11,12 @@ import SectionDivider from '../../../shared/SectionDivider/SectionDivider';
 import guestType from '../../../types/guest';
 
 class InviteeSelection extends Component {
+  guestsByParty = groupBy(this.props.guests, 'guestPartyId')
+
+  partyCount = Object.keys(this.guestsByParty).length
+
+  columnWidth = Math.floor(12 / this.partyCount)
+
   constructor(props) {
     super(props);
     this.state = { guest_ids: props.guests.map(g => g.id) };
@@ -33,36 +40,69 @@ class InviteeSelection extends Component {
     }
   }
 
+  guestRow = (guest, index, defaultChecked = true) => (
+    <div key={guest.id} className={styles.guest_row}>
+      <Checkbox
+        defaultChecked={defaultChecked}
+        value={guest.id}
+        id={guest.id}
+        onChange={this.onChange}
+        tabIndex={index}
+      >
+        <label className={styles.InviteeSelection__guest_name}> { guest.displayName }  </label>
+      </Checkbox>
+
+      <input defaultChecked={defaultChecked} value={guest.id} id={guest.id} onChange={this.onChange} type="checkbox" />
+    </div>
+
+  )
+
+
   render() {
-    const { guests } = this.props;
+    let tabIndex = 5;
     return (
       <Grid fluid>
         <Row center="xs">
-          <Col xs={12} sm={6} smOffset={3}>
-            <h2> Select guests that are RSVPing: </h2>
-            <form className={styles.InviteeSelection} onSubmit={this.onSubmit}>
-              { guests.map((guest, index) => (
-                <div key={guest.id} className={styles.guest_row}>
-                  <Checkbox defaultChecked value={guest.id} id={guest.id} onChange={this.onChange} tabIndex={index}>
-                    <label className={styles.InviteeSelection__guest_name}> { guest.displayName }  </label>
-                  </Checkbox>
-
-                  <input defaultChecked value={guest.id} id={guest.id} onChange={this.onChange} type="checkbox" />
-                </div>
-              )) }
-              <Col xs={12}>
-                <Row center="xs">
-                  <SectionDivider />
-                </Row>
+          <h2> Select guests that are RSVPing: </h2>
+        </Row>
+        <form className={styles.InviteeSelection} onSubmit={this.onSubmit}>
+          <Row center="xs">
+            { this.partyCount > 1 && Object.entries(this.guestsByParty).map(([partyId, guests], outerIndex) => (
+              <React.Fragment key={partyId}>
+                <Col xs={12} md={this.columnWidth - 2}>
+                  <Row center="xs" {...{ [outerIndex === 1 ? 'start' : 'end']: 'md' }}>
+                    { guests.map(guest => this.guestRow(guest, tabIndex += 1, false))
+                    }
+                  </Row>
+                </Col>
+                { outerIndex < this.partyCount - 1 && (
+                <Col xs={12} md={2}>
+                  <h2> - or - </h2>
+                </Col>
+                )}
+              </React.Fragment>
+            ))}
+            { this.partyCount === 1 && Object.values(this.guestsByParty)[0].map((guest, index) => (
+              <Col xs={12} key={guest.id}>
+                { this.guestRow(guest, index) }
               </Col>
+            ))}
+          </Row>
+          <Row center="xs">
+            <Col xs={12}>
+              <Row center="xs">
+                <SectionDivider />
+              </Row>
+            </Col>
+            <Col xs={12}>
               <ButtonRow>
                 <Button text="Search Again" onClick={this.onSearch} />
                 <Button text="Continue" onClick={this.onSubmit} />
               </ButtonRow>
-            </form>
-          </Col>
-          <Col xs />
-        </Row>
+            </Col>
+            <Col xs />
+          </Row>
+        </form>
       </Grid>
     );
   }

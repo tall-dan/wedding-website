@@ -6,6 +6,7 @@ module Types
     field :first_name, GraphQL::Types::String, null: false
     field :last_name, GraphQL::Types::String, null: false
     field :display_name, GraphQL::Types::String, null: false
+    field :guest_party_id, ::Types::Identifier, null: false
 
     def display_name
       [object.first_name, object.last_name].map(&:titleize).join(' ')

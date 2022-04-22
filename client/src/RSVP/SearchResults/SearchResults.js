@@ -15,6 +15,7 @@ function SearchResults() {
     {
       guests(name: "${name()}") {
         displayName
+        guestPartyId
         id
       }
     }
