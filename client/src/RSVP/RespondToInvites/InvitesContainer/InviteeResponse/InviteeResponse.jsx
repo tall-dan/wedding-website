@@ -73,6 +73,14 @@ class InviteeResponse extends Component {
               <Button text="Continue" onClick={this.handleSubmit} disabled={this.state.disabled}/>
             </ButtonRow>
           </Row>
+          <Row center='xs' className={styles.InviteeResponse__disclaimer}>
+            <Col xs={12}>
+              <p>
+                *For the health and safety of our family and friends, we expect all attendees
+                to be vaccinated against the COVID-19 virus. Thank you!
+              </p>
+            </Col>
+          </Row>
         </Grid>
   )
 }

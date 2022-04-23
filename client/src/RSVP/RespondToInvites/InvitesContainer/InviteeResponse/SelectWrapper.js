@@ -9,7 +9,7 @@ import inviteType from '../../../../types/invite';
 const SelectWrapper = ({ invite, selection, onChange }) => {
   const [respond] = useMutation(respondToInvites);
 
-  const options = { accepted: 'Joyfully Accepts', declined: 'Regretfully Declines' };
+  const options = { accepted: 'Vaccinated* and Accepts', declined: 'Regretfully Declines' };
   const prettySelection = options[selection];
 
   const persistChange = (id, guest, option, checked) => {
