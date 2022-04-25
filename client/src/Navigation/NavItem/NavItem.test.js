@@ -11,7 +11,7 @@ describe('NavItem', () => {
     context('at the base route', () => {
       context('when title matches home page title', () => {
         it('is active', () => {
-          const navItem = navItemWrapper('Our Wedding').instance();
+          const navItem = navItemWrapper('Our Vow Renewal').instance();
           expect(navItem.isActive('not_important', { pathname: '/' })).toBe(true);
         });
       });

@@ -10,7 +10,7 @@ import {
 
 const WeddingDetails = () => (
   <div className={styles.WeddingDetails}>
-    <SectionTitle title="Our Wedding" />
+    <SectionTitle title="Our Vow Renewal" />
     <div className={styles.WeddingDetails__detail}>{ceremonyStart.format('MMMM D, YYYY')}</div>
     <div className={styles.WeddingDetails__detail}>{ceremonyStart.format('h:mm a')}</div>
     <div className={styles.WeddingDetails__rsvpContainer} style={{ display: 'none' }}>

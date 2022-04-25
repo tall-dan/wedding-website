@@ -19,7 +19,7 @@ const Navigation = ({ children }) => (
       {children}
     </nav>
     <Route exact path="/" component={OurWedding} />
-    <Route exact path="/ourWedding" component={OurWedding} />
+    <Route exact path="/ourVowRenewal" component={OurWedding} />
     <Route exact path="/accommodations" component={Accommodations} />
     <Route exact path="/photos" component={Photos} />
     <Route exact path="/registry" component={Registry} />

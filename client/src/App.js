@@ -19,7 +19,7 @@ function App() {
       <div className={styles.App}>
         <Header />
         <Navigation>
-          <NavItem title="Our Wedding" />
+          <NavItem title="Our Vow Renewal" />
           <NavItem title="Accommodations" />
           <NavItem title="Photos" />
           <NavItem title="RSVP" />

@@ -4,7 +4,7 @@ export const copy = {
     title: 'Chicago Marriott Southwest at Burr Ridge',
     phone_number: '(630) 986-4100',
     address: '1200 Burr Ridge Pkwy, Burr Ridge, IL 60527',
-    description: 'We currently have a McLaughlin/Schepers room block for out-of-town wedding guests. Rooms range from $129 - $159 per night',
+    description: 'We currently have a McLaughlin/Schepers room block for out-of-town guests. Rooms range from $129 - $159 per night',
     url: 'https://www.marriott.com/event-reservations/reservation-link.mi?id=1645738308684&key=GRP&app=resvlink'
   },
   hampton: {
