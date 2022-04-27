@@ -29,4 +29,31 @@
     font-size: 1.4em;
     margin: 0 auto;
   }
+
+  .WeddingParty__padding_bookend {
+    width: calc((90% - 840px)/2) ;
+    display: inline-block;
+  }
+  .WeddingParty__party_column, .WeddingParty__groomsmen_column {
+    width: 420px;
+    display: inline-block;
+  }
+  .WeddingParty__padding_middle {
+    width: 10%;
+    display: inline-block;
+    @media only screen and (max-width: 960px) {
+      display: none;
+    }
+  }
+  .WeddingParty__groomsmen_column > div{
+    @media only screen and (min-width: 875px) {
+      padding-left:2%;
+    }
+  }
+
+  .hidden_md_up {
+    @media only screen and (min-width: 875px) {
+      display: none;
+    }
+  }
 }
