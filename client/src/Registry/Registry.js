@@ -1,7 +1,9 @@
 import React from 'react';
 import { Grid, Col, Row } from 'react-flexbox-grid';
 import styles from './Registry.module.scss';
+import Button from '../shared/Button/Button';
 
+const url = 'https://www.travelersjoy.com/mcschepersmoon';
 const Registry = () => (
   <Grid fluid>
     <Col sm={12} md={10} mdOffset={1} lg={8} lgOffset={2} className={styles.Matte}>
@@ -14,9 +16,12 @@ const Registry = () => (
       </p>
       <div>
         <Row center="xs">
-          <a href="https://www.travelersjoy.com/mcschepersmoon">
+          <a href={url}>
             <img alt="honeymoon" className={styles.registryImage} src="/greece.jpeg" />
           </a>
+        </Row>
+        <Row center="xs">
+          <Button text="Visit Our Honeyfund" target={url} newTab />
         </Row>
       </div>
     </Col>

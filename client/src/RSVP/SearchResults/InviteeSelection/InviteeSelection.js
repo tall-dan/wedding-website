@@ -19,7 +19,8 @@ class InviteeSelection extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { guest_ids: props.guests.map(g => g.id) };
+    const guestIds = this.partyCount === 1 ? props.guests.map(g => g.id) : [];
+    this.state = { guest_ids: guestIds };
   }
 
   onSubmit = (event) => {
