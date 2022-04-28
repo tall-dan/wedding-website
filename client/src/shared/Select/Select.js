@@ -59,7 +59,7 @@ class Select extends Component {
           onClick={() => this.handleChange(option, !this.checked(option))}
           className={styles.selectionRow}
           center="xs"
-          key={`${this.props.guest.id}_${option}`}
+          key={`${this.props.guest.id}_${option.replaceAll(' ', '_')}`}
         >
           <Col
             xs={12}
