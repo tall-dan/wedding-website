@@ -17,10 +17,10 @@ function MealSelection() {
 
   // id can come back null for meal selections, which messes up cache
   const {
-    data, refetch
+    data, refetch, loading
   } = useQuery(getMealSelections(guestIds(), eventId), { fetchPolicy: 'no-cache' });
 
-  const [select] = useMutation(selectMeal, { onCompleted: refetch });
+  const [select] = useMutation(selectMeal, { onError: refetch, onCompleted: refetch, ignoreResults: true });
   const persistChange = (id, guest, guestSelection, checked, s = select) => {
     if (!checked) { return; } // effectively means someone's clicking an option that's already selected
     s({
@@ -54,7 +54,10 @@ function MealSelection() {
             <Row center="xs">
               <span className={styles.MealSelection__guestName}>{selection.guest.displayName}</span>
             </Row>
-            <Select {...{ ...selection, role: 'radio', onChange: persistChange }} />
+            <Select {...{
+              ...selection, role: 'radio', onChange: persistChange, loading
+            }}
+            />
           </Col>
         ))}
       </Row>

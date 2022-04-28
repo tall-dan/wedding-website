@@ -14,7 +14,7 @@ import SectionDivider from '../../shared/SectionDivider/SectionDivider';
 function Transportation() {
   const { guests, eventId } = deserializeURLQuery();
   const guestIds = () => guests.map(g => `"${g.id}"`);
-  const { data, refetch } = useQuery(getTransportations(guestIds(), eventId), { fetchPolicy: 'no-cache' });
+  const { data, refetch, loading } = useQuery(getTransportations(guestIds(), eventId), { fetchPolicy: 'no-cache' });
 
   const guestTransportations = () => guests.map((guest) => {
     const transportations = data.transportations.filter(transport => transport.guest.id === guest.id);
@@ -27,7 +27,7 @@ function Transportation() {
   const thanksForRSVP = () => {
     window.location.href = '/rsvp/thanks';
   };
-  const [select] = useMutation(selectTransportation, { onCompleted: refetch });
+  const [select] = useMutation(selectTransportation, { onError: refetch, onCompleted: refetch, ignoreResults: true });
   const persistChange = (id, guest, journey, going, s = select) => {
     s({
       variables:
@@ -48,7 +48,10 @@ function Transportation() {
             <Row center="xs">
               <span className={styles.MealSelection__guestName}>{guestTransport.guest.displayName}</span>
             </Row>
-            <Select {...{ ...guestTransport, role: 'checkbox', onChange: persistChange }} />
+            <Select {...{
+              ...guestTransport, role: 'checkbox', onChange: persistChange, loading
+            }}
+            />
           </Col>
         ))}
       </Row>

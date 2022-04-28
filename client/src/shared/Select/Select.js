@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-flexbox-grid';
@@ -9,10 +9,8 @@ import {
 import mealSelection from '../../types/mealSelection';
 import styles from './Select.module.scss';
 
-const Select = ({
-  id, guest, selection, options, role, onChange
-}) => {
-  const icons = {
+class Select extends Component {
+  icons = {
     'organic airline chicken breast': faDove,
     'braised beef short ribs': faCow,
     'mushroom risotto': faLeaf,
@@ -20,52 +18,78 @@ const Select = ({
     'regretfully declines': faTimesCircle
   };
 
-  const checked = (option) => {
-    if (Array.isArray(selection)) {
-      return selection.includes(option);
-    } return selection === option;
+  constructor({
+    id, guest, selection, options, role, onChange, loading
+  }) {
+    super({
+      id, guest, selection, options, role, onChange, loading
+    });
+    this.state = { selection };
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (newProps.loading) { return; }
+    this.setState(prevState => ({ ...prevState, ...{ selection: newProps.selection } }));
+  }
+
+  checked = (option) => {
+    if (Array.isArray(this.state.selection)) {
+      return this.state.selection.includes(option);
+    } return this.state.selection === option;
   };
 
-  return (
+  handleChange = (option, selected) => {
+    let selection;
+    if (Array.isArray(this.state.selection)) {
+      selection = selected ? this.state.selection.concat(option) : this.state.selection.filter(o => o !== option);
+    } else selection = option;
+    if (selection === this.state.selection) return;
+    this.setState({ selection }, () => {
+      this.props.onChange(this.props.id, this.props.guest, option, selected);
+    });
+  }
+
+  render = () => (
     <>
-      { options.map(option => (
+      { this.props.options.map(option => (
         <Row
-          onClick={() => onChange(id, guest, option, !checked(option))}
+          onClick={() => this.handleChange(option, !this.checked(option))}
           className={styles.selectionRow}
           center="xs"
-          key={option}
+          key={`${this.props.guest.id}_${option}`}
         >
           <Col
             xs={12}
-            className={classnames(styles.select__checkbox, checked(option) ? styles.select__checkbox__active : '')}
+            className={classnames(styles.select__checkbox, this.checked(option) ? styles.select__checkbox__active : '')}
           >
             <input
               readOnly
-              type={role}
-              id={`${id}_${option}`}
-              name={id}
+              type={this.props.role}
+              id={`${this.props.id}_${option}`}
+              name={this.props.id}
               value={option}
-              checked={checked(option)}
+              checked={this.checked(option)}
             />
-            {icons[option.toLowerCase()]
+            {this.icons[option.toLowerCase()]
               && (
               <FontAwesomeIcon
-                icon={icons[option.toLowerCase()]}
-                className={classnames(styles.select__check, checked(option) ? '' : styles.select__check__unchecked)}
+                icon={this.icons[option.toLowerCase()]}
+                className={classnames(styles.select__check, this.checked(option) ? '' : styles.select__check__unchecked)}
               />
               )
           }
-            <label className={styles.option} htmlFor={`${id}_${option}`}>{option} </label>
+            <label className={styles.option} htmlFor={`${this.id}_${option}`}>{option} </label>
           </Col>
         </Row>
       ))}
     </>
   );
-};
+}
 
 Select.propTypes = {
   ...mealSelection, // TODO: no longer correct
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired
 };
 
 export default Select;
