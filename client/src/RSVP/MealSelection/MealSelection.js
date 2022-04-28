@@ -10,6 +10,7 @@ import ButtonRow from '../../shared/ButtonRow/ButtonRow';
 import Select from '../../shared/Select/Select';
 import styles from './MealSelection.module.scss';
 import Button from '../../shared/Button/Button';
+import sortGuestObjects from '../../shared/sorts';
 
 function MealSelection() {
   const { guests, eventId } = deserializeURLQuery();
@@ -49,7 +50,7 @@ function MealSelection() {
     <Grid fluid className={styles.MealSelection}>
       <SectionTitle title="What would you like to eat?" />
       <Row center="xs">
-        { data && data.mealSelections.map(selection => (
+        { data && sortGuestObjects(data.mealSelections).map(selection => (
           <Col xs={12} sm={6} md={5} lg={4} xl={3} key={selection.guest.id}>
             <Row center="xs">
               <span className={styles.MealSelection__guestName}>{selection.guest.displayName}</span>

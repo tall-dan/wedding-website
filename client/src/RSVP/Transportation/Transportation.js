@@ -10,6 +10,7 @@ import SectionTitle from '../../shared/SectionTitle/SectionTitle';
 import Select from '../../shared/Select/Select';
 import Button from '../../shared/Button/Button';
 import SectionDivider from '../../shared/SectionDivider/SectionDivider';
+import sortGuestObjects from '../../shared/sorts';
 
 function Transportation() {
   const { guests, eventId } = deserializeURLQuery();
@@ -43,7 +44,7 @@ function Transportation() {
     <Grid fluid className={styles.MealSelection}>
       <SectionTitle title="Can we offer you a ride?" />
       <Row center="xs">
-        { data && guestTransportations(data).map(guestTransport => (
+        { data && sortGuestObjects(guestTransportations(data)).map(guestTransport => (
           <Col xs={12} md={4} key={guestTransport.guest.id}>
             <Row center="xs">
               <span className={styles.MealSelection__guestName}>{guestTransport.guest.displayName}</span>

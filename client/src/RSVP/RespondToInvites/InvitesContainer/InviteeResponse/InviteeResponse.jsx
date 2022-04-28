@@ -69,7 +69,7 @@ class InviteeResponse extends Component {
           </Row>
           <Row center='xs'>
             <ButtonRow>
-              <Button text="Go Back" onClick={() => window.history.back()} />
+              <Button text="Go Back" onClick={this.props.backFn} />
               <Button text="Continue" onClick={this.handleSubmit} disabled={this.state.disabled}/>
             </ButtonRow>
           </Row>

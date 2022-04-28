@@ -4,6 +4,7 @@ import InviteeResponse from './InviteeResponse/InviteeResponse';
 import titleize from '../../../shared/titleize';
 import serializeJson from '../../../shared/url/serializeJson';
 import invite from '../../../types/invite';
+import sortGuestObjects from '../../../shared/sorts';
 
 // component design
 // top level component that keeps track of invites, and passes invites to a lower level invite display component
@@ -34,18 +35,26 @@ class InvitesContainer extends Component {
         window.location.href = `/rsvp/mealSelection?${query}`;
       }
     } else {
-      this.setState(prevState => ({ ...prevState, eventResponseIndex: prevState.eventResponseIndex + 1 }));
+      this.respondToNewPage(this.state.eventResponseIndex + 1);
     }
   }
 
   currentlyRespondingTo = () => this.events[this.state.eventResponseIndex]
 
+  respondToNewPage = pageIndex => this.setState(prevState => ({ ...prevState, eventResponseIndex: pageIndex }));
+
+  backFn = () => {
+    if (this.state.eventResponseIndex) this.respondToNewPage(this.state.eventResponseIndex - 1);
+    else window.history.back();
+  }
+
   render = () => (
     <>
       <InviteeResponse
-        invites={this.props.invites[this.currentlyRespondingTo()]}
+        invites={sortGuestObjects(this.props.invites[this.currentlyRespondingTo()])}
         saveInvites={this.nextInviteStep}
         eventName={titleize(this.currentlyRespondingTo())}
+        backFn={this.backFn}
       />
     </>
   )
