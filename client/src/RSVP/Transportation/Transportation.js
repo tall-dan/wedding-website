@@ -21,14 +21,20 @@ function Transportation() {
     const transportations = data.transportations.filter(transport => transport.guest.id === guest.id);
     const transportation = transportations[0] || { journeys: [] };
     return {
-      guest, eventId, selection: transportation.journeys, options: data.transportationOptions
+      id: guest.id, guest, eventId, selection: transportation.journeys, options: data.transportationOptions
     };
   });
 
   const thanksForRSVP = () => {
     window.location.href = '/rsvp/thanks';
   };
-  const [select] = useMutation(selectTransportation, { onError: refetch, onCompleted: refetch, ignoreResults: true });
+  const [select] = useMutation(selectTransportation, {
+    onError: refetch,
+    onCompleted: refetch,
+    ignoreResults: true,
+    fetchPolicy: 'no-cache'
+  });
+
   const persistChange = (id, guest, journey, going, s = select) => {
     s({
       variables:
