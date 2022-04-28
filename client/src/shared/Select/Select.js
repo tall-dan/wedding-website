@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Row, Col } from 'react-flexbox-grid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faCow, faDove, faLeaf, faTimesCircle, faCheckCircle
+  faCow, faDove, faLeaf, faTimesCircle, faCheckCircle, faVanShuttle
 } from '@fortawesome/free-solid-svg-icons';
 import mealSelection from '../../types/mealSelection';
 import styles from './Select.module.scss';
@@ -15,7 +15,10 @@ class Select extends Component {
     'braised beef short ribs': faCow,
     'mushroom risotto': faLeaf,
     'joyfully accepts': faCheckCircle,
-    'regretfully declines': faTimesCircle
+    'regretfully declines': faTimesCircle,
+    'from hotel to church': faVanShuttle,
+    'from church to reception': faVanShuttle,
+    'from reception to hotel': faVanShuttle
   };
 
   constructor({
