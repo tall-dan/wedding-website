@@ -13,4 +13,11 @@ class ApplicationController < ActionController::API
       projectKey: config.project_key
     }
   end
+
+  def reconcile_responses
+    render(head: :unauthorized) && return unless request.local?
+
+    require 'reconciler'
+    Reconciler.new.reconcile
+  end
 end

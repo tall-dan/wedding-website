@@ -3,6 +3,7 @@
 Rails.application.routes.draw do
   scope 'api' do
     post '/graphql', to: 'graphql#execute'
+    get '/reconcile_responses', to: 'application#reconcile_responses'
     get '/pulse_check', to: 'application#pulse_check'
     get '/airbrake_config', to: 'application#airbrake_config'
     devise_for :users
