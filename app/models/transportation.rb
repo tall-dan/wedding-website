@@ -10,4 +10,10 @@ class Transportation < ApplicationRecord
       'rehearsal_dinner' => ['From Hotel to Dinner', 'From Dinner to Hotel']
     }
   end
+
+  options.each do |(event_name, journeys)|
+    journeys.each do |journey|
+      scope journey.downcase.gsub(' ', '_'), -> { where(journey: journey, event: Event.send(event_name)) }
+    end
+  end
 end
