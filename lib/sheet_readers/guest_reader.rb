@@ -100,6 +100,7 @@ module GuestReader
     address_column.include?(' & M')
   end
 
+  # rubocop:disable Metrics/MethodLength, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Metrics/AbcSize
   def tweak_edge_cases(guests)
     guests.each do |guest|
       if guest.last_name == 'morilla'
@@ -109,9 +110,14 @@ module GuestReader
       elsif guest.last_name == 'mcweiner'
         guest.assign_attributes(last_name: 'weiner')
         guest.assign_attributes(last_name: 'guest', first_name: 'weiner') if guest.first_name == 'guest'
+      elsif guest.first_name == 'jake and dave minker'
+        guest.assign_attributes(last_name: 'minker', first_name: 'dave')
       end
     end
+    guests.append(Guest.new(first_name: 'jake', last_name: 'bellacini')) if guests.first&.last_name == 'bellacini'
+    guests
   end
+  # rubocop:enable Metrics/MethodLength, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Metrics/AbcSize
 
   def couple_with_different_names
     names = address_column.match(/M\w+.\W+(\w+) (\w+) & M\w+. (\w+) (\w+)/).captures

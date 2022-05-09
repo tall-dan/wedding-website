@@ -8,7 +8,7 @@ class Guest < ApplicationRecord
   has_one :meal_selection
   has_many :transportations
 
-  after_initialize :downcase_names
+  after_initialize :downcase_names, :strip_names
 
   def kid?
     self.class.kids_names.include?("#{first_name} #{last_name}")
@@ -37,5 +37,10 @@ class Guest < ApplicationRecord
   def downcase_names
     first_name&.downcase!
     last_name&.downcase!
+  end
+
+  def strip_names
+    first_name&.strip!
+    last_name&.strip!
   end
 end
