@@ -34,7 +34,7 @@ class GoogleSheetReader
   # @return [Google::Auth::UserRefreshCredentials] OAuth2 credentials
   def authorize
     Google::Auth::ServiceAccountCredentials.make_creds(
-      json_key_io: File.open(CREDENTIALS_PATH),
+      json_key_io: ENV['GOOGLE_CREDENTIALS'] || File.open(CREDENTIALS_PATH),
       scope: SCOPE
     ).tap(&:fetch_access_token!)
   end
