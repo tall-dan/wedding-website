@@ -15,6 +15,11 @@ class Lookup extends Component {
     this.setState({ lookupURL: `/rsvp/search?name=${encodeURI(nameJson)}` });
   }
 
+  onKeyPress = (event) => {
+    const { lookupURL } = this.state;
+    if (event.key === 'Enter') { window.location.href = lookupURL; }
+  }
+
   render() {
     const { prompt } = this.props;
     const { lookupURL } = this.state;
@@ -24,7 +29,14 @@ class Lookup extends Component {
           { prompt }
         </p>
         <Row center="xs">
-          <input onChange={this.onChange} className={styles.Lookup_search_input} type="text" name="full_name" placeholder="Ex: Jeremy Grey (Not Dr. Grey or The Grey Family)" />
+          <input
+            onChange={this.onChange}
+            className={styles.Lookup_search_input}
+            onKeyPress={this.onKeyPress}
+            type="text"
+            name="full_name"
+            placeholder="Ex: Jeremy Grey (Not Dr. Grey or The Grey Family)"
+          />
         </Row>
         <Button text="Find Your Invites" target={lookupURL} />
       </div>
