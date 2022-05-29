@@ -22,8 +22,8 @@ class Invite < ApplicationRecord
   def remove_stuff_from_declinees
     reload
 
-    return unless event == Event.reception
     return unless declined?
+    return unless event == Event.reception
 
     guest.transportations.destroy_all
     guest.meal_selection&.destroy

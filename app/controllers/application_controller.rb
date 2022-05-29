@@ -18,6 +18,8 @@ class ApplicationController < ActionController::API
     render(head: :unauthorized) && return unless request.local?
 
     require 'reconciler'
+    require 'seating_reconciler'
+    SeatingReconciler.new.reconcile
     Reconciler.new.reconcile
   end
 end

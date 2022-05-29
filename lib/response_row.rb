@@ -18,7 +18,12 @@ class ResponseRow
         end
 
         def to_a
-          intrinsic_values + [calculate_sha]
+          self.sha = calculate_sha
+          members.map { |attr| send(attr) }
+        end
+
+        def favor_filename
+          "#{name}-#{id}".gsub(' ', '_')
         end
       end
     end
