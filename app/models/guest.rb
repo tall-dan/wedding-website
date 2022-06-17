@@ -32,6 +32,10 @@ class Guest < ApplicationRecord
     [first_name, last_name].map(&:titleize).join(' ')
   end
 
+  def favor_filename
+    "#{display_name}-#{id}".gsub(' ', '_')
+  end
+
   private
 
   def downcase_names

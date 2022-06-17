@@ -20,7 +20,7 @@ class RowReconciler
                        record.transportations.from_church_to_reception.exists?,
                        record.transportations.from_reception_to_hotel.exists?,
                        record.id
-                     ]).tap { |row| row.table = record.invites.reception_invites[0].table_number }
+                     ])
   end
 
   def reconcile
@@ -69,6 +69,7 @@ class RowReconciler
   end
 
   def should_update_row?
+    return false if Rails.env.dev?
     return true if row.nil?
     return true unless row_has_been_updated_manually?
 

@@ -20,6 +20,7 @@ function App() {
         <Header />
         <Navigation>
           <NavItem title="Our Vow Renewal" />
+          <NavItem title="Day Of Details" />
           <NavItem title="Accommodations" />
           <NavItem title="Photos" />
           <NavItem title="RSVP" />

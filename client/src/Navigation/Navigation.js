@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
 import styles from './Navigation.module.scss';
 import OurWedding from '../OurWedding/OurWedding';
+import DayOfDetails from '../DayOfDetails/DayOfDetails';
 import Accommodations from '../Accommodations/Accommodations';
 import Photos from '../Photos/Photos';
 import Registry from '../Registry/Registry';
@@ -20,6 +21,7 @@ const Navigation = ({ children }) => (
     </nav>
     <Route exact path="/" component={OurWedding} />
     <Route exact path="/ourVowRenewal" component={OurWedding} />
+    <Route exact path="/dayOfDetails" component={DayOfDetails} />
     <Route exact path="/accommodations" component={Accommodations} />
     <Route exact path="/photos" component={Photos} />
     <Route exact path="/registry" component={Registry} />

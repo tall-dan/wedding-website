@@ -18,8 +18,7 @@ class ResponseRow
         end
 
         def to_a
-          self.sha = calculate_sha
-          members.map { |attr| send(attr) }
+          intrinsic_values + [calculate_sha]
         end
 
         def favor_filename

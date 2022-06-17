@@ -18,6 +18,10 @@ class Reconciler
 
   # rubocop:disable Metrics/AbcSize
   def reconcile
+    # People are done using the website to respond at this point,
+    # and testing with seat reconcilation in dev makes me think this is going to write bad data
+    return if Rails.env.prod?
+
     guest_lookup = rows.index_by(&:id)
     Guest.includes(:invites, :meal_selection, :transportations).all.each do |guest|
       existing_row = guest_lookup[guest.id.to_s]

@@ -1,29 +1,30 @@
 # frozen_string_literal: true
 
 task create_favors: :environment do
-  # read rows, filter for guests who have accepted
-  # for each row (guest):
-  #   copy the template to that guest's doc (name: guest-name-guest-id)
-  #   customize the guest doc
-  #   move it to some shared folder, or share it with dan.w.schepers
-  #   `open` the doc, and then take a screenshot of it
-  #     `screenshot Chrome -f timestamp-guest-name-guest-id`
-  #     upload screenshot to drive (again, folder shared w/ dan.w.schepers
-  #       probs not the same folder
 
   require 'sheet_readers/guest_reader'
   require 'reconciler'
   require 'google_drive'
   require 'google_doc'
   drive = GoogleDrive.new
-  Reconciler.new.rows.map do |guest|
+  Guest.where(id: 248).each do |guest|
+  #Guest.includes(:invites).where(invites: { event_id: Event.reception, status: 'accepted' }).order(:last_name).each do |guest|
+    table = guest.reception_invite.table_number
+    puts guest.display_name
+    #next if guest.last_name[0] < 'k'
+    next if table.blank?
+    #next if drive.find_by_name("#{guest.favor_filename}.png", mime_type = 'image/png').files.present? && !ENV['OVERWRITE']
     drive.clean_by_name(guest.favor_filename)
+
     new_doc = drive.copy_template_into_docs_folder(guest)
-    GoogleDoc.new(new_doc.id, guest).customize!
+    GoogleDoc.new(new_doc.id, guest).customize!(table)
     `open https://docs.google.com/document/d/#{new_doc.id}`
+    sleep(10)
     `screenshot Chrome -f screenshot.png`
-    `convert screenshot.png -crop 900x220+1200+780 #{guest.favor_filename}.png`
+    chrome_pid = `ps aux | grep "Chrome" | grep -Ev "Helper|grep"`.split(' ')[1]
+    `kill #{chrome_pid}`
+    `convert screenshot.png -crop 900x220+1200+1050 untrimmed.png`
+    `convert untrimmed.png -trim #{guest.favor_filename}.png`
     drive.upload_image_to_pics_dir("#{guest.favor_filename}.png")
-    # upload screenshot to pics dir
   end
 end
