@@ -1,19 +1,18 @@
 # frozen_string_literal: true
 
 task create_favors: :environment do
-
   require 'sheet_readers/guest_reader'
   require 'reconciler'
   require 'google_drive'
   require 'google_doc'
   drive = GoogleDrive.new
-  Guest.where(id: 248).each do |guest|
-  #Guest.includes(:invites).where(invites: { event_id: Event.reception, status: 'accepted' }).order(:last_name).each do |guest|
+  Guest.includes(:invites).where(
+    invites: { event_id: Event.reception, status: 'accepted' }
+  ).order(:last_name).each do |guest|
     table = guest.reception_invite.table_number
     puts guest.display_name
-    #next if guest.last_name[0] < 'k'
     next if table.blank?
-    #next if drive.find_by_name("#{guest.favor_filename}.png", mime_type = 'image/png').files.present? && !ENV['OVERWRITE']
+
     drive.clean_by_name(guest.favor_filename)
 
     new_doc = drive.copy_template_into_docs_folder(guest)

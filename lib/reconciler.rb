@@ -16,7 +16,6 @@ class Reconciler
     @rows = rows[1..-1].map { |row| ResponseRow.wrap(row) }
   end
 
-  # rubocop:disable Metrics/AbcSize
   def reconcile
     # People are done using the website to respond at this point,
     # and testing with seat reconcilation in dev makes me think this is going to write bad data
@@ -31,5 +30,4 @@ class Reconciler
     end
     reader.write(guest_lookup.values.map(&:to_a), 'A2')
   end
-  # rubocop:enable Metrics/AbcSize
 end

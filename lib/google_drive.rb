@@ -36,7 +36,7 @@ class GoogleDrive
   def find_by_name(name, mime_type = 'application/vnd.google-apps.document')
     name_query = "name='#{name}'"
     type_query = "mimeType='#{mime_type}'" if mime_type.present?
-    service.list_files(q: [name_query, type_query].compact.join(' and ' ))
+    service.list_files(q: [name_query, type_query].compact.join(' and '))
   end
 
   def copy(from_id, **file_attrs)
@@ -48,7 +48,7 @@ class GoogleDrive
     service.update_file(file_id, add_parents: docs_folder.id, remove_parents: current_parents)
   end
 
-  def clean_by_name(name, mime_type = 'application/vnd.google-apps.document' )
+  def clean_by_name(name, _mime_type = 'application/vnd.google-apps.document')
     find_by_name(name).files.map { |file| service.delete_file(file.id) }
   end
 

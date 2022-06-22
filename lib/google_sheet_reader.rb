@@ -23,7 +23,6 @@ class GoogleSheetReader
   end
 
   def write(values, beginning_cell)
-    binding.pry
     range = calculate_range_filled_by(values, beginning_cell)
     sheet_with_range = "#{sheet}!#{range}"
     value_range = Google::Apis::SheetsV4::ValueRange.new(

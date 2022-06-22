@@ -2,7 +2,7 @@
 
 class ResponseRow
   class << self
-    # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
+    # rubocop:disable Metrics/MethodLength
     def init(attributes)
       @struct = Struct.new(*attributes.map { |attr| attr.downcase.gsub(' ', '_').to_sym }) do
         def calculate_sha
@@ -26,7 +26,7 @@ class ResponseRow
         end
       end
     end
-    # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
+    # rubocop:enable Metrics/MethodLength
 
     def wrap(data)
       @struct.new(*transform_data(data))
