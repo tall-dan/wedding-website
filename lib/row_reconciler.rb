@@ -69,6 +69,7 @@ class RowReconciler
   end
 
   def should_update_row?
+    return false if Rails.env.dev?
     return true if row.nil?
     return true unless row_has_been_updated_manually?
 

@@ -1,0 +1,54 @@
+.destination__heading {
+  width: 100%;
+  font-size: 1.3em;
+}
+
+.section__title {
+  width: 100%;
+  font-size: 18px;
+  display: block;
+  padding: 15px 0;
+}
+
+.section__detail {
+  width: 100%;
+  font-size: 18px;
+  display: block;
+}
+
+.section_detail_area {
+  padding-top: 20px;
+}
+
+.lateral_arrow,
+.content {
+  padding-top: 50px;
+}
+
+.action__detail {
+  font-size: 16px;
+  width: 100%;
+  display: block;
+  font-style: italic;
+}
+
+.action__icon {
+  height: 10vw;
+  max-width: 100%;
+
+  @media only screen and (max-width: 768px) {
+    height: 30vw;
+  }
+}
+
+.hidden__sm_xs {
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
+}
+
+.show__sm_xs {
+  @media only screen and (min-width: 768px) {
+    display: none;
+  }
+}

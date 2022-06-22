@@ -24,6 +24,10 @@ gem 'graphiql-rails', '~> 1.4.11' # TODO: figure out if / how to secure this
 gem 'graphql', '1.13.6'
 gem 'mail'
 
+# Below explicitly required to pin versions that brakeman likes
+gem 'nokogiri', '>= 1.13.6'
+gem 'rack', '>= 2.2.3.1'
+
 group :development, :test do
   gem 'bootsnap'
   gem 'listen'
