@@ -61,16 +61,28 @@ const DayOfDetails = () => (
     </Row>
     <Row center="xs">
       <Col sm={12} md={2}>
-        <span className={styles.section__title}>The Bus</span>
-        <FontAwesomeIcon icon={faBus} className={styles.action__icon} />
-        <Row center="xs" className={styles.section_detail_area}>
-          <span className={styles.section__detail}>
-            There will be three shuttles from the reception back to Marriott & Hampton Inn
-          </span>
-          <span className={styles.action__detail}>10:15pm</span>
-          <span className={styles.action__detail}>11:00pm</span>
-          <span className={styles.action__detail}>1:00pm</span>
-        </Row>
+        <div className={classnames(styles.hidden__sm_xs)}>
+          <span className={styles.section__title}>The Bus</span>
+          <FontAwesomeIcon icon={faBus} className={styles.action__icon} />
+          <Row center="xs" className={styles.section_detail_area}>
+            <span className={styles.section__detail}>
+              There will be three shuttles from the reception back to the Marriott & Hampton Inn
+            </span>
+            <span className={styles.action__detail}>10:15pm</span>
+            <span className={styles.action__detail}>11:00pm</span>
+            <span className={styles.action__detail}>1:00pm</span>
+          </Row>
+        </div>
+        <div className={classnames(styles.show__sm_xs)}>
+          <span className={styles.section__title}>The Bus</span>
+          <FontAwesomeIcon icon={faBus} className={styles.action__icon} />
+          <Row center="xs" className={styles.section_detail_area}>
+            <span className={styles.section__detail}>
+              There will be a shuttle bus from the ceremony to the reception
+            </span>
+            <span className={styles.action__detail}>At the end of the ceremony</span>
+          </Row>
+        </div>
       </Col>
       <Col sm={0} md={2}>
         <FontAwesomeIcon
@@ -99,14 +111,28 @@ const DayOfDetails = () => (
         <FontAwesomeIcon icon={faArrowDown} className={classnames(styles.show__sm_xs, styles.action__icon)} />
       </Col>
       <Col sm={12} md={2}>
-        <span className={styles.section__title}>The Bus</span>
-        <FontAwesomeIcon icon={faBus} className={styles.action__icon} />
-        <Row center="xs" className={styles.section_detail_area}>
-          <span className={styles.section__detail}>
-            There will be a shuttle bus from the ceremony to the reception
-          </span>
-          <span className={styles.action__detail}>At the end of the ceremony</span>
-        </Row>
+        <div className={classnames(styles.hidden__sm_xs)}>
+          <span className={styles.section__title}>The Bus</span>
+          <FontAwesomeIcon icon={faBus} className={styles.action__icon} />
+          <Row center="xs" className={styles.section_detail_area}>
+            <span className={styles.section__detail}>
+              There will be a shuttle bus from the ceremony to the reception
+            </span>
+            <span className={styles.action__detail}>At the end of the ceremony</span>
+          </Row>
+        </div>
+        <div className={classnames(styles.show__sm_xs)}>
+          <span className={styles.section__title}>The Bus</span>
+          <FontAwesomeIcon icon={faBus} className={styles.action__icon} />
+          <Row center="xs" className={styles.section_detail_area}>
+            <span className={styles.section__detail}>
+              There will be three shuttles from the reception back to the Marriott & Hampton Inn
+            </span>
+            <span className={styles.action__detail}>10:15pm</span>
+            <span className={styles.action__detail}>11:00pm</span>
+            <span className={styles.action__detail}>1:00pm</span>
+          </Row>
+        </div>
       </Col>
     </Row>
   </Grid>
