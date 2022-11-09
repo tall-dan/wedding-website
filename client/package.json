@@ -30,7 +30,7 @@
     "react-flexbox-grid": "^2.1.2",
     "react-helmet": "^6.1.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "^3.4.0",
+    "react-scripts": "^5.0.1",
     "stylelint": "^10.1.0",
     "stylelint-config-standard": "^18.3.0",
     "stylelint-scss": "^3.8.0"
