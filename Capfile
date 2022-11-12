@@ -33,7 +33,7 @@ install_plugin Capistrano::SCM::Git
 require 'capistrano/bundler'
 # require 'capistrano/rails/assets'
 require 'capistrano/rails/migrations'
-require 'capistrano/chruby'
+#require 'capistrano/chruby'
 
 # require 'capistrano/passenger'
 

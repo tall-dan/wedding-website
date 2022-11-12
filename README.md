@@ -8,6 +8,9 @@ application up and running.
 Things you may want to cover:
 
 ## Ruby version - see .ruby-version
+* Use `ruby-install` to install
+** Install globally in deployment env for ease of deployment
+* Install `chruby` in deployment env as well, deploy script uses it
 
 ## Node version - see client/.nvmrc
 
@@ -16,6 +19,8 @@ Things you may want to cover:
 ## Configuration
 
 ## Database creation
+Install postgresql in target env; create database & user from
+`config/database.yml`
 
 ## Database initialization
 
