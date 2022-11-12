@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import NavItem from './NavItem';
 
-const navItemWrapper = title => (
+const navItemWrapper = (title) => (
   shallow(<NavItem title={title} />)
 );
 

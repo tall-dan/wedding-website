@@ -30,9 +30,10 @@ class Select extends Component {
     this.state = { selection };
   }
 
+  // eslint-disable-next-line react/no-deprecated
   componentWillReceiveProps(newProps) {
     if (newProps.loading) { return; }
-    this.setState(prevState => ({ ...prevState, ...{ selection: newProps.selection } }));
+    this.setState((prevState) => ({ ...prevState, ...{ selection: newProps.selection } }));
   }
 
   checked = (option) => {
@@ -44,49 +45,55 @@ class Select extends Component {
   handleChange = (option, selected) => {
     let selection;
     if (Array.isArray(this.state.selection)) {
-      selection = selected ? this.state.selection.concat(option) : this.state.selection.filter(o => o !== option);
+      selection = selected ? this.state.selection.concat(option) : this.state.selection.filter((o) => o !== option);
     } else selection = option;
     if (selection === this.state.selection) return;
     this.setState({ selection }, () => {
       this.props.onChange(this.props.id, this.props.guest, option, selected);
     });
-  }
+  };
 
-  render = () => (
-    <>
-      { this.props.options.map(option => (
-        <Row
-          onClick={() => this.handleChange(option, !this.checked(option))}
-          className={styles.selectionRow}
-          center="xs"
-          key={`${this.props.guest.id}_${option.replaceAll(' ', '_')}`}
-        >
-          <Col
-            xs={12}
-            className={classnames(styles.select__checkbox, this.checked(option) ? styles.select__checkbox__active : '')}
+  render() {
+    return (
+      <>
+        {/* eslint-disable-next-line react/destructuring-assignment */}
+        { this.props.options.map((option) => (
+          <Row
+            onClick={() => this.handleChange(option, !this.checked(option))}
+            className={styles.selectionRow}
+            center="xs"
+            // eslint-disable-next-line react/destructuring-assignment
+            key={`${this.props.guest.id}_${option.replaceAll(' ', '_')}`}
           >
-            <input
-              readOnly
-              type={this.props.role}
-              id={`${this.props.id}_${option}`}
-              name={this.props.id}
-              value={option}
-              checked={this.checked(option)}
-            />
-            {this.icons[option.toLowerCase()]
+            <Col
+              xs={12}
+              className={classnames(styles.select__checkbox, this.checked(option) ? styles.select__checkbox__active : '')}
+            >
+              <input
+                readOnly
+                // eslint-disable-next-line react/destructuring-assignment
+                type={this.props.role}
+                // eslint-disable-next-line react/destructuring-assignment
+                id={`${this.props.id}_${option}`}
+                // eslint-disable-next-line react/destructuring-assignment
+                name={this.props.id}
+                value={option}
+                checked={this.checked(option)}
+              />
+              {this.icons[option.toLowerCase()]
               && (
               <FontAwesomeIcon
                 icon={this.icons[option.toLowerCase()]}
                 className={classnames(styles.select__check, this.checked(option) ? '' : styles.select__check__unchecked)}
               />
-              )
-          }
-            <label className={styles.option} htmlFor={`${this.id}_${option}`}>{option} </label>
-          </Col>
-        </Row>
-      ))}
-    </>
-  );
+              )}
+              <label className={styles.option} htmlFor={`${this.id}_${option}`}>{option} </label>
+            </Col>
+          </Row>
+        ))}
+      </>
+    );
+  }
 }
 
 Select.propTypes = {

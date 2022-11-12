@@ -6,7 +6,7 @@ import deserializeURLQuery from '../../shared/url/deserializeURLQuery';
 import InvitesContainer from './InvitesContainer/InvitesContainer';
 
 function RespondToInvites() {
-  const guestIds = () => (deserializeURLQuery().guest_ids).map(id => `"${id}"`).join(',');
+  const guestIds = () => (deserializeURLQuery().guest_ids).map((id) => `"${id}"`).join(',');
 
   const query = gql`
       {

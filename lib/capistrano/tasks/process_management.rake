@@ -1,12 +1,17 @@
 # frozen_string_literal: true
 
-after 'deploy:finished', :restart_eye do
+before 'deploy:migrate', :copy_config do
   on roles(:app) do
     next unless fetch(:deployments).include? 'backend'
-
     run_locally do
       execute "scp -r config/* #{fetch(:user)}@#{fetch(:target)}:/var/www/wedding_website/shared/config"
     end
+  end
+end
+
+after 'deploy:finished', :restart_eye do
+  on roles(:app) do
+    next unless fetch(:deployments).include? 'backend'
 
     release_path = fetch(:release_path)
     execute "cd #{release_path} && mkdir -p tmp/pids && chmod 777 tmp/pids"

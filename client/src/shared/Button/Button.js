@@ -3,21 +3,19 @@ import PropTypes from 'prop-types';
 import styles from './Button.module.scss';
 
 // target is misused here, I didn't know that was already an attribute of anchor tags
-const Button = ({
+function Button({
   text, onClick, target, disabled, newTab
-}) => {
+}) {
   if (target) {
     return (
-      <>
-        <a href={target} className={styles.button__link} target={newTab ? '_blank' : ''}>
-          <button type="button" onClick={onClick} disabled={disabled} className={styles.button}>{text}</button>
-        </a>
-      </>
+      <a href={target} className={styles.button__link} target={newTab ? '_blank' : ''} rel="noreferrer">
+        <button type="button" onClick={onClick} disabled={disabled} className={styles.button}>{text}</button>
+      </a>
     );
   }
 
   return (<button type="button" onClick={onClick} disabled={disabled} className={styles.button}>{text}</button>);
-};
+}
 
 Button.defaultProps = {
   onClick: () => {},

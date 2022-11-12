@@ -3,7 +3,7 @@
   "ignorePatterns": ["build/**/*"],
   "env": { "browser": "true", "jest": "true" },
   "globals": { "context": true },
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "rules": {
     "import/no-extraneous-dependencies": ["error", {"devDependencies": ["src/setupTests.js", "**/*.test.js"]}],
     "jsx-a11y/label-has-associated-control": ["error", { "assert": "either" }],

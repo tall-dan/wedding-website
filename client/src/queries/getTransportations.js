@@ -17,5 +17,4 @@ const getTransportations = (guestIds, eventId) => gql`
      }
      `;
 
-
 export default getTransportations;

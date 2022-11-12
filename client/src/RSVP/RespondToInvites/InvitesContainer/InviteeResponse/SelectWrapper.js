@@ -5,8 +5,7 @@ import respondToInvites from '../../../../queries/respondToInvites';
 import Select from '../../../../shared/Select/Select';
 import inviteType from '../../../../types/invite';
 
-
-const SelectWrapper = ({ invite, selection, onChange }) => {
+function SelectWrapper({ invite, selection, onChange }) {
   const [respond] = useMutation(respondToInvites);
 
   const options = { accepted: 'Vaccinated* and Accepts', declined: 'Regretfully Declines' };
@@ -15,7 +14,7 @@ const SelectWrapper = ({ invite, selection, onChange }) => {
   const persistChange = (id, guest, option, checked) => {
     if (!checked) { return; } // effectively means someone's clicking an option that's already selected
 
-    const status = Object.keys(options).find(k => options[k] === option);
+    const status = Object.keys(options).find((k) => options[k] === option);
     respond({ variables: { responses: [{ inviteId: id, status }] } });
     onChange(id, status);
   };
@@ -30,7 +29,7 @@ const SelectWrapper = ({ invite, selection, onChange }) => {
       onChange={persistChange}
     />
   );
-};
+}
 
 SelectWrapper.propTypes = {
   invite: inviteType.isRequired,

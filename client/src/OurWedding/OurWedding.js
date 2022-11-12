@@ -4,13 +4,15 @@ import CoverPhoto from './CoverPhoto/CoverPhoto';
 import WeddingDetails from './WeddingDetails/WeddingDetails';
 import WeddingParty from './WeddingParty/WeddingParty';
 
-const OurWedding = () => (
-  <>
-    <CoverPhoto />
-    <Grid fluid>
-      <WeddingDetails />
-      <WeddingParty />
-    </Grid>
-  </>
-);
+function OurWedding() {
+  return (
+    <>
+      <CoverPhoto />
+      <Grid fluid>
+        <WeddingDetails />
+        <WeddingParty />
+      </Grid>
+    </>
+  );
+}
 export default OurWedding;

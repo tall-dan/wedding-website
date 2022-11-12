@@ -1,4 +1,4 @@
-const getImagePaths = directory => directory.keys().map(item => (
+const getImagePaths = (directory) => directory.keys().map((item) => (
   item.replace('./', '')
 ));
 

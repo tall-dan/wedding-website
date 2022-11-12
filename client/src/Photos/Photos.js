@@ -25,8 +25,8 @@ class Photos extends Component {
     if (scriptTags) {
       const scriptTag = scriptTags[0];
       scriptTag.onload = () => {
-        this.setState(prevState => (
-          { scriptsToLoad: prevState.scriptsToLoad.filter(s => s !== scriptTag.src) }
+        this.setState((prevState) => (
+          { scriptsToLoad: prevState.scriptsToLoad.filter((s) => s !== scriptTag.src) }
         ));
       };
     }
@@ -41,7 +41,7 @@ class Photos extends Component {
           onChangeClientState={(newState, addedTags) => this.handleScriptInject(addedTags)}
         />
         <div data-nanogallery2='{ "itemsBaseURL": "/photo_gallery/", "thumbnailWidth":  "auto", "thumbnailHeight":  250}'>
-          { images.map(file => (
+          { images.map((file) => (
             <a key={file} href={file} data-ngthumb={`thumbnails/${file}`} data-ngdesc={file}>{metadata[file]} </a>
           )) }
         </div>

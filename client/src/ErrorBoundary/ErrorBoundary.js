@@ -3,6 +3,12 @@ import PropTypes from 'prop-types';
 import { Notifier } from '@airbrake/browser';
 
 class ErrorBoundary extends React.Component {
+  static fetchConfig = () => fetch('/api/airbrake_config', {
+    headers: {
+      Accept: 'application/json'
+    }
+  }).then((config) => config.json());
+
   constructor(props) {
     super(props);
     this.state = {
@@ -11,9 +17,8 @@ class ErrorBoundary extends React.Component {
     };
   }
 
-
   componentDidMount() {
-    this.fetchConfig().then(config => this.setState({
+    this.fetchConfig().then((config) => this.setState({
       airbrake: new Notifier({
         ...config
       })
@@ -22,12 +27,6 @@ class ErrorBoundary extends React.Component {
       this.setState({ hasError: true });
     });
   }
-
-  fetchConfig = () => fetch('/api/airbrake_config', {
-    headers: {
-      Accept: 'application/json'
-    }
-  }).then(config => config.json())
 
   componentDidCatch(error, info) {
     // commented out because there's no current way to set error back to false
