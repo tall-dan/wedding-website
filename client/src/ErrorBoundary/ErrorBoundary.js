@@ -18,7 +18,7 @@ class ErrorBoundary extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchConfig().then((config) => this.setState({
+    ErrorBoundary.fetchConfig().then((config) => this.setState({
       airbrake: new Notifier({
         ...config
       })

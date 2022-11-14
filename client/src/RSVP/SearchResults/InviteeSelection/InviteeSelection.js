@@ -95,7 +95,7 @@ class InviteeSelection extends Component {
             </Col>
             <Col xs={12}>
               <ButtonRow>
-                <Button text="Search Again" onClick={this.onSearch} />
+                <Button text="Search Again" onClick={InviteeSelection.onSearch} />
                 <Button text="Continue" onClick={this.onSubmit} />
               </ButtonRow>
             </Col>
