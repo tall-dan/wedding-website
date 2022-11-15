@@ -22,7 +22,7 @@ function Accommodations() {
                 <div
                   className={styles.Accommodation__image_container}
                 />
-                <img alt={name} title={name} src={`/accommodations/${name}.jpg`} />
+                <img alt={name} title={name} src={`/accommodation_pics/${name}.jpg`} />
                 <div className={styles.Accommodation__address}>{hotel.address}<br />{hotel.phone_number}
                   <br />
                 </div>
