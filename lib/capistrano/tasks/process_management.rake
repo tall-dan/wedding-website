@@ -3,6 +3,7 @@
 before 'deploy:migrate', :copy_config do
   on roles(:app) do
     next unless fetch(:deployments).include? 'backend'
+
     run_locally do
       execute "scp -r config/* #{fetch(:user)}@#{fetch(:target)}:/var/www/wedding_website/shared/config"
     end

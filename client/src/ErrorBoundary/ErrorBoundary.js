@@ -23,6 +23,7 @@ class ErrorBoundary extends React.Component {
         ...config
       })
     })).catch(() => {
+      // eslint-disable-next-line no-console
       console.error('Unable to connect to errbit');
       this.setState({ hasError: true });
     });

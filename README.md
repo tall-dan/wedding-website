@@ -50,7 +50,7 @@ On a production server:
 python3 -m venv ~/certbot
 source ~/certbot/bin/activate
 pip install certbot-dns-godaddy
-~/certbot/bin/certbot certonly --authenticator dns-godaddy --dns-godaddy-credentials <deploy_path>/shared/config/godaddy_credentials.ini --dns-godaddy-propagation-seconds 900 --keep-until-expiring --non-interactive --expand --server https://acme-v02.api.letsencrypt.org/directory -d 'mcschepers-wedding.com' -d '*.mcschepers-wedding.com'
+~/certbot/bin/certbot certonly --authenticator dns-godaddy --dns-godaddy-credentials <deploy_path>/shared/config/credentials/godaddy_credentials.ini --dns-godaddy-propagation-seconds 900 --keep-until-expiring --non-interactive --expand --server https://acme-v02.api.letsencrypt.org/directory -d 'mcschepers-wedding.com' -d '*.mcschepers-wedding.com'
 
 ```
 
