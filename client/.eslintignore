@@ -1,1 +1,4 @@
 public/mixpanel.js
+config/
+scripts/
+src/RSVP/RespondToInvites/InvitesContainer/InviteeResponse/InviteeResponse.js

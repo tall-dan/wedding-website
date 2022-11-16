@@ -14,11 +14,11 @@ import sortGuestObjects from '../../shared/sorts';
 
 function Transportation() {
   const { guests, eventId } = deserializeURLQuery();
-  const guestIds = () => guests.map(g => `"${g.id}"`);
+  const guestIds = () => guests.map((g) => `"${g.id}"`);
   const { data, refetch, loading } = useQuery(getTransportations(guestIds(), eventId), { fetchPolicy: 'no-cache' });
 
   const guestTransportations = () => guests.map((guest) => {
-    const transportations = data.transportations.filter(transport => transport.guest.id === guest.id);
+    const transportations = data.transportations.filter((transport) => transport.guest.id === guest.id);
     const transportation = transportations[0] || { journeys: [] };
     return {
       id: guest.id, guest, eventId, selection: transportation.journeys, options: data.transportationOptions
@@ -50,11 +50,12 @@ function Transportation() {
     <Grid fluid className={styles.MealSelection}>
       <SectionTitle title="Can we offer you a ride?" />
       <Row center="xs">
-        { data && sortGuestObjects(guestTransportations(data)).map(guestTransport => (
+        { data && sortGuestObjects(guestTransportations(data)).map((guestTransport) => (
           <Col xs={12} md={4} key={guestTransport.guest.id}>
             <Row center="xs">
               <span className={styles.MealSelection__guestName}>{guestTransport.guest.displayName}</span>
             </Row>
+            {/* eslint-disable-next-line react/jsx-props-no-spreading */}
             <Select {...{
               ...guestTransport, role: 'checkbox', onChange: persistChange, loading
             }}

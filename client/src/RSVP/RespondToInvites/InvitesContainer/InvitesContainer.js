@@ -18,10 +18,10 @@ class InvitesContainer extends Component {
     this.state = { eventResponseIndex: 0 };
   }
 
-  guestsAcceptingReceptionInvites = invites => this.props.invites.reception.reduce((acceptingGuests, blankInvite) => {
+  guestsAcceptingReceptionInvites = (invites) => this.props.invites.reception.reduce((acceptingGuests, blankInvite) => {
     if (invites[blankInvite.id] === 'accepted') return acceptingGuests.concat(blankInvite.guest);
     return acceptingGuests;
-  }, [])
+  }, []);
 
   nextInviteStep = (invites) => {
     if (this.currentlyRespondingTo() === 'reception') {
@@ -37,27 +37,28 @@ class InvitesContainer extends Component {
     } else {
       this.respondToNewPage(this.state.eventResponseIndex + 1);
     }
-  }
+  };
 
-  currentlyRespondingTo = () => this.events[this.state.eventResponseIndex]
+  currentlyRespondingTo = () => this.events[this.state.eventResponseIndex];
 
-  respondToNewPage = pageIndex => this.setState(prevState => ({ ...prevState, eventResponseIndex: pageIndex }));
+  respondToNewPage = (pageIndex) => this.setState((prevState) => ({ ...prevState, eventResponseIndex: pageIndex }));
 
   backFn = () => {
     if (this.state.eventResponseIndex) this.respondToNewPage(this.state.eventResponseIndex - 1);
     else window.history.back();
-  }
+  };
 
-  render = () => (
-    <>
+  render() {
+    return (
       <InviteeResponse
+        // eslint-disable-next-line react/destructuring-assignment
         invites={sortGuestObjects(this.props.invites[this.currentlyRespondingTo()])}
         saveInvites={this.nextInviteStep}
         eventName={titleize(this.currentlyRespondingTo())}
         backFn={this.backFn}
       />
-    </>
-  )
+    );
+  }
 }
 
 InvitesContainer.propTypes = {

@@ -13,12 +13,12 @@ class Lookup extends Component {
   onChange = (event) => {
     const nameJson = JSON.stringify(event.target.value);
     this.setState({ lookupURL: `/rsvp/search?name=${encodeURI(nameJson)}` });
-  }
+  };
 
   onKeyPress = (event) => {
     const { lookupURL } = this.state;
     if (event.key === 'Enter') { window.location.href = lookupURL; }
-  }
+  };
 
   render() {
     const { prompt } = this.props;

@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 ruby '2.7.6'
 
 gem 'activerecord-import'
-gem 'rails', '~> 6.1.5'
+gem 'rails', '~> 6.1.6'
 
 gem 'pg', '~> 1.1'
 # Use Active Model has_secure_password
@@ -25,8 +25,9 @@ gem 'graphql', '1.13.6'
 gem 'mail'
 
 # Below explicitly required to pin versions that brakeman likes
-gem 'nokogiri', '>= 1.13.6'
+gem 'nokogiri', '>= 1.13.9'
 gem 'rack', '>= 2.2.3.1'
+gem 'rails-html-sanitizer', '>= 1.4.3'
 
 group :development, :test do
   gem 'bootsnap'
@@ -46,7 +47,6 @@ end
 
 group :production do # maybe there needs to be a deployment group, in addition to production
   gem 'capistrano', require: false
-  gem 'capistrano-chruby', require: false
   gem 'capistrano-rails', '~> 1.4', require: false
   gem 'eye', '~> 0.10.0', require: false
   gem 'unicorn-rails'

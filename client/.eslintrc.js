@@ -1,0 +1,30 @@
+module.exports = {
+  extends: ['airbnb', 'plugin:react/recommended'],
+  ignorePatterns: ['build/**/*'],
+  env: { browser: 'true', jest: 'true' },
+  globals: { context: true },
+  parser: '@babel/eslint-parser',
+  parserOptions: {
+    sourceType: 'module',
+    requireConfigFile: false,
+    allowImportExportEverywhere: false,
+    ecmaFeatures: {
+      globalReturn: false
+    },
+    babelOptions: {
+      configFile: false
+    }
+  },
+  rules: {
+    'import/no-extraneous-dependencies': ['error', { devDependencies: ['src/setupTests.js', '**/*.test.js'] }],
+    'jsx-a11y/label-has-associated-control': ['error', { assert: 'either' }],
+    'jsx-a11y/label-has-for': 0,
+    'react/jsx-filename-extension': 0,
+    'react/jsx-one-expression-per-line': 0,
+    'react/destructuring-assignment': ['error', 'always', { ignoreClassFields: true }],
+    'comma-dangle': ['error', 'never'],
+    'no-return-assign': 0,
+    'max-len': ['error', { code: 120, ignoreStrings: true }],
+    'import/prefer-default-export': 0
+  }
+};

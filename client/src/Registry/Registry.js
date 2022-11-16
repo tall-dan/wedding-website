@@ -4,28 +4,30 @@ import styles from './Registry.module.scss';
 import Button from '../shared/Button/Button';
 
 const url = 'https://www.travelersjoy.com/mcschepersmoon';
-const Registry = () => (
-  <Grid fluid>
-    <Col sm={12} md={10} mdOffset={1} lg={8} lgOffset={2} className={styles.Matte}>
-      <p className={styles.Intro}> This celebration is a little different than a normal wedding -
-        mostly because it’s been delayed for two years!
-        We’ve made the most of the time; we purchased a house in 2020, and became parents in 2021!
-        All this to say, our registry doesn’t look like the typical newlywed registry.
-        We will be honeymooning in Greece so, in lieu of a wedding gift, please consider
-        donating to our honeymoon registry. We greatly apprciate it!
-      </p>
-      <div>
-        <Row center="xs">
-          <a href={url}>
-            <img alt="honeymoon" className={styles.registryImage} src="/greece.jpeg" />
-          </a>
-        </Row>
-        <Row center="xs">
-          <Button text="Visit Our Honeyfund" target={url} newTab />
-        </Row>
-      </div>
-    </Col>
-  </Grid>
-);
+function Registry() {
+  return (
+    <Grid fluid>
+      <Col sm={12} md={10} mdOffset={1} lg={8} lgOffset={2} className={styles.Matte}>
+        <p className={styles.Intro}> This celebration is a little different than a normal wedding -
+          mostly because it’s been delayed for two years!
+          We’ve made the most of the time; we purchased a house in 2020, and became parents in 2021!
+          All this to say, our registry doesn’t look like the typical newlywed registry.
+          We will be honeymooning in Greece so, in lieu of a wedding gift, please consider
+          donating to our honeymoon registry. We greatly apprciate it!
+        </p>
+        <div>
+          <Row center="xs">
+            <a href={url}>
+              <img alt="honeymoon" className={styles.registryImage} src="/greece.jpeg" />
+            </a>
+          </Row>
+          <Row center="xs">
+            <Button text="Visit Our Honeyfund" target={url} newTab />
+          </Row>
+        </div>
+      </Col>
+    </Grid>
+  );
+}
 
 export default Registry;

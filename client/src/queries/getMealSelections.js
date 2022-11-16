@@ -18,5 +18,4 @@ const getMealSelections = (guestIds, eventId) => gql`
       }
     `;
 
-
 export default getMealSelections;

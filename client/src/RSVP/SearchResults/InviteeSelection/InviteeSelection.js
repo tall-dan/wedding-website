@@ -11,35 +11,35 @@ import SectionDivider from '../../../shared/SectionDivider/SectionDivider';
 import guestType from '../../../types/guest';
 
 class InviteeSelection extends Component {
-  guestsByParty = groupBy(this.props.guests, 'guestPartyId')
+  guestsByParty = groupBy(this.props.guests, 'guestPartyId');
 
-  partyCount = Object.keys(this.guestsByParty).length
+  partyCount = Object.keys(this.guestsByParty).length;
 
-  columnWidth = Math.floor(12 / this.partyCount)
+  columnWidth = Math.floor(12 / this.partyCount);
+
+  static onSearch = (event) => {
+    event.preventDefault();
+    window.location.href = '/rsvp';
+  };
 
   constructor(props) {
     super(props);
-    const guestIds = this.partyCount === 1 ? props.guests.map(g => g.id) : [];
+    const guestIds = this.partyCount === 1 ? props.guests.map((g) => g.id) : [];
     this.state = { guest_ids: guestIds };
   }
 
   onSubmit = (event) => {
     event.preventDefault();
     window.location.href = `/rsvp/respondToInvites?${serializeJson({ guest_ids: this.state.guest_ids })}`;
-  }
-
-  onSearch = (event) => {
-    event.preventDefault();
-    window.location.href = '/rsvp';
-  }
+  };
 
   onChange = (checked, guestId) => {
     if (checked) {
-      this.setState(prevState => ({ guest_ids: prevState.guest_ids.concat(guestId) }));
+      this.setState((prevState) => ({ guest_ids: prevState.guest_ids.concat(guestId) }));
     } else {
-      this.setState(prevState => ({ guest_ids: prevState.guest_ids.filter(g => g !== guestId) }));
+      this.setState((prevState) => ({ guest_ids: prevState.guest_ids.filter((g) => g !== guestId) }));
     }
-  }
+  };
 
   guestRow = (guest, index, defaultChecked = true) => (
     <div key={guest.id} className={styles.guest_row}>
@@ -56,8 +56,7 @@ class InviteeSelection extends Component {
       <input defaultChecked={defaultChecked} value={guest.id} id={guest.id} onChange={this.onChange} type="checkbox" />
     </div>
 
-  )
-
+  );
 
   render() {
     let tabIndex = 5;
@@ -72,8 +71,7 @@ class InviteeSelection extends Component {
               <React.Fragment key={partyId}>
                 <Col xs={12} md={this.columnWidth - 2}>
                   <Row center="xs" {...{ [outerIndex === 1 ? 'start' : 'end']: 'md' }}>
-                    { guests.map(guest => this.guestRow(guest, tabIndex += 1, false))
-                    }
+                    { guests.map((guest) => this.guestRow(guest, tabIndex += 1, false))}
                   </Row>
                 </Col>
                 { outerIndex < this.partyCount - 1 && (
@@ -97,7 +95,7 @@ class InviteeSelection extends Component {
             </Col>
             <Col xs={12}>
               <ButtonRow>
-                <Button text="Search Again" onClick={this.onSearch} />
+                <Button text="Search Again" onClick={InviteeSelection.onSearch} />
                 <Button text="Continue" onClick={this.onSubmit} />
               </ButtonRow>
             </Col>

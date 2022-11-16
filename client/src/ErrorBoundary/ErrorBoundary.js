@@ -3,6 +3,12 @@ import PropTypes from 'prop-types';
 import { Notifier } from '@airbrake/browser';
 
 class ErrorBoundary extends React.Component {
+  static fetchConfig = () => fetch('/api/airbrake_config', {
+    headers: {
+      Accept: 'application/json'
+    }
+  }).then((config) => config.json());
+
   constructor(props) {
     super(props);
     this.state = {
@@ -11,23 +17,17 @@ class ErrorBoundary extends React.Component {
     };
   }
 
-
   componentDidMount() {
-    this.fetchConfig().then(config => this.setState({
+    ErrorBoundary.fetchConfig().then((config) => this.setState({
       airbrake: new Notifier({
         ...config
       })
     })).catch(() => {
+      // eslint-disable-next-line no-console
       console.error('Unable to connect to errbit');
       this.setState({ hasError: true });
     });
   }
-
-  fetchConfig = () => fetch('/api/airbrake_config', {
-    headers: {
-      Accept: 'application/json'
-    }
-  }).then(config => config.json())
 
   componentDidCatch(error, info) {
     // commented out because there's no current way to set error back to false

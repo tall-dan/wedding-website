@@ -14,7 +14,7 @@ import sortGuestObjects from '../../shared/sorts';
 
 function MealSelection() {
   const { guests, eventId } = deserializeURLQuery();
-  const guestIds = () => guests.map(g => `"${g.id}"`);
+  const guestIds = () => guests.map((g) => `"${g.id}"`);
 
   // id can come back null for meal selections, which messes up cache
   const {
@@ -34,7 +34,7 @@ function MealSelection() {
     });
   };
 
-  const disabled = (!data || data.mealSelections.some(selection => !selection.id));
+  const disabled = (!data || data.mealSelections.some((selection) => !selection.id));
 
   const selectTransportation = () => {
     const queryString = `guests=${encodeURIComponent(JSON.stringify(guests))}&eventId=${JSON.stringify(eventId)}`;
@@ -50,11 +50,12 @@ function MealSelection() {
     <Grid fluid className={styles.MealSelection}>
       <SectionTitle title="What would you like to eat?" />
       <Row center="xs">
-        { data && sortGuestObjects(data.mealSelections).map(selection => (
+        { data && sortGuestObjects(data.mealSelections).map((selection) => (
           <Col xs={12} sm={6} md={5} lg={4} xl={3} key={selection.guest.id}>
             <Row center="xs">
               <span className={styles.MealSelection__guestName}>{selection.guest.displayName}</span>
             </Row>
+            {/* eslint-disable-next-line react/jsx-props-no-spreading */}
             <Select {...{
               ...selection, role: 'radio', onChange: persistChange, loading
             }}
