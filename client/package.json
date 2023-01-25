@@ -65,7 +65,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-app-polyfill": "^2.0.0",
-    "react-dev-utils": "^11.0.3",
+    "react-dev-utils": "^12.0.1",
     "react-dom": "^16.8.6",
     "react-flexbox-grid": "^2.1.2",
     "react-helmet": "^6.1.0",
