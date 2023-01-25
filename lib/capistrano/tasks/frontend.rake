@@ -34,6 +34,6 @@ after 'deploy:updated', :remove_frontend_build do
   run_locally do
     execute 'cd client && rm -rf build/'
     puts 'RESET YOUR CACHE'
-    execute 'open https://lightsail.aws.amazon.com/ls/webapp/distributions/mcschepers-vow-renewal/cache'
+    execute 'open https://lightsail.aws.amazon.com/ls/webapp/distributions/wedding-website/cache'
   end
 end

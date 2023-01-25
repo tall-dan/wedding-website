@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 ruby '2.7.6'
 
 gem 'activerecord-import'
-gem 'rails', '~> 6.1.6'
+gem 'rails', '~> 6.1.7'
 
 gem 'pg', '~> 1.1'
 # Use Active Model has_secure_password
@@ -19,6 +19,7 @@ gem 'rolify'
 
 gem 'airbrake'
 gem 'google-api-client'
+gem 'google-apis-calendar_v3'
 gem 'google-apis-sheets_v4'
 gem 'graphiql-rails', '~> 1.4.11' # TODO: figure out if / how to secure this
 gem 'graphql', '1.13.6'
