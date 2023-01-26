@@ -23,6 +23,10 @@ class GoogleCalendar
     service.insert_event(calendar_id, event)
   end
 
+  def patch(event)
+    service.patch_event(calendar_id, event.id, event)
+  end
+
   def list(i_cal_uids)
     # This should really be moved to batch
     i_cal_uids.map { |id| get(id) }

@@ -15,14 +15,18 @@ class EventsController < ApplicationController
     events = params.require(:events).map do |e|
       Google::Apis::CalendarV3::Event.new(**e.permit!.to_h.deep_symbolize_keys)
     end
-    cal = GoogleCalendar.new
-    events.map { |e| cal.create(e) }
-    render(head: :created)
+    render json: events.map { |e| cal.create(e) }
   end
 
   def destroy
-    events = cal.list(params.require(:i_cal_uids))
-    cal.delete(events.flat_map { |e| e.items.map(&:id) })
+    cal.delete(params.require(:ids))
+  end
+
+  def update
+    events = params.require(:events).map do |e|
+      Google::Apis::CalendarV3::Event.new(**e.permit!.to_h.deep_symbolize_keys)
+    end
+    events.map { |e| cal.patch(e) }
   end
 
   def index
