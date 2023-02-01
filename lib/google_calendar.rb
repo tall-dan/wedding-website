@@ -32,6 +32,10 @@ class GoogleCalendar
     i_cal_uids.map { |id| get(id) }
   end
 
+  def list_items_between(time_min, time_max)
+    service.list_events(calendar_id, time_min: time_min, time_max: time_max)
+  end
+
   def get(i_cal_uid)
     service.list_events(calendar_id, i_cal_uid: i_cal_uid)
   end

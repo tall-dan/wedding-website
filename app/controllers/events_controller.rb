@@ -30,7 +30,9 @@ class EventsController < ApplicationController
   end
 
   def index
-    render json: cal.list(params.require(:i_cal_uids))
+    render json: cal.list_items_between(
+      DateTime.parse(params.require(:time_min)), DateTime.parse(params.require(:time_max))
+    )
   end
 
   def cal
