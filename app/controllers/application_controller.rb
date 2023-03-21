@@ -22,4 +22,11 @@ class ApplicationController < ActionController::API
     SeatingReconciler.new.reconcile
     Reconciler.new.reconcile
   end
+
+  def debug
+    Rails.logger.error("params are #{request.params}")
+    Rails.logger.error("body is #{JSON.pretty_generate(request.body.send(:readlines))}")
+    Rails.logger.error("headers are #{JSON.pretty_generate(request.headers.to_h)}")
+    head :ok
+  end
 end
